@@ -18,7 +18,7 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "Phone", href: "tel:617.347.2721" },
   ],
   socialImage: "/stephen_newman.jpeg",
-  canonicalURL: "https://spn2025-jm4ap7ppo-krezzo.vercel.app",
+  canonicalURL: "https://stephennewman.github.io/spn2025",
 };
 
 export const SITE_CONTENT: SiteContent = {
@@ -100,7 +100,7 @@ export const SITE_CONTENT: SiteContent = {
       ],
     },
     {
-      company: "Eloqua",
+      company: "Oracle",
       companyIcon: "/oracle_logo.jpeg",
       position: "Field Marketing Manager",
       startDate: "Mar 2012",
@@ -145,7 +145,7 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description: `
-      Passionate about building, optimizing, and scaling high-growth revenue generating engines that promote innovative products and delightful experiences for customers. Capable of building products from the ground up, expanding or creating markets, and operationalizing processes for simplicity, efficiency and effectiveness. Whether it's a start-up in need of a jack-of-all-trades hands on doer, or a larger corporation wanting to get strategic and position themselves for the next chapter, I'm your guy.
+      Passionate about building, optimizing, and scaling high-growth revenue generating engines that promote innovative products and delightful experiences for customers. Capable of building products from the ground up, expanding or creating markets, and operationalizing processes for simplicity, efficiency and effectiveness. Whether it's a start-up in need of a jack-of-all-trades hands on doer, or a larger corporation wanting to get strategic and position themselves for the next chapter, I'm your guy.<br><br>Currently living in Palm Harbor, Florida with my wife and three girls. Enjoys playing golf, boating, and going to the beach, to name a few.
     `,
     image: "/stephen_newman.jpeg",
   },
