@@ -51,9 +51,9 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Jan 2021",
       endDate: "Jan 2024",
       summary: [
-        "Founded Krezzo to bring better experience with Objectives & Key Results (OKRs) to B2B SaaS companies and operational leaders.",
+        "Founded Krezzo to bring better experiences with Objectives & Key Results (OKRs) to B2B SaaS companies and operational leaders.",
         "Raised over $500,000 across 12 investors and built an integrated SaaS and training product.",
-        "Signed 8 B2B customers across 12 deals, generating $77,400 in revenue.",
+        "Signed eight B2B customers across 12 deals, generating $77,400 in revenue.",
         "Attempted pivot in 2023 to an AI-powered voice-to-text automation platform, but seized full-time operations due to market dynamics.",
         "Gained oceans of experience across fundraising, product, engineering, operations, finance, legal, sales, and more.",
       ],
@@ -69,7 +69,7 @@ export const SITE_CONTENT: SiteContent = {
         "Managed a $2.5 million budget and a team of 20+ marketers and BDRs.",
         "Focused on attracting enterprise-level customers, optimizing the channel mix, and working closely with sales.",
         "Promoted from Director of Demand Generation after delivering positive results in less than three months.",
-        "Involved in leadership group who was successfully acquired by private equity firm for almost $40 million",
+        "Involved in Form.com leadership group that successfully sold to private equity firm for almost $40 million",
       ],
     },
     {
