@@ -146,7 +146,7 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description: `
-      Passionate about building, optimizing, and scaling high-growth revenue generating engines that promote innovative products and delightful experiences for customers. Capable of building products from the ground up, expanding or creating markets, and operationalizing processes for simplicity, efficiency and effectiveness. Whether it's a start-up in need of a jack-of-all-trades hands on doer, or a larger corporation wanting to get strategic and position themselves for the next chapter, I'm your guy. Currently living in Palm Harbor, Florida with my wife and three girls. Enjoys playing golf, boating, and going to the beach, to name a few.
+      Passionate about building, optimizing, and scaling high-growth revenue generating engines that promote innovative products and delightful experiences for customers. Capable of building products from the ground up, expanding or creating markets, and operationalizing processes for simplicity, efficiency and effectiveness. Whether it's a start-up in need of a jack-of-all-trades hands on doer, or a larger corporation wanting to get strategic and position themselves for the next chapter, I'm your guy. Currently living in Palm Harbor, Florida with my wife and three girls. In my spare time I enjoy playing golf, boating, and going to the beach, to name a few.
     `,
     image: "/stephen_newman.jpeg",
   },
