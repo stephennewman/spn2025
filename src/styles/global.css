@@ -4,7 +4,8 @@
   --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
   --font-serif: "Gabarito Variable", ui-serif, serif;
 
-  --color-primary: #2563eb;
+  --color-primary: linear-gradient(135deg, #ec4899, #8b5cf6);
+  --color-primary-solid: #ec4899;
   --color-neutral: #94a3b8;
   --color-white: #e2e8f0;
   --color-black: #0e141b;
@@ -50,4 +51,18 @@
       transform: translateY(0);
     }
   }
+}
+
+/* Custom gradient text styling */
+.text-primary {
+  background: var(--color-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+}
+
+/* Button gradient styling */
+.bg-primary {
+  background: var(--color-primary);
 }

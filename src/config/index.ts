@@ -1,23 +1,21 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Alejandro Múnez — Mobile & Web Developer",
-  author: "Alejandro Múnez Cuntez",
+  title: "Stephen Newman — Marketing Executive & Business Leader",
+  author: "Stephen Newman",
   description:
-    "Software Engineer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
+    "Revenue focused B2B professional with experience working for high-growth technology companies. Passionate about building, optimizing, and scaling high-growth go-to-market engines.",
   lang: "en",
-  siteLogo: "/alejandro-small.jpg",
+  siteLogo: "/stephen_newman.jpeg",
   navLinks: [
     { text: "Experience", href: "#experience" },
-    { text: "Projects", href: "#projects" },
+    { text: "Education", href: "#education" },
     { text: "About", href: "#about" },
   ],
   socialLinks: [
-    { text: "Twitter", href: "https://github.com/immois/astro-zen" },
-    { text: "LinkedIn", href: "https://github.com/immois/astro-zen" },
-    { text: "Github", href: "https://github.com/immois/astro-zen" },
-    { text: "Youtube", href: "https://github.com/immois/astro-zen" },
-    { text: "Dribbble", href: "https://github.com/immois/astro-zen" },
+    { text: "Email", href: "mailto:stephen.p.newman@gmail.com" },
+    { text: "LinkedIn", href: "http://www.linkedin.com/in/stephennewman1" },
+    { text: "Phone", href: "tel:617.347.2721" },
   ],
   socialImage: "/zen-og.png",
   canonicalURL: "https://astro-zen.vercel.app",
@@ -25,74 +23,132 @@ export const SITE_CONFIG: SiteConfig = {
 
 export const SITE_CONTENT: SiteContent = {
   hero: {
-    name: "Alejandro Múnez",
-    specialty: "Mobile & Web Developer",
+    name: "Stephen Newman",
+    specialty: "Marketing Professional & Executive Business Leader",
     summary:
-      "Developer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
-    email: "example@email.com",
+      "Customer centric marketing and business professional based in Palm Harbor, Florida. I specialize in revenue performance management, product management, business process optimization, and much more. I'm currently exploring my next opportunity, and my adaptability talents would be a great addition to any size team at any stage.",
+    email: "stephen.p.newman@gmail.com",
   },
   experience: [
     {
-      company: "Zalmart",
-      position: "Lead Android Developer",
-      startDate: "May 2018",
-      endDate: "Sept 2020",
+      company: "Checkit",
+      companyIcon: "/checkit_logo.jpeg",
+      position: "Head of Marketing",
+      startDate: "Feb 2024",
+      endDate: "Present",
       summary: [
-        "Implemented advanced memory management and code optimization techniques, resulting in a reduction in application load time by 40% and a decrease in crashes by 25%. This significantly improved user experience and increased user retention by 20%.",
-        "I led a team of developers in building and integrating new features using Jetpack Android components such as LiveData and ViewModel. This enabled us to build scalable and maintainable applications, reducing the crash rate by 20% and speeding up the time to delivery of new features by 15%.",
-        "Integrated Google Pay for in-app purchases, resulting in a 35% increase in mobile transaction revenue. Additionally, implemented Firebase Analytics to gain insights into user behavior, enabling data-driven optimizations and a 30% increase in user retention.",
+        "Recruited to run global marketing for a publicly traded temperature monitoring and workflow automation platform based in London, England.",
+        "Currently leading all marketing activities as a team of one - website, lead generation, messaging & positioning, sales enablement, market research, and much more.",
+        "Recently found traction exploring new markets in the senior living space, adding more than $5 million in net new pipeline in less than 6 months.",
+        "In the process of rebuilding the company's operational processes and positioning to distinguish Checkit from the other vendors with an emphasis on 'Predictive Operations' messaging.",
       ],
     },
     {
-      company: "Bankit",
-      position: "Mobile Developer",
-      startDate: "Feb 2017",
-      endDate: "May 2018",
+      company: "Krezzo",
+      companyIcon: "/krezzo_logo.jpeg",
+      position: "Founder & CEO",
+      startDate: "Jan 2021",
+      endDate: "Jan 2024",
       summary: [
-        "I designed and developed a mobile application using Flutter, allowing it to be deployed on both Android and iOS with a single codebase. This reduced development time by 50% and maintenance costs by 30%, facilitating a consistent user experience on both platforms.",
-        "I integrated biometric authentication and data encryption, significantly improving the security of user data. This implementation resulted in a 40% increase in user trust and a 25% reduction in unauthorized access attempts.",
+        "Founded Krezzo to bring better experience with Objectives & Key Results (OKRs) to B2B SaaS companies and operational leaders.",
+        "Raised over $500,000 across 12 investors and built an integrated SaaS and training product.",
+        "Signed 8 B2B customers across 12 deals, generating $77,400 in revenue.",
+        "Pivoted in 2023 to an AI-powered voice-to-text automation platform due to market changes.",
+        "Gained experience across fundraising, product management, operations, finance, legal, and sales.",
       ],
     },
     {
-      company: "Driveer",
-      position: "Frontend Developer",
-      startDate: "Jun 2015",
-      endDate: "Oct 2016",
-      summary:
-        "Developed and integrated a real-time vehicle tracking system using WebSockets, improving accuracy and data update in the application. This functionality increased user satisfaction by 30% and reduced customer service inquiries by 25%.",
+      company: "Form.com",
+      companyIcon: "/form_com_logo.jpeg",
+      position: "VP of Marketing",
+      startDate: "Nov 2018",
+      endDate: "Dec 2020",
+      summary: [
+        "Responsible for all global marketing and business development efforts.",
+        "Managed a $2.5 million budget and a team of 20+ marketers and BDRs.",
+        "Focused on attracting enterprise-level customers, optimizing the channel mix, and working closely with sales.",
+        "Promoted from Director of Demand Generation after delivering positive results in less than three months.",
+      ],
+    },
+    {
+      company: "Thought Industries",
+      companyIcon: "/thought_industries_logo.jpeg",
+      position: "Director of Marketing",
+      startDate: "Nov 2015",
+      endDate: "Jul 2018",
+      summary: [
+        "Managed all global marketing efforts with focus on driving revenue and scaling marketing attribution.",
+        "Hired as company's first marketer and 15th employee, helped scale to almost 50 employees and $9 million ARR.",
+        "Managed global marketing budget of over $1 million across PPC, Pay-Per-Lead, and partner channels with 45% attribution rate.",
+        "Improved lead generation from 20 leads per month to over 500 in 24 months, maintaining high quality with 30% handoff rate.",
+        "Marketing sourced opportunity pipeline reached almost $50 million.",
+        "Selected by co-founders for annual 'Ownership Award' and added to Leadership Team in 2017.",
+      ],
+    },
+    {
+      company: "Aras Corporation",
+      companyIcon: "/aras_corporation_logo.jpeg",
+      position: "Marketing Programs Manager",
+      startDate: "Dec 2013",
+      endDate: "Oct 2015",
+      summary: [
+        "Managed all North American marketing programs while focusing on improvement of internal sales and marketing operations.",
+        "Handled quarterly paid media plan including testing and optimizing paid search, retargeting, display advertising and paid email.",
+        "Managed implementation of marketing automation platform to boost user engagement and track anonymous web visitors.",
+        "Contributed to biggest bookings increase in company's 15-year history, growing from $11 million to $21 million year over year.",
+        "Pipeline increased from $60 million to $156 million in only 20 months.",
+      ],
+    },
+    {
+      company: "Eloqua",
+      companyIcon: "/oracle_logo.jpeg",
+      position: "Field Marketing Manager",
+      startDate: "Mar 2012",
+      endDate: "Nov 2013",
+      summary: [
+        "Managed field marketing programs and events to support Northeast enterprise sales teams and business development counterparts.",
+        "Developed deal acceleration and conversion strategies to help move prospects through the buying cycle.",
+        "Served as marketing liaison for six Enterprise Applications Sales Managers, three BDRs, and one regional VP.",
+        "Used Eloqua marketing automation platform to create multi-touch campaigns for new rep onboarding.",
+        "Worked with internal marketing teams to build integrated campaigns, events, and programs for external use.",
+      ],
+    },
+    {
+      company: "D50 Media",
+      companyIcon: "/d50_media_logo.jpeg",
+      position: "Marketing Manager / Search Engine Specialist",
+      startDate: "Jul 2011",
+      endDate: "Feb 2012",
+      summary: [
+        "Managed every aspect of multiple national affiliate marketing partnerships while tracking and reporting on the quality of leads from vendors.",
+        "Recruited new affiliates and partners and implemented trial campaigns to assess quality. Affiliate marketing became the most cost effective channel for MQLs compared to SEO, SEM and Social.",
+        "Managed an annual paid search budget of over $800,000 across both Google Adwords and Microsoft Adcenter platforms.",
+        "Created, managed and analyzed paid search programs to ensure acquisition and conversion goals were met.",
+        "Handled keyword list generation, ad copy writing, bid management, landing page optimization and budget management.",
+      ],
     },
   ],
-  projects: [
+  projects: [],
+  education: [
     {
-      name: "Spotifu Music",
-      summary: "A music streaming app that emulates Spotify's core features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/spotifu.png",
+      degree: "MBA",
+      field: "International Business",
+      school: "Liberty University",
+      year: "2010-2012",
     },
     {
-      name: "Shopp App",
-      summary: "An e-commerce platform that replicates Shopify's key features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/shopify-clon.png",
-    },
-    {
-      name: "ClonTagram",
-      summary: "A social network that replicates the features of Instagram",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/clone-ig.png",
+      degree: "Bachelor of Arts",
+      field: "Communications",
+      school: "Eastern Nazarene",
+      year: "2004-2008",
     },
   ],
   about: {
     description: `
-      Hi, I’m Alejandro Múnez, a passionate Mobile and Web Developer with a knack for crafting seamless digital experiences. With a strong background in both Android and iOS development, as well as front-end web technologies, I thrive in the intersection where creativity meets technology.
-
-      Over the years, I’ve honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what’s possible. My projects range from innovative mobile applications to responsive web designs, all with a focus on performance, security, and scalability.
+      Passionate about building, optimizing, and scaling high-growth revenue generating engines that promote innovative products and delightful experiences for customers. Capable of building products from the ground up, expanding or creating markets, and operationalizing processes for simplicity, efficiency and effectiveness. Whether it's a start-up in need of a jack-of-all-trades hands on doer, or a larger corporation wanting to get strategic and position themselves for the next chapter, I'm your guy.
     `,
-    image: "/alejandro-big.jpg",
+    image: "/stephen_newman.jpeg",
   },
 };
 
-// #5755ff
+// Pink-Purple Gradient: #ec4899 to #8b5cf6
