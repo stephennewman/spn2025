@@ -18,7 +18,7 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "Phone", href: "tel:617.347.2721" },
   ],
   socialImage: "/stephen_newman.jpeg",
-  canonicalURL: "https://stephennewman.github.io/spn2025",
+  canonicalURL: "https://stephennewman.me",
 };
 
 export const SITE_CONTENT: SiteContent = {
@@ -26,7 +26,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "Stephen Newman",
     specialty: "Marketing Professional & Executive Business Leader",
     summary:
-      "Customer centric marketing and business professional based in Palm Harbor, Florida. I specialize in revenue performance management, product management, business process optimization, and much more. I'm currently exploring my next opportunity, and my adaptability talents would be a great addition to any size team at any stage.",
+      "Customer centric marketing and business professional based in Palm Harbor, Florida. I specialize in revenue performance management, product innovation, business process optimization, and much more. Currently exploring what's out there knowing my adaptability talents would be a great addition to any size team at any stage.",
     email: "stephen.p.newman@gmail.com",
   },
   experience: [
@@ -37,10 +37,11 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Feb 2024",
       endDate: "Present",
       summary: [
-        "Recruited to run global marketing for a publicly traded temperature monitoring and workflow automation platform based in London, England.",
+        "Recruited to run global marketing for a publicly traded temperature monitoring and workflow automation company based in London, England.",
         "Currently leading all marketing activities as a team of one - website, lead generation, messaging & positioning, sales enablement, market research, and much more.",
         "Recently found traction exploring new markets in the senior living space, adding more than $5 million in net new pipeline in less than 6 months.",
         "In the process of rebuilding the company's operational processes and positioning to distinguish Checkit from the other vendors with an emphasis on 'Predictive Operations' messaging.",
+        "Still actively employed and working hard.",
       ],
     },
     {
@@ -53,8 +54,8 @@ export const SITE_CONTENT: SiteContent = {
         "Founded Krezzo to bring better experience with Objectives & Key Results (OKRs) to B2B SaaS companies and operational leaders.",
         "Raised over $500,000 across 12 investors and built an integrated SaaS and training product.",
         "Signed 8 B2B customers across 12 deals, generating $77,400 in revenue.",
-        "Pivoted in 2023 to an AI-powered voice-to-text automation platform due to market changes.",
-        "Gained experience across fundraising, product management, operations, finance, legal, and sales.",
+        "Attempted pivot in 2023 to an AI-powered voice-to-text automation platform, but seized full-time operations due to market dynamics.",
+        "Gained oceans of experience across fundraising, product, engineering, operations, finance, legal, sales, and more.",
       ],
     },
     {
@@ -68,6 +69,7 @@ export const SITE_CONTENT: SiteContent = {
         "Managed a $2.5 million budget and a team of 20+ marketers and BDRs.",
         "Focused on attracting enterprise-level customers, optimizing the channel mix, and working closely with sales.",
         "Promoted from Director of Demand Generation after delivering positive results in less than three months.",
+        "Involved in leadership group who was successfully acquired by private equity firm for almost $40 million",
       ],
     },
     {
@@ -77,7 +79,6 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Nov 2015",
       endDate: "Jul 2018",
       summary: [
-        "Managed all global marketing efforts with focus on driving revenue and scaling marketing attribution.",
         "Hired as company's first marketer and 15th employee, helped scale to almost 50 employees and $9 million ARR.",
         "Managed global marketing budget of over $1 million across PPC, Pay-Per-Lead, and partner channels with 45% attribution rate.",
         "Improved lead generation from 20 leads per month to over 500 in 24 months, maintaining high quality with 30% handoff rate.",
@@ -145,7 +146,7 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description: `
-      Passionate about building, optimizing, and scaling high-growth revenue generating engines that promote innovative products and delightful experiences for customers. Capable of building products from the ground up, expanding or creating markets, and operationalizing processes for simplicity, efficiency and effectiveness. Whether it's a start-up in need of a jack-of-all-trades hands on doer, or a larger corporation wanting to get strategic and position themselves for the next chapter, I'm your guy.<br><br>Currently living in Palm Harbor, Florida with my wife and three girls. Enjoys playing golf, boating, and going to the beach, to name a few.
+      Passionate about building, optimizing, and scaling high-growth revenue generating engines that promote innovative products and delightful experiences for customers. Capable of building products from the ground up, expanding or creating markets, and operationalizing processes for simplicity, efficiency and effectiveness. Whether it's a start-up in need of a jack-of-all-trades hands on doer, or a larger corporation wanting to get strategic and position themselves for the next chapter, I'm your guy. Currently living in Palm Harbor, Florida with my wife and three girls. Enjoys playing golf, boating, and going to the beach, to name a few.
     `,
     image: "/stephen_newman.jpeg",
   },
