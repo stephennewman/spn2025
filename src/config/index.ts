@@ -17,8 +17,8 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "LinkedIn", href: "http://www.linkedin.com/in/stephennewman1" },
     { text: "Phone", href: "tel:617.347.2721" },
   ],
-  socialImage: "/zen-og.png",
-  canonicalURL: "https://astro-zen.vercel.app",
+  socialImage: "/stephen_newman.jpeg",
+  canonicalURL: "https://spn2025-jm4ap7ppo-krezzo.vercel.app",
 };
 
 export const SITE_CONTENT: SiteContent = {
