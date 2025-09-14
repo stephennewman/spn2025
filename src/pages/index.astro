@@ -2,16 +2,20 @@
 import { SITE_CONTENT } from "@config";
 import Hero from "@components/Hero.astro";
 import Layout from "@layouts/Layout.astro";
+import Services from "@components/Services.astro";
 import Experience from "@components/Experience.astro";
 import Education from "@components/Education.astro";
 import About from "@components/About.astro";
+import CTA from "@components/CTA.astro";
 
 import "../styles/global.css";
 ---
 
 <Layout>
   <Hero {...SITE_CONTENT.hero} />
+  <Services />
   <Experience experience={SITE_CONTENT.experience} />
   <Education education={SITE_CONTENT.education} />
   <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
+  <CTA />
 </Layout>

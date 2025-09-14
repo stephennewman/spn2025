@@ -1,0 +1,90 @@
+---
+import Section from "./Section.astro";
+
+const services = [
+  {
+    title: "Strategy and Goals",
+    description: "Define clear business objectives and create actionable roadmaps to achieve sustainable growth and success.",
+    icon: "🎯"
+  },
+  {
+    title: "Revenue Operations",
+    description: "Optimize your sales and marketing processes to increase conversion rates and accelerate growth.",
+    icon: "📊"
+  },
+  {
+    title: "Lead Generation",
+    description: "Proven systems and strategies to attract high-quality leads and fill your sales pipeline consistently.",
+    icon: "🔍"
+  },
+  {
+    title: "Website Development",
+    description: "Custom websites that convert visitors into customers. From simple landing pages to complex e-commerce solutions.",
+    icon: "🌐"
+  },
+  {
+    title: "Sales Training",
+    description: "Train your team with proven sales methodologies and techniques that close more deals.",
+    icon: "💼"
+  },
+  {
+    title: "Operational Process",
+    description: "Optimize for efficiency and streamline workflows to help your business scale efficiently and profitably.",
+    icon: "⚙️"
+  },
+  {
+    title: "Brand Messaging",
+    description: "Clear, compelling messaging that differentiates your business and resonates with your target audience.",
+    icon: "💬"
+  },
+  {
+    title: "Email Marketing",
+    description: "Automated email campaigns that nurture leads and keep customers engaged throughout their journey.",
+    icon: "📧"
+  },
+  {
+    title: "Team Training",
+    description: "Develop your team's skills with customized training programs for sales, marketing, and operations.",
+    icon: "👥"
+  },
+  {
+    title: "Social Media Management",
+    description: "Strategic social media presence that builds your brand and drives engagement across all platforms.",
+    icon: "📱"
+  },
+  {
+    title: "Design & Creative",
+    description: "Professional design services for websites, marketing materials, and brand assets that make you stand out.",
+    icon: "🎨"
+  },
+  {
+    title: "Product Development",
+    description: "Strategic guidance on product positioning, market research, and go-to-market strategies.",
+    icon: "🚀"
+  },
+];
+---
+
+<Section text="How I Help Your Business" href="services">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {services.map((service) => (
+      <div class="bg-black/50 border border-neutral/20 rounded-2xl p-6 hover:border-primary/50 transition-colors">
+        <div class="text-4xl mb-4">{service.icon}</div>
+        <h3 class="text-xl font-semibold text-white mb-3">{service.title}</h3>
+        <p class="text-neutral text-base leading-relaxed">{service.description}</p>
+      </div>
+    ))}
+  </div>
+  
+  <div class="mt-12 text-center">
+    <p class="text-lg text-neutral mb-6">Let's discuss how I can help you achieve your business goals.</p>
+    <a
+      class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff] hover:bg-primary/90 transition-colors"
+      href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Schedule a meeting with me
+    </a>
+  </div>
+</Section>

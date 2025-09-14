@@ -12,7 +12,7 @@ const { name, specialty, summary } = Astro.props;
     {name}
   </h1>
   <p
-    class="mb-9 font-serif text-4xl leading-[46px] font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
+    class="mb-9 font-serif text-3xl leading-[40px] font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl"
   >
     {specialty}
   </p>
@@ -21,9 +21,11 @@ const { name, specialty, summary } = Astro.props;
   </p>
 
   <a
-    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff]"
-    href="https://calendly.com/stephen-krezzo"
+    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff] hover:bg-primary/90 transition-colors"
+    href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
     target="_blank"
-    rel="noopener noreferrer">Meet with Me</a
+    rel="noopener noreferrer"
   >
+    Schedule a meeting with me
+  </a>
 </section>

@@ -1,15 +1,15 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Stephen Newman — Marketing Executive & Business Leader",
+  title: "Stephen Newman — Marketing & Business Consultant",
   author: "Stephen Newman",
   description:
-    "Revenue focused B2B professional with experience working for high-growth technology companies. Passionate about building, optimizing, and scaling high-growth go-to-market engines.",
+    "Helping businesses grow through strategic marketing, website development, and sales optimization. From startups to established companies, I deliver results that drive revenue.",
   lang: "en",
   siteLogo: "/stephen_newman.jpeg",
   navLinks: [
-    { text: "Experience", href: "#experience" },
-    { text: "Education", href: "#education" },
+    { text: "Services", href: "#services" },
+    { text: "Results", href: "#results" },
     { text: "About", href: "#about" },
   ],
   socialLinks: [
@@ -24,9 +24,9 @@ export const SITE_CONFIG: SiteConfig = {
 export const SITE_CONTENT: SiteContent = {
   hero: {
     name: "Stephen Newman",
-    specialty: "Marketing Professional & Executive Business Leader",
+    specialty: "Delivering big results on small budgets.",
     summary:
-      "Customer centric marketing and business professional based in Palm Harbor, Florida. I specialize in revenue performance management, product innovation, business process optimization, and much more. Currently exploring what's out there knowing my adaptability talents would be a great addition to any size team at any stage.",
+      "I help companies solve problems and generate more revenue. From defining strategy to implementing and executing tactical plans, I can deliver results across a variety of disciplines in a variety of ways.",
     email: "stephen.p.newman@gmail.com",
   },
   experience: [
@@ -146,7 +146,11 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description: `
-      Passionate about building, optimizing, and scaling high-growth revenue generating engines that promote innovative products and delightful experiences for customers. Capable of building products from the ground up, expanding or creating markets, and operationalizing processes for simplicity, efficiency and effectiveness. Whether it's a start-up in need of a jack-of-all-trades hands on doer, or a larger corporation wanting to get strategic and position themselves for the next chapter, I'm your guy. Currently living in Palm Harbor, Florida with my wife and three girls. In my spare time I enjoy playing golf, boating, and going to the beach, to name a few.
+      With over 15 years of experience helping businesses grow, I've worked with everything from startups to Fortune 500 companies. I specialize in taking complex marketing challenges and turning them into simple, effective solutions that drive real results.
+
+      My approach is hands-on and results-focused. I don't just give you strategies – I help you implement them. Whether you need a complete marketing overhaul, a new website that converts, or sales training for your team, I bring the expertise and execution you need to succeed.
+
+      Based in Palm Harbor, Florida, I work with businesses throughout the United States and beyond. My goal is simple: help your business grow faster, smarter, and more profitably.
     `,
     image: "/stephen_newman.jpeg",
   },
