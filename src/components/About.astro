@@ -1,7 +1,7 @@
 ---
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
-import type { AboutProps, HeroProps } from "@types";
+import type { AboutProps, HeroProps } from "../types/index.ts";
 
 type Props = AboutProps & Pick<HeroProps, "name">;
 
