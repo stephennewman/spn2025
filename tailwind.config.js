@@ -1,52 +1,52 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-        },
-        gray: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-        }
+        primary: '#ec4899', // Pink color from the gradient
+        neutral: '#94a3b8', // Slate gray
+        white: '#e2e8f0',   // Light gray-white
+        black: '#0e141b',   // Dark black
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Be Vietnam Pro', 'system-ui', 'sans-serif'],
+        serif: ['Gabarito Variable', 'ui-serif', 'serif'],
       },
-      boxShadow: {
-        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
-        'medium': '0 4px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        'large': '0 10px 40px -10px rgba(0, 0, 0, 0.1), 0 2px 10px -2px rgba(0, 0, 0, 0.05)',
+      letterSpacing: {
+        'tightest': '-2px',
+        'tighter': '-1px',
+        'tight': '-0.25px',
+      },
+      fontSize: {
+        'xs': ['0.875rem', '1.125rem'],
+        'sm': ['1rem', '1.25rem'],
+        'base': ['1.125rem', '1.625rem'],
+        'lg': ['1.25rem', '1.75rem'],
+        'xl': ['1.5rem', '1.813rem'],
+        '2xl': ['1.75rem', '2.125rem'],
+        '3xl': ['2rem', '2.375rem'],
+        '4xl': ['2.25rem', '2.688rem'],
+        '5xl': ['2.5rem', '3rem'],
+        '6xl': ['3rem', '3.625rem'],
+        '7xl': ['3.75rem', '1'],
+        '8xl': ['4.5rem', '4.875rem'],
+        '9xl': ['6rem', '6.625rem'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.3s ease-out',
-        'bounce-gentle': 'bounceGentle 2s infinite',
+        'slide-in': 'slide-in 600ms ease both',
+        'fade-in': 'fadeIn 0.8s ease-out forwards',
+        'slide-up': 'slideUp 0.6s ease-out forwards',
       },
       keyframes: {
+        'slide-in': {
+          '10%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(0)' },
+        },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
@@ -54,10 +54,6 @@ module.exports = {
         slideUp: {
           '0%': { transform: 'translateY(10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        bounceGentle: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-5px)' },
         },
       },
     },
