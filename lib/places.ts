@@ -1,14 +1,31 @@
 // Google Places API utilities for The Village at Lake St. George
 
 export interface PlaceDetails {
+  // Basic Info
   place_id: string;
   name: string;
   formatted_address: string;
   formatted_phone_number?: string;
+  international_phone_number?: string;
   website?: string;
+  url?: string; // Google Maps URL
+  vicinity?: string;
+  editorial_summary?: string;
+  
+  // Ratings & Reviews
   rating?: number;
   user_ratings_total?: number;
   price_level?: number;
+  reviews?: Array<{
+    author_name: string;
+    rating: number;
+    text: string;
+    time: number;
+    relative_time_description: string;
+  }>;
+  
+  // Business Status & Hours
+  business_status?: string;
   opening_hours?: {
     open_now: boolean;
     periods: Array<{
@@ -17,33 +34,85 @@ export interface PlaceDetails {
     }>;
     weekday_text: string[];
   };
-  photos?: Array<{
-    height: number;
-    width: number;
-    photo_reference: string;
-  }>;
-  reviews?: Array<{
-    author_name: string;
-    rating: number;
-    text: string;
-    time: number;
-    relative_time_description: string;
-  }>;
-  business_status?: string;
-  types?: string[];
+  current_opening_hours?: {
+    open_now: boolean;
+    periods: Array<{
+      close: { day: number; time: string };
+      open: { day: number; time: string };
+    }>;
+    weekday_text: string[];
+  };
+  secondary_opening_hours?: {
+    open_now: boolean;
+    periods: Array<{
+      close: { day: number; time: string };
+      open: { day: number; time: string };
+    }>;
+    weekday_text: string[];
+  };
+  
+  // Location & Visual
   geometry?: {
     location: {
       lat: number;
       lng: number;
     };
   };
+  photos?: Array<{
+    height: number;
+    width: number;
+    photo_reference: string;
+  }>;
+  plus_code?: {
+    compound_code: string;
+    global_code: string;
+  };
+  types?: string[];
+  icon?: string;
+  icon_background_color?: string;
+  
+  // Restaurant/Food Features
+  serves_breakfast?: boolean;
+  serves_brunch?: boolean;
+  serves_lunch?: boolean;
+  serves_dinner?: boolean;
+  serves_beer?: boolean;
+  serves_wine?: boolean;
+  serves_vegetarian_food?: boolean;
+  delivery?: boolean;
+  takeout?: boolean;
+  dine_in?: boolean;
+  curbside_pickup?: boolean;
+  
+  // Accessibility
+  wheelchair_accessible_entrance?: boolean;
+  wheelchair_accessible_parking?: boolean;
+  wheelchair_accessible_restroom?: boolean;
+  wheelchair_accessible_seating?: boolean;
+  
+  // Payment & Amenities
+  accepts_credit_cards?: boolean;
+  accepts_debit_cards?: boolean;
+  accepts_cash_only?: boolean;
+  accepts_nfc?: boolean;
+  outdoor_seating?: boolean;
+  restroom?: boolean;
+  good_for_children?: boolean;
+  good_for_groups?: boolean;
+  live_music?: boolean;
+  good_for_watching_sports?: boolean;
 }
 
 // Known Place IDs for The Village at Lake St. George businesses
 // Real Place IDs found via Google Places API
 export const VILLAGE_PLACE_IDS = {
-  // Real Place IDs for businesses at The Village at Lake St. George
+  // Real Place IDs for businesses at The Village at Lake St. George - Verified via Google Places API
+  'dental-studio-palm-harbor': 'ChIJByKqF3HtwogRFBzu27qgABI', // Dental Studio of Palm Harbor - 3438 Tampa Rd
+  'new-perspectives-body-care': 'ChIJ832rF3HtwogR96vnJOAzUyw', // New Perspectives Body Care - 3442 Tampa Rd
   'pupperazi-pet-spa': 'ChIJc29HP3HtwogRSVpv0fYESDg', // Pupperazi Pet Spa - 3454 Tampa Rd
+  'faceless-samurai': 'ChIJ6dTNGXHtwogRACTPfyUtFU8', // Faceless Samurai - 3428 Tampa Rd
+  
+  // Additional businesses (keeping from previous search)
   'wax-pot-body-waxing': 'ChIJNVc7wJnzwogRsvlIDznATTU', // The Wax Pot Body Waxing - 3466 Tampa Rd
   'three-brothers-pizza': 'ChIJ9RC7iPPtwogR9JK_73-_8SU', // Three Brothers New York Pizza - 3436 Tampa Rd
   'charlie-coffee': 'ChIJ-ZFB15jtwogRpEcx2izoHr8', // Charlie Coffee - 3422 Tampa Rd
@@ -52,20 +121,67 @@ export const VILLAGE_PLACE_IDS = {
 
 // Fields we want to retrieve from Google Places API
 const PLACE_FIELDS = [
+  // Basic Info
   'place_id',
   'name',
   'formatted_address',
   'formatted_phone_number',
+  'international_phone_number',
   'website',
+  'url',
+  'vicinity',
+  
+  // Ratings & Reviews
   'rating',
   'user_ratings_total',
   'price_level',
-  'opening_hours',
-  'photos',
   'reviews',
+  'editorial_summary',
+  
+  // Business Status & Hours
   'business_status',
+  'opening_hours',
+  'current_opening_hours',
+  'secondary_opening_hours',
+  
+  // Location & Visual
+  'geometry',
+  'photos',
+  'plus_code',
   'types',
-  'geometry'
+  'icon',
+  'icon_background_color',
+  
+  // Restaurant/Food Features
+  'serves_breakfast',
+  'serves_brunch',
+  'serves_lunch',
+  'serves_dinner',
+  'serves_beer',
+  'serves_wine',
+  'serves_vegetarian_food',
+  'delivery',
+  'takeout',
+  'dine_in',
+  'curbside_pickup',
+  
+  // Accessibility
+  'wheelchair_accessible_entrance',
+  'wheelchair_accessible_parking',
+  'wheelchair_accessible_restroom',
+  'wheelchair_accessible_seating',
+  
+  // Payment & Amenities
+  'accepts_credit_cards',
+  'accepts_debit_cards',
+  'accepts_cash_only',
+  'accepts_nfc',
+  'outdoor_seating',
+  'restroom',
+  'good_for_children',
+  'good_for_groups',
+  'live_music',
+  'good_for_watching_sports'
 ].join(',');
 
 /**
