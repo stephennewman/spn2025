@@ -1,0 +1,115 @@
+{
+  "plazaName": "The Village at Lake St. George",
+  "lastUpdated": "2025-09-17T14:00:00Z",
+  "businesses": [
+    {
+      "id": "new-perspectives-body-care",
+      "name": "New Perspectives Body Care & Pilates Studio",
+      "category": "Wellness & Spa",
+      "address": "3442 A Tampa Road, Palm Harbor, FL 34684",
+      "phone": "(727) 458-9525",
+      "website": "http://newperspectivesmassage.com/",
+      "hours": {
+        "mon": "9 AM–6 PM",
+        "tue": "9 AM–6 PM",
+        "wed": "9 AM–6 PM",
+        "thu": "9 AM–6 PM",
+        "fri": "9 AM–6 PM",
+        "sat": "9 AM–4 PM",
+        "sun": "Closed"
+      },
+      "promos": [
+        {
+          "label": "Check website for current specials & events",
+          "url": "http://newperspectivesmassage.com/specials-events/"
+        }
+      ],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "dental-studio-palm-harbor",
+      "name": "Dental Studio of Palm Harbor",
+      "category": "Healthcare",
+      "address": "3438 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "(727) 786-1077",
+      "website": "https://yourpalmharbordentist.com/",
+      "hours": {
+        "mon": "8 AM–5 PM",
+        "tue": "8 AM–5 PM",
+        "wed": "8 AM–5 PM",
+        "thu": "8 AM–5 PM",
+        "fri": "8 AM–2 PM",
+        "sat": "Closed",
+        "sun": "Closed"
+      },
+      "promos": [
+        {
+          "label": "Smile now, pay-over-time! Easy payment options available",
+          "url": "https://yourpalmharbordentist.com/"
+        },
+        {
+          "label": "New patients welcome - Book your appointment today"
+        }
+      ],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "pupperazi-pet-spa",
+      "name": "Pupperazi Pet Spa",
+      "category": "Pet Services",
+      "address": "3454 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "(727) 753-9302",
+      "website": "https://www.pupperazipetspa.com/",
+      "hours": {
+        "mon": "9 AM–6 PM",
+        "tue": "9 AM–6 PM",
+        "wed": "9 AM–6 PM",
+        "thu": "9 AM–6 PM",
+        "fri": "9 AM–6 PM",
+        "sat": "9 AM–5 PM",
+        "sun": "Closed"
+      },
+      "promos": [
+        {
+          "label": "Refer a Friend for 10% off your next full service & their first full service!",
+          "url": "https://www.pupperazipetspa.com/"
+        },
+        {
+          "label": "Online booking available 24 hours a day"
+        }
+      ],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "faceless-samurai",
+      "name": "Faceless Samurai",
+      "category": "Restaurant",
+      "address": "3428 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "(727) 772-5622",
+      "website": "https://www.bitecheap.com/facelesssamurai",
+      "hours": {
+        "mon": "11:30 AM–2:30 PM, 5–9 PM",
+        "tue": "11:30 AM–2:30 PM, 5–9 PM",
+        "wed": "11:30 AM–2:30 PM, 5–9 PM",
+        "thu": "11:30 AM–2:30 PM, 5–9 PM",
+        "fri": "11:30 AM–2:30 PM, 5–9:30 PM",
+        "sat": "5–9:30 PM",
+        "sun": "Closed"
+      },
+      "promos": [
+        {
+          "label": "Order online for freshness and promptness",
+          "url": "https://www.bitecheap.com/facelesssamurai"
+        },
+        {
+          "label": "Explore Japanese and Thai flavors"
+        }
+      ],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    }
+  ]
+}
