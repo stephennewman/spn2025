@@ -13,16 +13,38 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
   const [placeDetails, setPlaceDetails] = useState<PlaceDetails | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [showPlacesData, setShowPlacesData] = useState(false);
+  const [showPlacesData, setShowPlacesData] = useState(true); // Auto-show Places data
+  const [hasApiKey, setHasApiKey] = useState(false);
 
   useEffect(() => {
-    if (placeId && showPlacesData) {
+    // Check if API key is available
+    setHasApiKey(!!process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY);
+    
+    // Auto-load Places data if we have a placeId and API key
+    if (placeId && process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY) {
       fetchPlaceDetails();
     }
-  }, [placeId, showPlacesData]);
+  }, [placeId]);
 
   const fetchPlaceDetails = async () => {
     if (!placeId) return;
+
+    // Check cache first
+    const cacheKey = `places_${placeId}`;
+    const cached = localStorage.getItem(cacheKey);
+    const cacheExpiry = 30 * 60 * 1000; // 30 minutes
+    
+    if (cached) {
+      try {
+        const { data, timestamp } = JSON.parse(cached);
+        if (Date.now() - timestamp < cacheExpiry) {
+          setPlaceDetails(data);
+          return;
+        }
+      } catch (e) {
+        // Invalid cache, continue to fetch
+      }
+    }
 
     setLoading(true);
     setError(null);
@@ -33,6 +55,16 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
 
       if (response.ok && data.result) {
         setPlaceDetails(data.result);
+        
+        // Cache the result
+        try {
+          localStorage.setItem(cacheKey, JSON.stringify({
+            data: data.result,
+            timestamp: Date.now()
+          }));
+        } catch (e) {
+          console.warn('Failed to cache place details:', e);
+        }
       } else {
         setError(data.error || 'Failed to fetch place details');
       }
@@ -44,8 +76,8 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
     }
   };
 
-  // Use Places data if available and shown, otherwise use our static data
-  const displayData = showPlacesData && placeDetails ? {
+  // Use Places data if available, otherwise use our static data
+  const displayData = placeDetails ? {
     name: placeDetails.name || business.name,
     address: placeDetails.formatted_address || business.address,
     phone: placeDetails.formatted_phone_number || business.phone,
@@ -69,33 +101,26 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-      {/* Header with toggle */}
+      {/* Header */}
       <div className="flex justify-between items-start mb-4">
         <div className="flex-1">
           <h3 className="text-xl font-bold text-gray-900 mb-2">
             {displayData.name}
           </h3>
-          {business.category && (
-            <span className="inline-flex items-center px-3 py-1 text-sm font-medium bg-blue-100 text-blue-700 rounded-full">
-              {business.category}
-            </span>
-          )}
-        </div>
-        
-        {placeId && (
-          <div className="ml-4">
-            <button
-              onClick={() => setShowPlacesData(!showPlacesData)}
-              className={`px-3 py-1 text-xs font-medium rounded-full transition-colors ${
-                showPlacesData 
-                  ? 'bg-green-100 text-green-700' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              {showPlacesData ? 'Live Data' : 'Show Live Data'}
-            </button>
+          <div className="flex items-center gap-3">
+            {business.category && (
+              <span className="inline-flex items-center px-3 py-1 text-sm font-medium bg-blue-100 text-blue-700 rounded-full">
+                {business.category}
+              </span>
+            )}
+            {placeDetails && (
+              <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
+                Live Data
+              </span>
+            )}
           </div>
-        )}
+        </div>
       </div>
 
       {/* Loading/Error States */}
@@ -113,7 +138,7 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
       )}
 
       {/* Rating (Places data only) */}
-      {showPlacesData && placeDetails && displayData.rating && (
+      {placeDetails && displayData.rating && (
         <div className="flex items-center mb-4">
           <div className="flex items-center">
             <span className="text-yellow-400 text-lg">⭐</span>
@@ -133,7 +158,7 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
       )}
 
       {/* Business Status (Places data only) */}
-      {showPlacesData && placeDetails && displayData.businessStatus && (
+      {placeDetails && displayData.businessStatus && (
         <div className="mb-4">
           <span className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-full ${
             displayData.businessStatus === 'OPERATIONAL' 
@@ -196,7 +221,7 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
       </div>
 
       {/* Photos (Places data only) */}
-      {showPlacesData && placeDetails && displayData.photos && displayData.photos.length > 0 && (
+      {placeDetails && displayData.photos && displayData.photos.length > 0 && (
         <div className="mb-6">
           <h4 className="text-sm font-semibold text-gray-700 mb-3">Photos</h4>
           <div className="flex space-x-3 overflow-x-auto">
@@ -228,7 +253,7 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
       )}
 
       {/* Reviews (Places data only) */}
-      {showPlacesData && placeDetails && displayData.reviews && displayData.reviews.length > 0 && (
+      {placeDetails && displayData.reviews && displayData.reviews.length > 0 && (
         <div className="mb-4">
           <h4 className="text-sm font-semibold text-gray-700 mb-3">Recent Reviews</h4>
           <div className="space-y-3">
@@ -249,8 +274,8 @@ export default function PlacesBusinessCard({ business, placeId }: PlacesBusiness
         </div>
       )}
 
-      {/* Promotions (Static data only) */}
-      {!showPlacesData && (displayData as any).promos && (displayData as any).promos.length > 0 && (
+      {/* Promotions (Static data only - show when no Places data) */}
+      {!placeDetails && (displayData as any).promos && (displayData as any).promos.length > 0 && (
         <div>
           <h4 className="text-sm font-semibold text-gray-700 mb-2">Special Offers</h4>
           <div className="space-y-2">

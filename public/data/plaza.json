@@ -184,6 +184,126 @@
       "promos": [],
       "events": [],
       "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "sunbelt-title-agency",
+      "name": "Sunbelt Title Agency",
+      "category": "Real Estate Services",
+      "address": "3458 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "",
+      "website": "",
+      "hours": {
+        "mon": "9 AM–5 PM",
+        "tue": "9 AM–5 PM",
+        "wed": "9 AM–5 PM",
+        "thu": "9 AM–5 PM",
+        "fri": "9 AM–5 PM",
+        "sat": "Closed",
+        "sun": "Closed"
+      },
+      "promos": [],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "salon-blond-aveda",
+      "name": "Salon Blond AVEDA - Palm Harbor",
+      "category": "Beauty & Salon",
+      "address": "3446 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "",
+      "website": "",
+      "hours": {
+        "mon": "9 AM–7 PM",
+        "tue": "9 AM–7 PM",
+        "wed": "9 AM–7 PM",
+        "thu": "9 AM–7 PM",
+        "fri": "9 AM–7 PM",
+        "sat": "9 AM–5 PM",
+        "sun": "Closed"
+      },
+      "promos": [],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "circle-k-gas-station",
+      "name": "Circle K | Gas Station",
+      "category": "Gas Station & Convenience",
+      "address": "3414 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "",
+      "website": "",
+      "hours": {
+        "mon": "24 hours",
+        "tue": "24 hours",
+        "wed": "24 hours",
+        "thu": "24 hours",
+        "fri": "24 hours",
+        "sat": "24 hours",
+        "sun": "24 hours"
+      },
+      "promos": [],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "sunlife-pharmacy",
+      "name": "Sunlife Pharmacy",
+      "category": "Pharmacy",
+      "address": "3420 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "",
+      "website": "",
+      "hours": {
+        "mon": "9 AM–6 PM",
+        "tue": "9 AM–6 PM",
+        "wed": "9 AM–6 PM",
+        "thu": "9 AM–6 PM",
+        "fri": "9 AM–6 PM",
+        "sat": "9 AM–2 PM",
+        "sun": "Closed"
+      },
+      "promos": [],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "great-wall-chinese",
+      "name": "Great Wall Chinese",
+      "category": "Restaurant",
+      "address": "3424 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "",
+      "website": "",
+      "hours": {
+        "mon": "11 AM–9 PM",
+        "tue": "11 AM–9 PM",
+        "wed": "11 AM–9 PM",
+        "thu": "11 AM–9 PM",
+        "fri": "11 AM–10 PM",
+        "sat": "11 AM–10 PM",
+        "sun": "12 PM–9 PM"
+      },
+      "promos": [],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
+    },
+    {
+      "id": "black-forest-flowers",
+      "name": "Black Forest Flowers and Gifts",
+      "category": "Florist & Gifts",
+      "address": "3426 Tampa Rd, Palm Harbor, FL 34684",
+      "phone": "",
+      "website": "",
+      "hours": {
+        "mon": "9 AM–6 PM",
+        "tue": "9 AM–6 PM",
+        "wed": "9 AM–6 PM",
+        "thu": "9 AM–6 PM",
+        "fri": "9 AM–6 PM",
+        "sat": "9 AM–4 PM",
+        "sun": "10 AM–3 PM"
+      },
+      "promos": [],
+      "events": [],
+      "lastScrapedAt": "2025-09-17T14:00:00Z"
     }
   ]
 }

@@ -116,7 +116,15 @@ export const VILLAGE_PLACE_IDS = {
   'wax-pot-body-waxing': 'ChIJNVc7wJnzwogRsvlIDznATTU', // The Wax Pot Body Waxing - 3466 Tampa Rd
   'three-brothers-pizza': 'ChIJ9RC7iPPtwogR9JK_73-_8SU', // Three Brothers New York Pizza - 3436 Tampa Rd
   'charlie-coffee': 'ChIJ-ZFB15jtwogRpEcx2izoHr8', // Charlie Coffee - 3422 Tampa Rd
-  'bjs-pub': 'ChIJMdVVFnHtwogRnK0Aije0tOE' // B J's Pub - 3440 Tampa Rd
+  'bjs-pub': 'ChIJMdVVFnHtwogRnK0Aije0tOE', // B J's Pub - 3440 Tampa Rd
+  
+  // New businesses added 2025-09-17
+  'sunbelt-title-agency': 'ChIJm7_YCYXywogRbzHl3Rjy348', // Sunbelt Title Agency - 3458 Tampa Rd
+  'salon-blond-aveda': 'ChIJo7W9YQDtwogRC-vKjX86nx0', // Salon Blond AVEDA - Palm Harbor - 3446 Tampa Rd
+  'circle-k-gas-station': 'ChIJdysY5kHtwogRS9HPdOmBG-c', // Circle K | Gas Station - 3414 Tampa Rd
+  'sunlife-pharmacy': 'ChIJ02CyH3HtwogRChFqhJJWaqA', // Sunlife Pharmacy - 3420 Tampa Rd
+  'great-wall-chinese': 'ChIJp3cFGXHtwogRbcP_LrVviDk', // Great Wall Chinese - 3424 Tampa Rd
+  'black-forest-flowers': 'ChIJdViPIXHtwogR01E7Xdrlu34' // Black Forest Flowers and Gifts - 3426 Tampa Rd
 };
 
 // Fields we want to retrieve from Google Places API
@@ -167,7 +175,6 @@ const PLACE_FIELDS = [
   
   // Accessibility
   'wheelchair_accessible_entrance',
-  'wheelchair_accessible_parking',
   'wheelchair_accessible_restroom',
   'wheelchair_accessible_seating',
   
@@ -184,20 +191,29 @@ const PLACE_FIELDS = [
   'good_for_watching_sports'
 ].join(',');
 
+// Simplified field list for testing
+const SIMPLE_PLACE_FIELDS = [
+  'place_id', 'name', 'formatted_address', 'formatted_phone_number', 
+  'website', 'rating', 'user_ratings_total', 'price_level', 'reviews',
+  'business_status', 'opening_hours', 'geometry', 'photos', 'types'
+].join(',');
+
 /**
  * Fetch place details from Google Places API
  */
 export async function fetchPlaceDetails(placeId: string): Promise<PlaceDetails | null> {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
+  // Try both public and server-side environment variables
+  const apiKey = process.env.GOOGLE_PLACES_API_KEY || process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
   
   if (!apiKey) {
-    console.error('Google Places API key not found');
+    console.error('Google Places API key not found. Checked GOOGLE_PLACES_API_KEY and NEXT_PUBLIC_GOOGLE_PLACES_API_KEY');
+    console.error('Available env vars:', Object.keys(process.env).filter(key => key.includes('GOOGLE')));
     return null;
   }
 
   try {
     const response = await fetch(
-      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=${PLACE_FIELDS}&key=${apiKey}`,
+      `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=${SIMPLE_PLACE_FIELDS}&key=${apiKey}`,
       {
         method: 'GET',
         headers: {

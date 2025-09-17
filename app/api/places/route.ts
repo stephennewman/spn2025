@@ -3,12 +3,24 @@ import { fetchAllVillagePlaces, fetchPlaceDetails } from '@/lib/places';
 
 export const dynamic = 'force-dynamic';
 
+// Simple in-memory cache for server-side caching
+const cache = new Map();
+const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
+
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const placeId = searchParams.get('place_id');
 
   try {
     if (placeId) {
+      // Check cache first
+      const cacheKey = `place_${placeId}`;
+      const cached = cache.get(cacheKey);
+      
+      if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+        return NextResponse.json({ result: cached.data });
+      }
+      
       // Fetch details for a specific place
       const details = await fetchPlaceDetails(placeId);
       
@@ -18,6 +30,12 @@ export async function GET(request: NextRequest) {
           { status: 404 }
         );
       }
+
+      // Cache the result
+      cache.set(cacheKey, {
+        data: details,
+        timestamp: Date.now()
+      });
 
       return NextResponse.json({ result: details });
     } else {
