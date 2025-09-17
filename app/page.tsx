@@ -5,13 +5,17 @@ import { Plaza, Business } from '@/lib/types';
 import { getPlaza } from '@/lib/data';
 import { VILLAGE_PLACE_IDS } from '@/lib/places';
 import PlacesBusinessCard from '@/components/PlacesBusinessCard';
+import SearchAndFilters from '@/components/SearchAndFilters';
+import ResultsCounter from '@/components/ResultsCounter';
 
 export default function DirectoryPage() {
   const [plaza, setPlaza] = useState<Plaza | null>(null);
   const [businesses, setBusinesses] = useState<Business[]>([]);
+  const [filteredBusinesses, setFilteredBusinesses] = useState<Business[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hasApiKey, setHasApiKey] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Load plaza data and check API key
   useEffect(() => {
@@ -21,6 +25,7 @@ export default function DirectoryPage() {
         const plazaData = await getPlaza();
         setPlaza(plazaData);
         setBusinesses(plazaData.businesses || []);
+        setFilteredBusinesses(plazaData.businesses || []);
         
         // Check if Google Places API key is available
         setHasApiKey(!!process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY);
@@ -34,6 +39,18 @@ export default function DirectoryPage() {
 
     loadData();
   }, []);
+
+  // Handle filtered results from SearchAndFilters component
+  const handleFilteredResults = (filtered: Business[]) => {
+    setFilteredBusinesses(filtered);
+  };
+
+  // Extract search term for results counter
+  const extractSearchTerm = (filtered: Business[]) => {
+    // This is a simple way to track if filtering is happening
+    // In a more complex app, you'd pass the search term directly
+    return filtered.length < businesses.length;
+  };
 
   if (loading) {
     return (
@@ -81,13 +98,13 @@ export default function DirectoryPage() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500">
           <span className="font-medium text-blue-600">
-            {businesses.length} business{businesses.length !== 1 ? 'es' : ''} available
+            {businesses.length} business{businesses.length !== 1 ? 'es' : ''} total
           </span>
           <span className="hidden sm:block">•</span>
           <div className="flex items-center gap-2">
             <div className={`w-2 h-2 rounded-full ${hasApiKey ? 'bg-green-500' : 'bg-gray-400'}`}></div>
             <span className={hasApiKey ? 'text-green-600' : 'text-gray-500'}>
-              {hasApiKey ? 'Live Google Places data available' : 'Static data only'}
+              {hasApiKey ? 'Live Google Places data' : 'Static data only'}
             </span>
           </div>
         </div>
@@ -130,6 +147,19 @@ export default function DirectoryPage() {
         </div>
       )}
 
+      {/* Search and Filters */}
+      <SearchAndFilters 
+        businesses={businesses}
+        onFilteredResults={handleFilteredResults}
+      />
+
+      {/* Results Counter */}
+      <ResultsCounter
+        totalResults={businesses.length}
+        filteredResults={filteredBusinesses.length}
+        hasActiveFilters={filteredBusinesses.length < businesses.length}
+      />
+
       {/* Location Info */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">Location</h2>
@@ -151,13 +181,13 @@ export default function DirectoryPage() {
       <div className="space-y-6">
         <h2 className="text-2xl font-bold text-gray-900">Businesses</h2>
         
-        {businesses.length === 0 ? (
+        {filteredBusinesses.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No businesses found.</p>
+            <p className="text-gray-500 text-lg">No businesses match your search or filters.</p>
           </div>
         ) : (
           <div className="grid gap-6">
-            {businesses.map((business) => {
+            {filteredBusinesses.map((business) => {
               // Map business IDs to Place IDs
               const placeId = VILLAGE_PLACE_IDS[business.id as keyof typeof VILLAGE_PLACE_IDS];
               

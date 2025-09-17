@@ -5,10 +5,13 @@ import { Plaza, Business } from '@/lib/types';
 import { getPlaza } from '@/lib/data';
 import { VILLAGE_PLACE_IDS } from '@/lib/places';
 import PlacesBusinessCard from '@/components/PlacesBusinessCard';
+import SearchAndFilters from '@/components/SearchAndFilters';
+import ResultsCounter from '@/components/ResultsCounter';
 
 export default function DirectoryPage() {
   const [plaza, setPlaza] = useState<Plaza | null>(null);
   const [businesses, setBusinesses] = useState<Business[]>([]);
+  const [filteredBusinesses, setFilteredBusinesses] = useState<Business[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [hasApiKey, setHasApiKey] = useState(false);
