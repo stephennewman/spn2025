@@ -40,15 +40,14 @@ export interface PlaceDetails {
 }
 
 // Known Place IDs for The Village at Lake St. George businesses
-// These are example Place IDs - replace with actual ones found via Google's Place ID finder
+// Real Place IDs found via Google Places API
 export const VILLAGE_PLACE_IDS = {
-  // Example Place IDs (these need to be replaced with real ones)
-  'new-perspectives-body-care': 'ChIJkRyeHixZwokRHlmmEXHOIgI', // Example ID
-  'dental-studio-palm-harbor': 'ChIJbRIjc4xZwokRyKGKDVOOIgI', // Example ID
-  'pupperazi-pet-spa': 'ChIJpQvFG5xZwokRMNVHEXHOIgI', // Example ID
-  'faceless-samurai': 'ChIJrTYuH6xZwokRLKJMFXHOIgI', // Example ID
-  // Additional businesses in the Tampa Road area
-  'additional-business': 'ChIJsVXwI7xZwokRPONQGXHOIgI' // Example ID
+  // Real Place IDs for businesses at The Village at Lake St. George
+  'pupperazi-pet-spa': 'ChIJc29HP3HtwogRSVpv0fYESDg', // Pupperazi Pet Spa - 3454 Tampa Rd
+  'wax-pot-body-waxing': 'ChIJNVc7wJnzwogRsvlIDznATTU', // The Wax Pot Body Waxing - 3466 Tampa Rd
+  'three-brothers-pizza': 'ChIJ9RC7iPPtwogR9JK_73-_8SU', // Three Brothers New York Pizza - 3436 Tampa Rd
+  'charlie-coffee': 'ChIJ-ZFB15jtwogRpEcx2izoHr8', // Charlie Coffee - 3422 Tampa Rd
+  'bjs-pub': 'ChIJMdVVFnHtwogRnK0Aije0tOE' // B J's Pub - 3440 Tampa Rd
 };
 
 // Fields we want to retrieve from Google Places API
