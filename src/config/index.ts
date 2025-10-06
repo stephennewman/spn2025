@@ -8,8 +8,8 @@ export const SITE_CONFIG: SiteConfig = {
   lang: "en",
   siteLogo: "/stephen_newman.jpeg",
   navLinks: [
-    { text: "Services", href: "#services" },
-    { text: "Results", href: "#results" },
+    { text: "Capabilities", href: "#services" },
+    { text: "Experience", href: "#results" },
     { text: "About", href: "#about" },
   ],
   socialLinks: [
@@ -26,7 +26,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "Stephen Newman",
     specialty: "Delivering big results on small budgets.",
     summary:
-      "I help companies solve problems and generate more revenue. From defining strategy to implementing and executing tactical plans, I can deliver results across a variety of disciplines in a variety of ways.",
+      "I like to solve problems and implement ideas that generate more revenue. From defining strategy to executing tactical plans, I can add value across all touchpoints of the customer lifecycle and aim to achieve and exceed internal results in the most efficient way possible.",
     email: "stephen.p.newman@gmail.com",
   },
   experience: [
@@ -146,11 +146,9 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description: `
-      With over 15 years of experience helping businesses grow, I've worked with everything from startups to Fortune 500 companies. I specialize in taking complex marketing challenges and turning them into simple, effective solutions that drive real results.
+      With over 15 years of experience helping businesses grow, I've worked with everything from startups to Fortune 500 companies. I specialize in taking complex marketing challenges and turning them into simple, effective solutions that drive real results. My approach is hands-on and results-focused. I don't just provide strategies – I implement them. Whether you needing a complete marketing overhaul, a new website that converts, or sales training for your team to bring in more revenue, I bring the expertise and execution needed to level up a business.
 
-      My approach is hands-on and results-focused. I don't just give you strategies – I help you implement them. Whether you need a complete marketing overhaul, a new website that converts, or sales training for your team, I bring the expertise and execution you need to succeed.
-
-      Based in Palm Harbor, Florida, I work with businesses throughout the United States and beyond. My goal is simple: help your business grow faster, smarter, and more profitably.
+      I currently live in Palm Harbor, Florida with my wife, three girls and two dogs. In my spare time I enjoy boating, golfing, and going to the beach, to name a few.
     `,
     image: "/stephen_newman.jpeg",
   },
