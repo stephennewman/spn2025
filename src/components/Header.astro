@@ -5,58 +5,103 @@ import type { HeaderProps } from "../types/index.ts";
 
 type Props = HeaderProps;
 
-const { siteLogo, navLinks } = Astro.props;
+const { siteLogo, navLinks, ctaButton } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+  class="sticky top-0 z-50 animate-slide-in bg-black/80 backdrop-blur-lg border-b border-white/5"
 >
-  <a href="/" aria-label="Home link">
-    <Image
-      class="rounded-full"
-      src={siteLogo}
-      width="45"
-      height="45"
-      alt="website logo"
-    />
-  </a>
+  <div class="relative mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+    <a href="/" aria-label="Home link">
+      <Image
+        class="rounded-full"
+        src={siteLogo}
+        width="40"
+        height="40"
+        alt="website logo"
+      />
+    </a>
 
-  <button
-    type="button"
-    id="menu-button"
-    class="px-1.5 text-neutral sm:hidden"
-    aria-expanded="false"
-    aria-controls="main-menu"
-  >
-    <Menu />
-  </button>
+    <button
+      type="button"
+      id="menu-button"
+      class="px-1.5 text-neutral sm:hidden"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <Menu />
+    </button>
 
-  <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
-    id="main-menu"
-  >
-    <ul class="gap-2 sm:flex">
-      {
-        navLinks.map((link) => (
-          <li class="relative">
+    <div class="hidden sm:flex items-center gap-2">
+      <nav id="main-menu">
+        <ul class="flex gap-2">
+          {
+            navLinks.map((link) => (
+              <li class="relative">
+                <a
+                  class={`nav-item relative block p-2 text-sm font-medium text-neutral transition-all duration-300 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
+                  href={link.href}
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      {ctaButton && (
+        <a
+          class="ml-4 inline-block rounded-full bg-gradient px-5 py-2.5 text-xs font-medium text-[#fff] hover:opacity-90 transition-opacity"
+          href={ctaButton.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {ctaButton.text}
+        </a>
+      )}
+    </div>
+
+    <!-- Mobile nav -->
+    <nav
+      class="absolute top-full right-6 mt-2 hidden rounded-xl border border-white/10 bg-black/95 backdrop-blur-lg px-4 py-5 text-neutral sm:hidden"
+      id="mobile-menu"
+    >
+      <ul class="space-y-1">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                class="mobile-nav-item block p-2 text-sm font-medium transition-all duration-300 hover:text-white"
+                href={link.href}
+              >
+                {link.text}
+              </a>
+            </li>
+          ))
+        }
+        {ctaButton && (
+          <li class="pt-3 mt-3 border-t border-white/10">
             <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
-              href={link.href}
+              class="block rounded-full bg-gradient px-5 py-2.5 text-xs font-medium text-[#fff] text-center hover:opacity-90 transition-opacity"
+              href={ctaButton.href}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {link.text}
+              {ctaButton.text}
             </a>
           </li>
-        ))
-      }
-    </ul>
-  </nav>
+        )}
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <script>
   // Toggle mobile menu
   const button = document.querySelector("#menu-button");
-  const menu = document.querySelector("#main-menu");
-  const navItems = document.querySelectorAll("#main-menu > ul > li > a");
+  const menu = document.querySelector("#mobile-menu");
+  const mobileNavItems = document.querySelectorAll("#mobile-menu .mobile-nav-item");
 
   const toggleMenu = () => {
     menu?.classList.toggle("hidden");
@@ -65,11 +110,12 @@ const { siteLogo, navLinks } = Astro.props;
   };
 
   button?.addEventListener("click", toggleMenu);
-  navItems.forEach((item) => {
+  mobileNavItems.forEach((item) => {
     item?.addEventListener("click", toggleMenu);
   });
 
   // Update navigation based on scroll position with Intersection Observer
+  const navItems = document.querySelectorAll("#main-menu .nav-item");
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -84,7 +130,7 @@ const { siteLogo, navLinks } = Astro.props;
         }
       });
     },
-    { threshold: 0.5 },
+    { threshold: 0.2 },
   );
 
   document.querySelectorAll("section").forEach((section) => {

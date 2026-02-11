@@ -1,8 +1,7 @@
 ---
-import { SITE_CONTENT } from "../config/index.ts";
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
-import Services from "../components/Services.astro";
+import Highlights from "../components/Highlights.astro";
 import Experience from "../components/Experience.astro";
 import Education from "../components/Education.astro";
 import About from "../components/About.astro";
@@ -12,10 +11,10 @@ import "../styles/global.css";
 ---
 
 <Layout>
-  <Hero {...SITE_CONTENT.hero} />
-  <Services />
-  <Experience experience={SITE_CONTENT.experience} />
-  <Education education={SITE_CONTENT.education} />
-  <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
+  <Hero />
+  <Highlights />
+  <Experience />
+  <Education />
+  <About />
   <CTA />
 </Layout>

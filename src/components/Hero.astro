@@ -1,31 +1,52 @@
 ---
-import type { HeroProps } from "../types/index.ts";
-type Props = HeroProps;
+import { SITE_CONTENT } from "../config/index.ts";
 
-const { name, specialty, summary } = Astro.props;
+const { name, title, summary } = SITE_CONTENT.hero;
+const metrics = SITE_CONTENT.metrics;
 ---
 
-<section class="py-24 md:py-32" id="#hero">
-  <h1
-    class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
-  >
-    {name}
-  </h1>
-  <p
-    class="mb-9 font-serif text-3xl leading-[40px] font-bold tracking-tighter text-primary sm:text-4xl md:text-5xl"
-  >
-    {specialty}
-  </p>
-  <p class="mb-16 text-base font-normal text-neutral md:text-lg">
-    {summary}
-  </p>
+<section class="relative py-24 md:py-32 lg:py-40" id="hero">
+  <div class="max-w-5xl mx-auto px-6">
+    <p
+      class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-8"
+    >
+      {title}
+    </p>
 
-  <a
-    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff] hover:bg-primary/90 transition-colors"
-    href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Book a meeting
-  </a>
+    <h1
+      class="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tightest text-white leading-none"
+    >
+      Stephen<br />Newman
+    </h1>
+
+    <p class="max-w-2xl text-lg text-neutral mt-10 leading-relaxed">
+      {summary}
+    </p>
+
+    <div
+      class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-white/10"
+    >
+      {
+        metrics.map((m) => (
+          <div>
+            <p class="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight">
+              {m.value}
+            </p>
+            <p class="text-sm text-neutral mt-1">{m.label}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-12">
+      <a
+        class="inline-block rounded-full bg-gradient px-8 py-4 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
+        href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Schedule Meeting
+      </a>
+    </div>
+  </div>
 </section>

@@ -6,11 +6,18 @@ import { SITE_CONFIG } from "../config/index.ts";
 import Footer from "../components/Footer.astro";
 import Analytics from "@vercel/analytics/astro";
 
+interface Props {
+  navLinks?: { text: string; href: string }[];
+  ctaButton?: { text: string; href: string };
+}
+
+const { navLinks: customNavLinks, ctaButton } = Astro.props;
+
 const {
   title,
   description,
   siteLogo,
-  navLinks,
+  navLinks: defaultNavLinks,
   lang,
   author,
   socialLinks,
@@ -18,6 +25,7 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = SITE_CONFIG;
 
+const navLinks = customNavLinks || defaultNavLinks;
 const ogImgUrl = canonicalURL + socialImage;
 ---
 
@@ -44,8 +52,8 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="twitter:image" content={ogImgUrl} />
   </head>
   <body class="bg-black font-sans">
-    <Header siteLogo={siteLogo} navLinks={navLinks} />
-    <main class="mx-auto max-w-3xl px-5">
+    <Header siteLogo={siteLogo} navLinks={navLinks} ctaButton={ctaButton} />
+    <main>
       <slot />
     </main>
     <Footer author={author} socialLinks={socialLinks} />

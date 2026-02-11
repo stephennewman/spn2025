@@ -1,48 +1,51 @@
 ---
-import Section from "./Section.astro";
-import type { ExperienceProps } from "../types/index.ts";
+import { SITE_CONTENT } from "../config/index.ts";
 
-interface Props {
-  experience: ExperienceProps[];
-}
-
-const { experience } = Astro.props;
+const experience = SITE_CONTENT.experience;
 ---
 
-<Section text="Results & Experience" href="results">
-  {
-    experience.map(({ company, companyIcon, position, startDate, endDate, summary }) => (
-      <div class="mb-10">
-        <h3 class="mb-1.5 font-serif text-2xl font-semibold text-white flex items-center gap-2">
-          {companyIcon && (
-            <img 
-              src={companyIcon} 
-              alt={`${company} logo`}
-              class="w-6 h-6 object-contain"
-            />
-          )}
-          {company}
-        </h3>
-        <div class="flex flex-col items-start pb-5">
-          <h4 class="mb-0.5 font-serif text-2xl font-medium text-primary">
-            {position}
-          </h4>
-          <span class="pb-[2px] text-sm text-white/70">
-            {startDate} — {endDate}
-          </span>
-        </div>
-        {Array.isArray(summary) ? (
-          <ul class="list-none">
-            {summary.map((log) => (
-              <li class="relative mb-3 pl-8 text-base text-neutral before:absolute before:top-1 before:left-0 before:content-[url(/check.svg)]">
-                {log}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p class="text-base text-neutral">{summary}</p>
-        )}
-      </div>
-    ))
-  }
-</Section>
+<section id="experience" class="py-24 bg-white/[0.02]">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2
+      class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-white mb-16"
+    >
+      Experience
+    </h2>
+
+    <div>
+      {
+        experience.map((role) => (
+          <div class="relative pl-8 pb-12 last:pb-0 border-l border-white/10">
+            <div class="absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary" />
+
+            <div class="flex flex-col md:flex-row md:items-baseline md:gap-4 mb-1">
+              <h3 class="text-xl font-bold text-white font-serif">
+                {role.company}
+              </h3>
+              <span class="text-sm text-neutral/60">{role.location}</span>
+            </div>
+
+            <div class="flex flex-col md:flex-row md:items-baseline md:gap-4 mb-4">
+              <p class="text-gradient font-medium">{role.position}</p>
+              <span class="text-sm text-neutral font-mono">
+                {role.startDate} — {role.endDate}
+              </span>
+            </div>
+
+            {Array.isArray(role.summary) ? (
+              <ul class="space-y-2">
+                {role.summary.map((s) => (
+                  <li class="text-neutral text-base leading-relaxed">{s}</li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-neutral text-base leading-relaxed">
+                {role.summary}
+              </p>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

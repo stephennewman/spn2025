@@ -1,15 +1,15 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Stephen Newman — Marketing & Business Consultant",
+  title: "Stephen Newman — Marketing & Revenue Growth Executive",
   author: "Stephen Newman",
   description:
-    "Helping businesses grow through strategic marketing, website development, and sales optimization. From startups to established companies, I deliver results that drive revenue.",
+    "Marketing & Revenue Growth Executive scaling go-to-market engines for high-growth tech and SaaS companies. 15+ years of experience with multiple exits and acquisitions.",
   lang: "en",
   siteLogo: "/stephen_newman.jpeg",
   navLinks: [
-    { text: "Capabilities", href: "#services" },
-    { text: "Experience", href: "#results" },
+    { text: "Track Record", href: "#highlights" },
+    { text: "Experience", href: "#experience" },
     { text: "About", href: "#about" },
   ],
   socialLinks: [
@@ -24,108 +24,122 @@ export const SITE_CONFIG: SiteConfig = {
 export const SITE_CONTENT: SiteContent = {
   hero: {
     name: "Stephen Newman",
-    specialty: "Delivering big results on small budgets.",
+    title: "Marketing & Revenue Growth Executive",
     summary:
-      "I like to solve problems and implement ideas that generate more revenue. From defining strategy to executing tactical plans, I can add value across all touchpoints of the customer lifecycle and aim to achieve and exceed internal results in the most efficient way possible.",
+      "Scaling go-to-market engines for high-growth tech and SaaS companies. 15+ years leading marketing, sales alignment, and operational strategy. Early adopter of AI-driven business tools with a track record of multiple exits, acquisitions, and an IPO.",
     email: "stephen.p.newman@gmail.com",
   },
+  metrics: [
+    { value: "15+", label: "Years Experience" },
+    { value: "4", label: "Acquisitions & Exits" },
+    { value: "$156M", label: "Pipeline Generated" },
+    { value: "25x", label: "Lead Generation Growth" },
+  ],
+  highlights: [
+    {
+      company: "Eloqua",
+      role: "Field Marketing Manager",
+      period: "2012–2013",
+      outcome: "IPO → Acquired by Oracle",
+      highlight:
+        "Supported enterprise sales through multi-touch campaigns and marketing automation during the company's IPO and subsequent Oracle acquisition.",
+    },
+    {
+      company: "Aras Corp",
+      role: "Marketing Programs Manager",
+      period: "2013–2015",
+      outcome: "Acquired by GI Partners",
+      highlight:
+        "Grew pipeline from $60M to $156M in 20 months. Implemented marketing automation and segmentation strategies across North America.",
+    },
+    {
+      company: "Thought Industries",
+      role: "Director of Marketing",
+      period: "2015–2018",
+      outcome: "Acquired by Luminate Capital",
+      highlight:
+        "First marketing hire. Scaled from 15 to 50 employees and $9M ARR. Built inbound engine from <20 to 500+ leads/month.",
+    },
+    {
+      company: "Form.com",
+      role: "VP of Marketing",
+      period: "2018–2020",
+      outcome: "Acquired by Diversis Capital",
+      highlight:
+        "Promoted to VP within 90 days. Managed $2.5M budget and 20+ team across global marketing and BDRs.",
+    },
+  ],
   experience: [
     {
       company: "Checkit",
-      companyIcon: "/checkit_logo.jpeg",
+      location: "London, UK",
       position: "Head of Marketing",
       startDate: "Feb 2024",
       endDate: "Present",
       summary: [
-        "Recruited to run global marketing for a publicly traded temperature monitoring and workflow automation company based in London, England.",
-        "Currently leading all marketing activities as a team of one - website, lead generation, messaging & positioning, sales enablement, market research, and much more.",
-        "Recently found traction exploring new markets in the senior living space, adding more than $5 million in net new pipeline in less than 6 months.",
-        "In the process of rebuilding the company's operational processes and positioning to distinguish Checkit from the other vendors with an emphasis on 'Predictive Operations' messaging.",
-        "Still actively employed and working hard.",
+        "Recruited to run global marketing for a UK publicly traded company.",
+        "Repositioned products from compliance tools to predictive operations, leveraging AI-driven insights for enterprise clients.",
+        "Generated $5M+ new pipeline in 6 months campaigning in the senior living sector.",
       ],
     },
     {
       company: "Krezzo",
-      companyIcon: "/krezzo_logo.jpeg",
+      location: "Palm Harbor, FL",
       position: "Founder & CEO",
       startDate: "Jan 2021",
       endDate: "Jan 2024",
       summary: [
-        "Founded Krezzo to bring better experiences with Objectives & Key Results (OKRs) to B2B SaaS companies and operational leaders.",
-        "Raised over $500,000 across 12 investors and built an integrated SaaS and training product.",
-        "Signed eight B2B customers across 12 deals, generating $77,400 in revenue.",
-        "Attempted pivot in 2023 to an AI-powered voice-to-text automation platform, but seized full-time operations due to market dynamics.",
-        "Gained oceans of experience across fundraising, product, engineering, operations, finance, legal, sales, and more.",
+        "Founded SaaS company focused on OKRs and operational performance, later pivoting to AI-powered voice-to-text automation.",
+        "Raised $500K+ from 12 investors; built multiple products and prototypes.",
+        "Closed 12 customer deals, generating $77K ARR with multiple renewals.",
       ],
     },
     {
       company: "Form.com",
-      companyIcon: "/form_com_logo.jpeg",
+      location: "Braintree, MA",
       position: "VP of Marketing",
       startDate: "Nov 2018",
       endDate: "Dec 2020",
       summary: [
-        "Responsible for all global marketing and business development efforts.",
-        "Managed a $2.5 million budget and a team of 20+ marketers and BDRs.",
-        "Focused on attracting enterprise-level customers, optimizing the channel mix, and working closely with sales.",
-        "Promoted from Director of Demand Generation after delivering positive results in less than three months.",
-        "Involved in Form.com leadership group that successfully sold to private equity firm for almost $40 million",
+        "Promoted to VP within 90 days after joining as Director of Demand Generation.",
+        "Managed $2.5M marketing budget and 20+ team across global marketing and BDRs.",
+        "Member of Executive Leadership Team; company acquired by Diversis Capital.",
       ],
     },
     {
       company: "Thought Industries",
-      companyIcon: "/thought_industries_logo.jpeg",
+      location: "Boston, MA",
       position: "Director of Marketing",
       startDate: "Nov 2015",
       endDate: "Jul 2018",
       summary: [
-        "Hired as company's first marketer and 15th employee, helped scale to almost 50 employees and $9 million ARR.",
-        "Managed global marketing budget of over $1 million across PPC, Pay-Per-Lead, and partner channels with 45% attribution rate.",
-        "Improved lead generation from 20 leads per month to over 500 in 24 months, maintaining high quality with 30% handoff rate.",
-        "Marketing sourced opportunity pipeline reached almost $50 million.",
-        "Selected by co-founders for annual 'Ownership Award' and added to Leadership Team in 2017.",
+        "First marketing hire; scaled company from 15 to 50 employees and $9M ARR without venture funding.",
+        "Built inbound engine: increased leads from <20 to 500+/month; inbound contributed 80% of revenue.",
+        "Recognized with 'Ownership Award' by founders; company acquired by Luminate Capital.",
       ],
     },
     {
-      company: "Aras Corporation",
-      companyIcon: "/aras_corporation_logo.jpeg",
+      company: "Aras Corp",
+      location: "Andover, MA",
       position: "Marketing Programs Manager",
       startDate: "Dec 2013",
       endDate: "Oct 2015",
       summary: [
-        "Managed all North American marketing programs while focusing on improvement of internal sales and marketing operations.",
-        "Handled quarterly paid media plan including testing and optimizing paid search, retargeting, display advertising and paid email.",
-        "Managed implementation of marketing automation platform to boost user engagement and track anonymous web visitors.",
-        "Contributed to biggest bookings increase in company's 15-year history, growing from $11 million to $21 million year over year.",
-        "Pipeline increased from $60 million to $156 million in only 20 months.",
+        "Oversaw demand generation, analytics, and sales/marketing operations for North America.",
+        "Implemented marketing automation and segmentation strategies to improve engagement.",
+        "Increased pipeline from $60M to $156M within 20 months; company acquired by GI Partners.",
       ],
     },
     {
-      company: "Oracle",
-      companyIcon: "/oracle_logo.jpeg",
+      company: "Eloqua",
+      location: "Cambridge, MA",
       position: "Field Marketing Manager",
       startDate: "Mar 2012",
       endDate: "Nov 2013",
       summary: [
-        "Managed field marketing programs and events to support Northeast enterprise sales teams and business development counterparts.",
-        "Developed deal acceleration and conversion strategies to help move prospects through the buying cycle.",
-        "Served as marketing liaison for six Enterprise Applications Sales Managers, three BDRs, and one regional VP.",
-        "Used Eloqua marketing automation platform to create multi-touch campaigns for new rep onboarding.",
-        "Worked with internal marketing teams to build integrated campaigns, events, and programs for external use.",
-      ],
-    },
-    {
-      company: "D50 Media",
-      companyIcon: "/d50_media_logo.jpeg",
-      position: "Marketing Manager / Search Engine Specialist",
-      startDate: "Jul 2011",
-      endDate: "Feb 2012",
-      summary: [
-        "Managed every aspect of multiple national affiliate marketing partnerships while tracking and reporting on the quality of leads from vendors.",
-        "Recruited new affiliates and partners and implemented trial campaigns to assess quality. Affiliate marketing became the most cost effective channel for MQLs compared to SEO, SEM and Social.",
-        "Managed an annual paid search budget of over $800,000 across both Google Adwords and Microsoft Adcenter platforms.",
-        "Created, managed and analyzed paid search programs to ensure acquisition and conversion goals were met.",
-        "Handled keyword list generation, ad copy writing, bid management, landing page optimization and budget management.",
+        "Supported enterprise sales through events, campaigns, and marketing automation.",
+        "Created multi-touch campaigns, outbound prospecting templates, and content-driven programs.",
+        "Pipeline driver; involved in IPO and subsequent Oracle acquisition.",
       ],
     },
   ],
@@ -135,23 +149,18 @@ export const SITE_CONTENT: SiteContent = {
       degree: "MBA",
       field: "International Business",
       school: "Liberty University",
-      year: "2010-2012",
+      year: "2010–2012",
     },
     {
-      degree: "Bachelor of Arts",
+      degree: "B.A.",
       field: "Communications",
-      school: "Eastern Nazarene",
-      year: "2004-2008",
+      school: "Eastern Nazarene College",
+      year: "2004–2008",
     },
   ],
   about: {
-    description: `
-      With over 15 years of experience helping businesses grow, I've worked with everything from startups to Fortune 500 companies. I specialize in taking complex marketing challenges and turning them into simple, effective solutions that drive real results. My approach is hands-on and results-focused. I don't just provide strategies – I implement them. Whether you needing a complete marketing overhaul, a new website that converts, or sales training for your team to bring in more revenue, I bring the expertise and execution needed to level up a business.
-
-      I currently live in Palm Harbor, Florida with my wife, three girls and two dogs. In my spare time I enjoy boating, golfing, and going to the beach, to name a few.
-    `,
+    description:
+      "With 15+ years in B2B tech and SaaS, I've led marketing through multiple growth stages — from first marketing hire to managing global teams and multi-million dollar budgets. I've been part of four acquisitions and an IPO, and I'm an early adopter of AI tools for business. Currently leading global marketing at Checkit from Palm Harbor, Florida.",
     image: "/stephen_newman.jpeg",
   },
 };
-
-// Pink-Purple Gradient: #ec4899 to #8b5cf6

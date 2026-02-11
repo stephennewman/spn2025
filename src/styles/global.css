@@ -2,41 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom CSS Variables */
 :root {
   --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
   --font-serif: "Gabarito Variable", ui-serif, serif;
-  
-  --color-primary: linear-gradient(135deg, #ec4899, #8b5cf6);
+
+  --color-gradient: linear-gradient(135deg, #ec4899, #8b5cf6);
   --color-primary-solid: #ec4899;
   --color-neutral: #94a3b8;
   --color-white: #e2e8f0;
   --color-black: #0e141b;
 }
 
-/* Custom layer components */
 @layer components {
-  /* Custom gradient text styling */
-  .text-primary {
-    background: var(--color-primary);
+  .text-gradient {
+    background: var(--color-gradient);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
   }
 
-  /* Button gradient styling */
-  .bg-primary {
-    background: var(--color-primary);
-  }
-
-  /* Hover effects */
-  .hover\:bg-primary\/90:hover {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.9), rgba(139, 92, 246, 0.9));
+  .bg-gradient {
+    background: var(--color-gradient);
   }
 }
 
-/* Animation utilities */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
 @keyframes slide-in {
   10% {
     transform: translateY(-100%);
@@ -50,12 +55,11 @@
   animation: slide-in 600ms ease both;
 }
 
-/* Ensure proper font loading */
 @layer base {
   body {
     font-family: var(--font-sans);
   }
-  
+
   .font-serif {
     font-family: var(--font-serif);
   }
