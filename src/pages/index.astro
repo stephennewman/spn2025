@@ -1,20 +1,525 @@
 ---
-import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
-import Highlights from "../components/Highlights.astro";
 import Experience from "../components/Experience.astro";
 import Education from "../components/Education.astro";
-import About from "../components/About.astro";
-import CTA from "../components/CTA.astro";
-
 import "../styles/global.css";
+
+// Ordered by customer journey: Foundation → Execution → Results
+const problems = [
+  {
+    title: "Weak Messaging & Positioning",
+    description:
+      "You sound like every other vendor. Buyers can't articulate why you're different — because your team can't either.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />`,
+  },
+  {
+    title: "Outdated Tech Stack",
+    description:
+      "Legacy tools. Disconnected data. Manual processes that should have been automated years ago.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />`,
+  },
+  {
+    title: "Budget Inefficiency",
+    description:
+      "You're spending across 15 channels but only 3 matter. You just don't know which 3.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />`,
+  },
+  {
+    title: "Poor Source Attribution",
+    description:
+      "You can't tell which channels actually drive revenue. Every budget conversation becomes a political battle.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />`,
+  },
+  {
+    title: "Sales & Marketing Misalignment",
+    description:
+      "Marketing blames sales for not following up. Sales blames marketing for bad leads. Everyone is running their own plays.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z" />`,
+  },
+  {
+    title: "Pipeline Stagnation",
+    description:
+      "The same playbooks that worked two years ago aren't generating new opportunities. Your pipeline has plateaued.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6 9 12.75l4.286-4.286a11.948 11.948 0 0 1 4.306 6.43l.776 2.898m0 0 3.182-5.511m-3.182 5.51-5.511-3.181" />`,
+  },
+];
+
+// Maps 1:1 to problems above in the same order
+const solutions = [
+  {
+    title: "Cohesive Messaging",
+    description:
+      "One story, every touchpoint. Messaging frameworks that make buyers understand your value instantly and differentiate you from the noise.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />`,
+  },
+  {
+    title: "AI-Powered Applications",
+    description:
+      "Purpose-built AI tools that solve your specific GTM problems — not off-the-shelf software, but custom solutions for your use case.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />`,
+  },
+  {
+    title: "Market Sizing & Segmentation",
+    description:
+      "Rigorous TAM/SAM/SOM analysis. Focus budget on the segments that convert and stop wasting spend on the ones that won't.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />`,
+  },
+  {
+    title: "Data Visualizations & Insights",
+    description:
+      "Dashboards and analytics that turn chaos into clarity. See what's working, what's not, and where to double down.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />`,
+  },
+  {
+    title: "Cross-Functional Alignment",
+    description:
+      "Sales, marketing, and product speaking the same language, sharing the same data, and working toward the same revenue goals.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />`,
+  },
+  {
+    title: "Pipeline Generation & Acceleration",
+    description:
+      "End-to-end demand generation strategy — new channels, repeatable programs, and deal acceleration that moves pipeline from stalled to closed.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />`,
+  },
+];
+
+const process = [
+  {
+    step: "01",
+    title: "Understand",
+    description:
+      "Audit your current GTM motion — market, customers, channels, team structure, and competitive landscape. Identify what's working, what's broken, and what's missing entirely.",
+  },
+  {
+    step: "02",
+    title: "Prioritize",
+    description:
+      "Not everything needs fixing at once. Rank opportunities by impact, effort, and speed-to-revenue. Pick the high-leverage moves that unlock the most value fastest.",
+  },
+  {
+    step: "03",
+    title: "Execute",
+    description:
+      "Build and ship — messaging, campaigns, tools, processes. No 90-day strategy decks. Real work that hits the market and starts generating signal immediately.",
+  },
+  {
+    step: "04",
+    title: "Optimize",
+    description:
+      "Measure what matters. Double down on what converts. Kill what doesn't. Continuously tighten the loop between spend, pipeline, and revenue.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "What amazed me most about Stephen was his innate ability to always make the right decisions for the business. His decisions were always focused on producing the highest quality of leads even when it meant sacrificing his own goals. He scaled lead generation by over 500% and established a powerful marketing lead generation machine. Stephen is not the loudest person in the room but will make the most impact. Trust in his instincts, they won't disappoint.",
+    name: "Ryan Dillon",
+    title: "Head of Business Development, Thought Industries",
+  },
+  {
+    quote:
+      "He single-handedly brought our lead process and tracking up to date with current systems and approaches. He is smart, committed, persistent and metric-oriented. If you are looking to automate lead management, engage & nurture online users, and implement new technologies, Stephen is your guy.",
+    name: "Theresa Delfino",
+    title: "CMO, Aras Corp",
+  },
+  {
+    quote:
+      "When it comes to getting the job done — no matter how high the hurdle — Stephen is the person to turn to. He has not only helped drive real results for our largest territory, but has also become a well-respected and trusted partner to Sales. Stephen is creative, drives measurable results, and can diplomatically meet the needs of the most demanding salespeople. And that's a rare find.",
+    name: "Michael Martin",
+    title: "Director of Growth Marketing, Eloqua",
+  },
+  {
+    quote:
+      "When he came on board we were in desperate need for someone to run the Marketing team and he came in and made an impact from day one. He not only coordinated all key marketing functions professionally, but most importantly communicated and collaborated with our sales department. He developed a lead development program that supplied our team with much needed high quality MQLs. As demands increased he always hit his number.",
+    name: "Nick Pederson",
+    title: "Sales, Thought Industries",
+  },
+];
 ---
 
-<Layout>
-  <Hero />
-  <Highlights />
+<Layout
+  navLinks={[
+    { text: "Problems", href: "#problems" },
+    { text: "Solutions", href: "#solutions" },
+    { text: "Process", href: "#process" },
+    { text: "Experience", href: "#experience" },
+    { text: "Results", href: "#results" },
+  ]}
+  ctaButton={{
+    text: "Schedule Meeting",
+    href: "https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins",
+  }}
+>
+  <!-- Hero -->
+  <section class="pt-12 pb-24 md:pt-16 md:pb-32">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-8"
+      >
+        Go-to-Market Strategy & Execution
+      </p>
+
+      <h1
+        class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tightest text-white leading-none max-w-4xl"
+      >
+        Scale revenue.<br />
+        <span class="text-gradient">Not headcount.</span>
+      </h1>
+
+      <p class="max-w-2xl text-lg text-neutral mt-10 leading-relaxed">
+        I help B2B SaaS companies build and fix go-to-market engines that
+        generate real revenue — not just activity. 15+ years of experience. Four
+        acquisitions. One IPO.
+      </p>
+
+      <div class="mt-12">
+        <a
+          class="inline-block rounded-full bg-gradient px-8 py-4 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
+          href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Schedule Meeting
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo River -->
+  <section class="py-16 border-t border-white/5 overflow-hidden bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto px-6 mb-8">
+      <p class="text-sm uppercase tracking-[0.2em] text-neutral/40 font-medium text-center">
+        Companies I've helped grow
+      </p>
+    </div>
+    <div class="relative">
+      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-black to-transparent z-10"></div>
+      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-black to-transparent z-10"></div>
+      <div class="flex items-center gap-20 w-max" style="animation: marquee 25s linear infinite;">
+        {
+          [1, 2].map(() => (
+            <div class="flex items-center gap-20 shrink-0">
+              <img src="/eloqua_logo.png" alt="Eloqua" class="h-12 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-70 transition-opacity" />
+              <img src="/aras_logo.png" alt="Aras" class="h-12 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-70 transition-opacity" />
+              <img src="/ti_logo.webp" alt="Thought Industries" class="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-70 transition-opacity" />
+              <img src="/form_logo.png" alt="Form.com" class="h-12 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-70 transition-opacity" />
+              <img src="/krezzo_logo.png" alt="Krezzo" class="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-70 transition-opacity" />
+              <img src="/checkit_logo.svg" alt="Checkit" class="h-9 w-auto object-contain opacity-40 hover:opacity-70 transition-opacity" />
+              <img src="/d50_logo.webp" alt="D50 Media" class="h-10 w-auto object-contain brightness-0 invert opacity-40 hover:opacity-70 transition-opacity" />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Problems -->
+  <section id="problems" class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-red-400/80 font-medium mb-4"
+      >
+        Sound familiar?
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-white mb-16"
+      >
+        Problems I Solve
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          problems.map((p) => (
+            <div class="border border-red-500/20 rounded-2xl p-8 hover:border-red-500/40 transition-all duration-300">
+              <svg class="w-6 h-6 text-red-400/80 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <Fragment set:html={p.icon} />
+              </svg>
+              <h3 class="text-lg font-bold text-white mb-3">{p.title}</h3>
+              <p class="text-sm text-neutral leading-relaxed">
+                {p.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Solutions -->
+  <section id="solutions" class="py-24 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4"
+      >
+        What I bring
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-white mb-16"
+      >
+        Solutions I Provide
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          solutions.map((s) => (
+            <div class="border border-emerald-500/20 rounded-2xl p-8 hover:border-emerald-500/40 transition-all duration-300">
+              <svg class="w-6 h-6 text-emerald-400/80 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <Fragment set:html={s.icon} />
+              </svg>
+              <h3 class="text-lg font-bold text-white mb-3">{s.title}</h3>
+              <p class="text-sm text-neutral leading-relaxed">
+                {s.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4"
+      >
+        The approach
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-white mb-16"
+      >
+        How I Work
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          process.map((p) => (
+            <div class="relative">
+              <span class="text-6xl font-bold text-white/10 font-serif absolute -top-4 -left-2 select-none">
+                {p.step}
+              </span>
+              <div class="relative pt-8">
+                <h3 class="text-xl font-bold text-white mb-3">{p.title}</h3>
+                <p class="text-sm text-neutral leading-relaxed">
+                  {p.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="py-24 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4"
+      >
+        What others say
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-white mb-16"
+      >
+        Don't Take My Word For It
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          testimonials.map((t) => (
+            <div class="border border-white/10 rounded-2xl p-8">
+              <svg
+                class="w-8 h-8 text-white/10 mb-4"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z" />
+              </svg>
+              <p class="text-neutral text-sm leading-relaxed mb-6 italic">
+                "{t.quote}"
+              </p>
+              <div>
+                <p class="text-white font-medium text-sm">{t.name}</p>
+                <p class="text-neutral/60 text-xs">{t.title}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
   <Experience />
+
+  <!-- Education -->
   <Education />
-  <About />
-  <CTA />
+
+  <!-- Results -->
+  <section id="results" class="py-24 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4"
+      >
+        By the numbers
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-white mb-16"
+      >
+        Results
+      </h2>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight">15+</p>
+          <p class="text-sm text-neutral mt-2">Years in B2B SaaS</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight">4</p>
+          <p class="text-sm text-neutral mt-2">Acquisitions & exits</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight whitespace-nowrap">$1B+</p>
+          <p class="text-sm text-neutral mt-2">Pipeline generated</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight">25x</p>
+          <p class="text-sm text-neutral mt-2">Lead gen growth</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 mt-12 pt-12 border-t border-white/10">
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight">$5M+</p>
+          <p class="text-sm text-neutral mt-2">Pipeline in 6 months</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight">$2.5M</p>
+          <p class="text-sm text-neutral mt-2">Budget managed</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight">80%</p>
+          <p class="text-sm text-neutral mt-2">Revenue from inbound</p>
+        </div>
+        <div>
+          <p class="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight">$500K+</p>
+          <p class="text-sm text-neutral mt-2">Raised as founder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4"
+      >
+        You're probably wondering
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-white mb-16"
+      >
+        FAQ
+      </h2>
+
+      <div class="space-y-0 border-t border-white/10">
+        <details class="group border-b border-white/10">
+          <summary class="flex items-center justify-between cursor-pointer py-6 text-white font-medium text-lg hover:text-primary transition-colors">
+            Are you comfortable working for CEOs?
+            <span class="text-neutral group-open:rotate-45 transition-transform duration-200 text-2xl leading-none">+</span>
+          </summary>
+          <p class="pb-6 text-neutral leading-relaxed -mt-1">Yes.</p>
+        </details>
+
+        <details class="group border-b border-white/10">
+          <summary class="flex items-center justify-between cursor-pointer py-6 text-white font-medium text-lg hover:text-primary transition-colors">
+            How do you make decisions?
+            <span class="text-neutral group-open:rotate-45 transition-transform duration-200 text-2xl leading-none">+</span>
+          </summary>
+          <p class="pb-6 text-neutral leading-relaxed -mt-1">Combination of data-based analysis and my internal spidey sense.</p>
+        </details>
+
+        <details class="group border-b border-white/10">
+          <summary class="flex items-center justify-between cursor-pointer py-6 text-white font-medium text-lg hover:text-primary transition-colors">
+            What is your weakness?
+            <span class="text-neutral group-open:rotate-45 transition-transform duration-200 text-2xl leading-none">+</span>
+          </summary>
+          <p class="pb-6 text-neutral leading-relaxed -mt-1">Answering boring interview questions.</p>
+        </details>
+
+        <details class="group border-b border-white/10">
+          <summary class="flex items-center justify-between cursor-pointer py-6 text-white font-medium text-lg hover:text-primary transition-colors">
+            Why do you like marketing?
+            <span class="text-neutral group-open:rotate-45 transition-transform duration-200 text-2xl leading-none">+</span>
+          </summary>
+          <p class="pb-6 text-neutral leading-relaxed -mt-1">Because I don't want to carry a quota.</p>
+        </details>
+
+        <details class="group border-b border-white/10">
+          <summary class="flex items-center justify-between cursor-pointer py-6 text-white font-medium text-lg hover:text-primary transition-colors">
+            Do you use AI?
+            <span class="text-neutral group-open:rotate-45 transition-transform duration-200 text-2xl leading-none">+</span>
+          </summary>
+          <p class="pb-6 text-neutral leading-relaxed -mt-1">Yes. The site you're looking at — I built it in about 17 minutes with AI.</p>
+        </details>
+
+        <details class="group border-b border-white/10">
+          <summary class="flex items-center justify-between cursor-pointer py-6 text-white font-medium text-lg hover:text-primary transition-colors">
+            What's your superpower?
+            <span class="text-neutral group-open:rotate-45 transition-transform duration-200 text-2xl leading-none">+</span>
+          </summary>
+          <p class="pb-6 text-neutral leading-relaxed -mt-1">I'm not the loudest person in the room, but I'll make the most impact. Just ask Ryan Dillon.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 md:py-32 bg-white/[0.02]">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
+        Ready to scale your GTM engine?
+      </h2>
+      <p class="text-lg text-neutral mb-10 max-w-xl mx-auto">
+        Book a strategy call to discuss your pipeline, positioning, and path to
+        revenue growth.
+      </p>
+      <a
+        class="inline-block rounded-full bg-gradient px-10 py-5 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
+        href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Schedule Meeting
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-white mb-12"
+      >
+        About Stephen
+      </h2>
+
+      <div class="flex flex-col md:flex-row gap-12 items-start">
+        <p class="text-lg text-neutral leading-relaxed flex-1">
+          With 15+ years in B2B tech and SaaS, I've led marketing through multiple growth stages — from first marketing hire to managing global teams and multi-million dollar budgets. I've been part of four acquisitions and an IPO, and I'm an early adopter of AI tools for business. Currently leading global marketing at Checkit from Palm Harbor, Florida.
+        </p>
+        <div class="flex-shrink-0">
+          <img
+            class="rounded-2xl object-cover w-64 h-64"
+            src="/stephen_newman.jpeg"
+            alt="Stephen Newman"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
