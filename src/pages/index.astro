@@ -559,64 +559,6 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- Featured Work -->
-  <section id="work" class="py-24 bg-surface">
-    <div class="max-w-5xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        Proof, not promises
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
-      >
-        Featured Work
-      </h2>
-      <p class="text-neutral max-w-2xl mb-16 reveal">
-        Things I've built and shipped, not just managed.
-      </p>
-
-      <div class="grid grid-cols-1 gap-6">
-        {
-          work.map((w) => (
-            <div class="reveal bg-white border border-ink/5 rounded-2xl p-8 md:p-10 shadow-sm">
-              <div class="flex flex-wrap gap-2 mb-5">
-                {w.tags.map((tag) => (
-                  <span class="text-xs font-medium uppercase tracking-wider text-violet-600 bg-violet-50 border border-violet-200/70 rounded-full px-3 py-1">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h3 class="font-serif text-2xl font-bold text-ink mb-3">
-                {w.title}
-              </h3>
-              <p class="text-neutral leading-relaxed mb-3 max-w-3xl">
-                {w.description}
-              </p>
-              <p class="text-sm text-ink font-medium mb-6">{w.proof}</p>
-              <div class="flex flex-wrap gap-4">
-                {w.links.map((link, i) => (
-                  <a
-                    class={
-                      i === 0
-                        ? "inline-block rounded-full bg-gradient px-6 py-3 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
-                        : "inline-block rounded-full border border-ink/15 px-6 py-3 text-sm font-medium text-ink hover:border-ink/40 transition-colors"
-                    }
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.text}
-                  </a>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
   <!-- Results -->
   <section id="results" class="py-24 bg-gradient-to-br from-violet-50/70 via-white to-pink-50/70">
     <div class="max-w-5xl mx-auto px-6">
@@ -713,6 +655,64 @@ const faqSchema = {
     </div>
   </section>
 
+  <!-- Featured Project -->
+  <section id="work" class="py-24 bg-gradient-to-br from-pink-50/70 via-white to-violet-50/70">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
+      >
+        Proof, not promises
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
+      >
+        Featured Project
+      </h2>
+      <p class="text-neutral max-w-2xl mb-16 reveal">
+        Things I've built and shipped, not just managed.
+      </p>
+
+      <div class="grid grid-cols-1 gap-6">
+        {
+          work.map((w) => (
+            <div class="reveal bg-white border border-ink/5 rounded-2xl p-8 md:p-10 shadow-sm">
+              <div class="flex flex-wrap gap-2 mb-5">
+                {w.tags.map((tag) => (
+                  <span class="text-xs font-medium uppercase tracking-wider text-violet-600 bg-violet-50 border border-violet-200/70 rounded-full px-3 py-1">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-ink mb-3">
+                {w.title}
+              </h3>
+              <p class="text-neutral leading-relaxed mb-3 max-w-3xl">
+                {w.description}
+              </p>
+              <p class="text-sm text-ink font-medium mb-6">{w.proof}</p>
+              <div class="flex flex-wrap gap-4">
+                {w.links.map((link, i) => (
+                  <a
+                    class={
+                      i === 0
+                        ? "inline-block rounded-full bg-gradient px-6 py-3 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
+                        : "inline-block rounded-full border border-ink/15 px-6 py-3 text-sm font-medium text-ink hover:border-ink/40 transition-colors"
+                    }
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section id="faq" class="py-24">
     <div class="max-w-5xl mx-auto px-6">
@@ -797,14 +797,20 @@ const faqSchema = {
       </h2>
 
       <div class="flex flex-col md:flex-row gap-12 items-start reveal">
-        <p class="text-lg text-neutral leading-relaxed flex-1">
-          With 15+ years in B2B tech and SaaS, I've led marketing through
-          multiple growth stages, from first marketing hire to managing global
-          teams and multi-million dollar budgets. I've been part of four
-          acquisitions and an IPO, and I'm an advanced AI operator who builds
-          with these tools daily. Currently leading global marketing at Checkit
-          from Palm Harbor, Florida.
-        </p>
+        <div class="flex-1 space-y-6">
+          <p class="text-lg text-neutral leading-relaxed">
+            With 15+ years in B2B tech and SaaS, I've led marketing through
+            multiple growth stages, from first marketing hire to managing
+            global teams and multi-million dollar budgets. I've been part of
+            four acquisitions and an IPO, and I'm an advanced AI operator who
+            builds with these tools daily. Currently leading global marketing
+            at Checkit from Palm Harbor, Florida.
+          </p>
+          <p class="text-lg text-neutral leading-relaxed">
+            I live in Palm Harbor, FL with my wife Whitney and our four girls.
+            I enjoy golfing, going to the beach, and traveling to new places.
+          </p>
+        </div>
         <div class="flex-shrink-0">
           <img
             class="rounded-2xl object-cover w-64 h-64"
