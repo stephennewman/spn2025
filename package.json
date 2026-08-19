@@ -12,6 +12,7 @@
     "next-build": "next build"
   },
   "dependencies": {
+    "@astrojs/sitemap": "3.2.1",
     "@astrojs/tailwind": "^5.0.0",
     "@fontsource-variable/funnel-display": "^5.3.0",
     "@fontsource-variable/funnel-sans": "^5.3.0",

@@ -18,7 +18,7 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "Phone", href: "tel:617.347.2721" },
   ],
   socialImage: "/stephen_newman.jpeg",
-  canonicalURL: "https://stephennewman.me",
+  canonicalURL: "https://www.stephennewman.me",
 };
 
 export const SITE_CONTENT: SiteContent = {

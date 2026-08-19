@@ -176,6 +176,78 @@ const faqs = [
     a: "I'm not the loudest person in the room, but I'll make the most impact. Just ask Ryan Dillon.",
   },
 ];
+
+// Shipped proof for the claims above. Add more entries as links become available.
+const work = [
+  {
+    tags: ["AI Application", "Product Prototyping", "AEO"],
+    title: "Context Memo",
+    description:
+      "I founded and built Context Memo, an AEO platform that publishes citation-grade content so brands get cited in ChatGPT and other AI answers. Product, positioning, and go-to-market, end to end.",
+    proof:
+      "Case study: 2,500+ sourced ChatGPT citations and attributed pipeline deals for a client in under 100 days.",
+    links: [
+      {
+        text: "Read the Formula Inbox case study",
+        href: "https://contextmemo.com/case-studies/formula-inbox",
+      },
+      { text: "contextmemo.com", href: "https://contextmemo.com" },
+    ],
+  },
+];
+
+const resumeUrl = "/Stephen-Newman-Resume-Aug-2026.pdf";
+
+// Structured data for search engines and AI answer engines
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Stephen Newman",
+  jobTitle: "GTM Executive & Growth Marketer",
+  description:
+    "GTM executive and growth marketer with 15+ years leading marketing, sales alignment, technology, and operational strategy for B2B SaaS companies. Track record includes multiple exits, acquisitions, and an IPO.",
+  url: "https://www.stephennewman.me",
+  image: "https://www.stephennewman.me/stephen_newman.jpeg",
+  email: "mailto:stephen.p.newman@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Palm Harbor",
+    addressRegion: "FL",
+    addressCountry: "US",
+  },
+  sameAs: [
+    "http://www.linkedin.com/in/stephennewman1",
+    "https://contextmemo.com",
+  ],
+  worksFor: { "@type": "Organization", name: "Checkit" },
+  alumniOf: [
+    { "@type": "CollegeOrUniversity", name: "Liberty University" },
+    { "@type": "CollegeOrUniversity", name: "Eastern Nazarene College" },
+  ],
+  knowsAbout: [
+    "Go-to-market strategy",
+    "Demand generation",
+    "PPC",
+    "SEO",
+    "Answer engine optimization (AEO)",
+    "Channel marketing mix",
+    "Marketing operations",
+    "OKRs",
+    "Product prototyping",
+    "Data visualization",
+    "B2B SaaS marketing",
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
 ---
 
 <Layout
@@ -183,6 +255,7 @@ const faqs = [
     { text: "Problems", href: "#problems" },
     { text: "Solutions", href: "#solutions" },
     { text: "Process", href: "#process" },
+    { text: "Work", href: "#work" },
     { text: "Results", href: "#results" },
     { text: "Experience", href: "#experience" },
   ]}
@@ -191,6 +264,9 @@ const faqs = [
     href: "https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins",
   }}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   <!-- Hero -->
   <section class="relative pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden">
     <!-- Decorative funnel: the shape the whole site rallies behind -->
@@ -229,7 +305,7 @@ const faqs = [
         operator.
       </p>
 
-      <div class="mt-12">
+      <div class="mt-12 flex flex-wrap items-center gap-4">
         <a
           class="inline-block rounded-full bg-gradient px-8 py-4 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
           href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
@@ -237,6 +313,13 @@ const faqs = [
           rel="noopener noreferrer"
         >
           Schedule Meeting
+        </a>
+        <a
+          class="inline-block rounded-full bg-ink px-8 py-4 text-sm font-medium text-[#fff] hover:bg-ink/80 transition-colors"
+          href={resumeUrl}
+          download
+        >
+          Download Resume
         </a>
       </div>
     </div>
@@ -386,6 +469,64 @@ const faqs = [
     </div>
   </section>
 
+  <!-- Featured Work -->
+  <section id="work" class="py-24 bg-surface">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
+      >
+        Proof, not promises
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
+      >
+        Featured Work
+      </h2>
+      <p class="text-neutral max-w-2xl mb-16 reveal">
+        Things I've built and shipped, not just managed.
+      </p>
+
+      <div class="grid grid-cols-1 gap-6">
+        {
+          work.map((w) => (
+            <div class="reveal bg-white border border-ink/5 rounded-2xl p-8 md:p-10 shadow-sm">
+              <div class="flex flex-wrap gap-2 mb-5">
+                {w.tags.map((tag) => (
+                  <span class="text-xs font-medium uppercase tracking-wider text-violet-600 bg-violet-50 border border-violet-200/70 rounded-full px-3 py-1">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-ink mb-3">
+                {w.title}
+              </h3>
+              <p class="text-neutral leading-relaxed mb-3 max-w-3xl">
+                {w.description}
+              </p>
+              <p class="text-sm text-ink font-medium mb-6">{w.proof}</p>
+              <div class="flex flex-wrap gap-4">
+                {w.links.map((link, i) => (
+                  <a
+                    class={
+                      i === 0
+                        ? "inline-block rounded-full bg-gradient px-6 py-3 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
+                        : "inline-block rounded-full border border-ink/15 px-6 py-3 text-sm font-medium text-ink hover:border-ink/40 transition-colors"
+                    }
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link.text}
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- Results -->
   <section id="results" class="py-24 bg-gradient-to-br from-violet-50/70 via-white to-pink-50/70">
     <div class="max-w-5xl mx-auto px-6">
@@ -410,7 +551,7 @@ const faqs = [
           <p class="text-sm text-neutral mt-2">Acquisitions & exits</p>
         </div>
         <div>
-          <p class="text-4xl md:text-5xl font-bold text-gradient font-serif tracking-tight whitespace-nowrap">$1B+</p>
+          <p class="text-4xl md:text-5xl font-bold text-gradient font-serif tracking-tight whitespace-nowrap">$100M+</p>
           <p class="text-sm text-neutral mt-2">Pipeline generated</p>
         </div>
         <div>
@@ -529,20 +670,29 @@ const faqs = [
 
     <div class="max-w-5xl mx-auto px-6 text-center relative">
       <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
-        Ready to scale your GTM engine?
+        Hiring a GTM leader?
       </h2>
       <p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto">
-        Book a strategy call to discuss your pipeline, positioning, and path to
-        revenue growth.
+        If you need someone to own marketing, pipeline, and revenue growth,
+        let's talk. Or grab the resume first.
       </p>
-      <a
-        class="inline-block rounded-full bg-gradient px-10 py-5 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
-        href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Schedule Meeting
-      </a>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a
+          class="inline-block rounded-full bg-gradient px-10 py-5 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
+          href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Schedule Meeting
+        </a>
+        <a
+          class="inline-block rounded-full border border-white/30 px-10 py-5 text-sm font-medium text-[#fff] hover:border-white/60 transition-colors"
+          href={resumeUrl}
+          download
+        >
+          Download Resume
+        </a>
+      </div>
     </div>
   </section>
 
