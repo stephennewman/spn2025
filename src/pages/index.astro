@@ -93,6 +93,50 @@ const solutions = pairs.map((p, i) => ({
   fixes: p.problem.title,
 }));
 
+// Full-funnel capabilities, top of funnel to post-sale. Widths echo the funnel motif.
+const funnelStages = [
+  {
+    stage: "Create Demand",
+    width: "lg:w-full",
+    items: [
+      "Awareness campaigns",
+      "Product launches",
+      "PPC, SEO & AEO",
+      "Competitive intelligence",
+    ],
+  },
+  {
+    stage: "Capture & Convert",
+    width: "lg:w-[85%]",
+    items: [
+      "Conversion offers",
+      "Nurture tracks",
+      "Calculators & interactive tools",
+      "Marketing programs",
+    ],
+  },
+  {
+    stage: "Enable the Close",
+    width: "lg:w-[70%]",
+    items: [
+      "Sales presentations",
+      "Sales tools & training",
+      "Custom materials",
+      "Funnel velocity enhancement",
+    ],
+  },
+  {
+    stage: "Expand & Re-engage",
+    width: "lg:w-[55%]",
+    items: [
+      "Customer expansion programs",
+      "Closed-lost re-engagement",
+      "Customer messaging",
+      "Product prototypes",
+    ],
+  },
+];
+
 // Funnel-stage widths for the "How I Work" steps
 const process = [
   {
@@ -294,15 +338,16 @@ const faqSchema = {
       <h1
         class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tightest text-ink leading-none max-w-4xl"
       >
-        Grow pipeline.<br />
-        <span class="text-gradient">Not headcount.</span>
+        Fill the pipeline.<br />
+        <span class="text-gradient">Enable the close.</span>
       </h1>
 
       <p class="max-w-2xl text-lg text-neutral mt-10 leading-relaxed">
-        I build pipeline engines for B2B SaaS companies. Go-to-market strategy
-        and hands-on execution that generate real pipeline, not just activity.
-        15+ years of experience. Four acquisitions. One IPO. Advanced AI
-        operator.
+        I build full-funnel GTM engines for B2B SaaS companies: awareness that
+        fills the top, offers and nurture that move deals through the middle,
+        and the tools and training that help closers close. Pipeline growth
+        without extra overhead, and without the noise. 15+ years of
+        experience. Four acquisitions. One IPO. Advanced AI operator.
       </p>
 
       <div class="mt-12 flex flex-wrap items-center gap-4">
@@ -427,6 +472,50 @@ const faqSchema = {
               <p class="text-xs text-neutral/60">
                 Fixes: <span class="text-rose-400">{s.fixes}</span>
               </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Across the Funnel -->
+  <section id="funnel" class="py-24 bg-surface">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
+      >
+        Top to bottom
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
+      >
+        Across the Funnel
+      </h2>
+      <p class="text-neutral max-w-2xl mb-16 reveal">
+        Pipeline isn't one stage. I build programs at every layer, from first
+        touch to closed-won and beyond.
+      </p>
+
+      <div class="flex flex-col items-center gap-4">
+        {
+          funnelStages.map((s, i) => (
+            <div
+              class={`reveal w-full ${s.width} bg-white border border-ink/5 rounded-2xl p-6 md:p-8 shadow-sm`}
+            >
+              <div class="flex items-center gap-3 mb-4">
+                <span class="text-xs font-mono text-gradient select-none">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 class="text-lg font-bold text-ink">{s.stage}</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                {s.items.map((item) => (
+                  <span class="text-sm text-neutral bg-surface border border-ink/5 rounded-full px-4 py-1.5">
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           ))
         }
@@ -673,8 +762,8 @@ const faqSchema = {
         Hiring a GTM leader?
       </h2>
       <p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto">
-        If you need someone to own marketing and pipeline growth, let's talk.
-        Or grab the resume first.
+        Let's fill the pipeline at every stage and enable your closers to
+        close. Or grab the resume first.
       </p>
       <div class="flex flex-wrap items-center justify-center gap-4">
         <a
