@@ -196,28 +196,34 @@ const testimonials = [
   },
 ];
 
-const faqs = [
-  { q: "Are you comfortable working for CEOs?", a: "Yes." },
+const facts = [
   {
-    q: "How do you make decisions?",
-    a: "Combination of data-based analysis and my internal spidey sense.",
-  },
-  { q: "What is your weakness?", a: "Answering boring interview questions." },
-  {
-    q: "What's your education?",
-    a: "MBA in International Business from Liberty University, and a B.A. in Communications from Eastern Nazarene College.",
+    title: "Working with CEOs",
+    body: "Comfortable reporting directly to CEOs and founders. I've done it for most of my career.",
   },
   {
-    q: "Why do you like marketing?",
-    a: "It's a function that covers a lot of ground and has unlimited possibilities to create value for others.",
+    title: "Decision making",
+    body: "A combination of data-based analysis and my internal spidey sense.",
   },
   {
-    q: "Do you use AI?",
-    a: "Yes. I built the site you're looking at in about 17 minutes with AI.",
+    title: "Weakness",
+    body: "Boring interview questions.",
   },
   {
-    q: "What's your superpower?",
-    a: "I'm not the loudest person in the room, but I'll make the most impact. Just ask Ryan Dillon.",
+    title: "Education",
+    body: "MBA in International Business from Liberty University, and a B.A. in Communications from Eastern Nazarene College.",
+  },
+  {
+    title: "Why marketing",
+    body: "It's a function that covers a lot of ground and has unlimited possibilities to create value for others.",
+  },
+  {
+    title: "AI",
+    body: "I use it every day. I built the site you're looking at in about 17 minutes with AI.",
+  },
+  {
+    title: "Superpower",
+    body: "I'm not the loudest person in the room, but I'll make the most impact. Just ask Ryan Dillon.",
   },
 ];
 
@@ -283,15 +289,6 @@ const personSchema = {
   ],
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
 ---
 
 <Layout
@@ -309,7 +306,6 @@ const faqSchema = {
   }}
 >
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- Hero -->
   <section class="relative pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden">
@@ -405,7 +401,7 @@ const faqSchema = {
       <p
         class="text-sm uppercase tracking-[0.2em] text-rose-500 font-medium mb-4 reveal"
       >
-        Sound familiar?
+        These will sound familiar
       </p>
       <h2
         class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
@@ -713,32 +709,27 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- Good to Know -->
   <section id="faq" class="py-24">
     <div class="max-w-5xl mx-auto px-6">
       <p
         class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
       >
-        You're probably wondering
+        For the record
       </p>
       <h2
         class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-16 reveal"
       >
-        FAQ
+        Good to Know
       </h2>
 
       <div class="space-y-0 border-t border-ink/10 reveal">
         {
-          faqs.map((f) => (
-            <details class="group border-b border-ink/10">
-              <summary class="flex items-center justify-between cursor-pointer py-6 text-ink font-medium text-lg hover:text-primary transition-colors">
-                {f.q}
-                <span class="text-neutral group-open:rotate-45 transition-transform duration-200 text-2xl leading-none">
-                  +
-                </span>
-              </summary>
-              <p class="pb-6 text-neutral leading-relaxed -mt-1">{f.a}</p>
-            </details>
+          facts.map((f) => (
+            <div class="grid md:grid-cols-[14rem_1fr] gap-1 md:gap-8 border-b border-ink/10 py-6">
+              <p class="text-ink font-medium text-lg">{f.title}</p>
+              <p class="text-neutral leading-relaxed">{f.body}</p>
+            </div>
           ))
         }
       </div>
@@ -760,7 +751,7 @@ const faqSchema = {
 
     <div class="max-w-5xl mx-auto px-6 text-center relative">
       <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
-        Hiring a GTM leader?
+        Hire a GTM leader who ships.
       </h2>
       <p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto">
         Let's fill the pipeline at every stage and enable your closers to
