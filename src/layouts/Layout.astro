@@ -1,7 +1,7 @@
 ---
 import Header from "../components/Header.astro";
-import "@fontsource/be-vietnam-pro";
-import "@fontsource-variable/gabarito";
+import "@fontsource-variable/funnel-sans";
+import "@fontsource-variable/funnel-display";
 import { SITE_CONFIG } from "../config/index.ts";
 import Footer from "../components/Footer.astro";
 import Analytics from "@vercel/analytics/astro";
@@ -36,7 +36,7 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/sn_favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
@@ -51,12 +51,28 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
   </head>
-  <body class="bg-black font-sans">
+  <body class="bg-white font-sans text-neutral">
     <Header siteLogo={siteLogo} navLinks={navLinks} ctaButton={ctaButton} />
     <main>
       <slot />
     </main>
     <Footer author={author} socialLinks={socialLinks} />
     <Analytics />
+    <script>
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => revealObserver.observe(el));
+    </script>
   </body>
 </html>

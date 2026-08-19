@@ -9,13 +9,15 @@ module.exports = {
     extend: {
       colors: {
         primary: '#ec4899', // Pink color from the gradient
-        neutral: '#94a3b8', // Slate gray
-        white: '#e2e8f0',   // Light gray-white
-        black: '#0e141b',   // Dark black
+        neutral: '#475569', // Slate-600 — body text on light background
+        ink: '#0f172a',     // Slate-900 — headings / dark text
+        white: '#ffffff',
+        black: '#0e141b',   // Legacy dark (kept for stray references)
+        surface: '#f6f7fb', // Soft alternating section background
       },
       fontFamily: {
-        sans: ['Be Vietnam Pro', 'system-ui', 'sans-serif'],
-        serif: ['Gabarito Variable', 'ui-serif', 'serif'],
+        sans: ['Funnel Sans Variable', 'system-ui', 'sans-serif'],
+        serif: ['Funnel Display Variable', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         'tightest': '-2px',

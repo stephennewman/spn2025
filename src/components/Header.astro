@@ -9,7 +9,7 @@ const { siteLogo, navLinks, ctaButton } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 animate-slide-in bg-black/80 backdrop-blur-lg border-b border-white/5"
+  class="sticky top-0 z-50 animate-slide-in bg-white/85 backdrop-blur-lg border-b border-ink/5"
 >
   <div class="relative mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
     <a href="/" aria-label="Home link">
@@ -39,7 +39,7 @@ const { siteLogo, navLinks, ctaButton } = Astro.props;
             navLinks.map((link) => (
               <li class="relative">
                 <a
-                  class={`nav-item relative block p-2 text-sm font-medium text-neutral transition-all duration-300 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
+                  class={`nav-item relative block p-2 text-sm font-medium text-neutral transition-all duration-300 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-ink`}
                   href={link.href}
                 >
                   {link.text}
@@ -64,7 +64,7 @@ const { siteLogo, navLinks, ctaButton } = Astro.props;
 
     <!-- Mobile nav -->
     <nav
-      class="absolute top-full right-6 mt-2 hidden rounded-xl border border-white/10 bg-black/95 backdrop-blur-lg px-4 py-5 text-neutral sm:hidden"
+      class="absolute top-full right-6 mt-2 hidden rounded-xl border border-ink/10 bg-white/95 backdrop-blur-lg px-4 py-5 text-neutral shadow-lg sm:hidden"
       id="mobile-menu"
     >
       <ul class="space-y-1">
@@ -72,7 +72,7 @@ const { siteLogo, navLinks, ctaButton } = Astro.props;
           navLinks.map((link) => (
             <li>
               <a
-                class="mobile-nav-item block p-2 text-sm font-medium transition-all duration-300 hover:text-white"
+                class="mobile-nav-item block p-2 text-sm font-medium transition-all duration-300 hover:text-ink"
                 href={link.href}
               >
                 {link.text}
@@ -81,7 +81,7 @@ const { siteLogo, navLinks, ctaButton } = Astro.props;
           ))
         }
         {ctaButton && (
-          <li class="pt-3 mt-3 border-t border-white/10">
+          <li class="pt-3 mt-3 border-t border-ink/10">
             <a
               class="block rounded-full bg-gradient px-5 py-2.5 text-xs font-medium text-[#fff] text-center hover:opacity-90 transition-opacity"
               href={ctaButton.href}
@@ -122,9 +122,9 @@ const { siteLogo, navLinks, ctaButton } = Astro.props;
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("href") === `#${entry.target.id}`) {
-              item.classList.add("text-white", "md:after:opacity-100");
+              item.classList.add("text-ink", "md:after:opacity-100");
             } else {
-              item.classList.remove("text-white", "md:after:opacity-100");
+              item.classList.remove("text-ink", "md:after:opacity-100");
             }
           });
         }

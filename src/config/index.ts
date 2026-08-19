@@ -1,10 +1,10 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Stephen Newman — Marketing & Revenue Growth Executive",
+  title: "Stephen Newman — GTM Executive & Growth Marketer",
   author: "Stephen Newman",
   description:
-    "Marketing & Revenue Growth Executive scaling go-to-market engines for high-growth tech and SaaS companies. 15+ years of experience with multiple exits and acquisitions.",
+    "GTM Executive & Growth Marketer. Builder of revenue engines and advanced AI operator. 15+ years leading marketing, sales alignment, technology, and operational strategy — with multiple exits, acquisitions, and an IPO.",
   lang: "en",
   siteLogo: "/stephen_newman.jpeg",
   navLinks: [
@@ -77,9 +77,9 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Feb 2024",
       endDate: "Present",
       summary: [
-        "Recruited to run global marketing for a UK publicly traded company.",
-        "Repositioned products from compliance tools to predictive operations, leveraging AI-driven insights for enterprise clients.",
-        "Generated $5M+ new pipeline in 6 months campaigning in the senior living sector.",
+        "Recruited to run global marketing and \"get profitable\" — achieved in 2026.",
+        "Repositioned company from compliance/checklist tools to predictive operations, leveraging AI-driven insights for enterprise clients and multi-site locations.",
+        "Stacked GTM US resources (exec, sales, marketing, SDR) on the senior living sector and generated $5M+ new pipeline in 6 months.",
       ],
     },
     {
@@ -113,9 +113,9 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Nov 2015",
       endDate: "Jul 2018",
       summary: [
-        "First marketing hire; scaled company from 15 to 50 employees and $9M ARR without venture funding.",
-        "Built inbound engine: increased leads from <20 to 500+/month; inbound contributed 80% of revenue.",
-        "Recognized with 'Ownership Award' by founders; company acquired by Luminate Capital.",
+        "First marketing hire; scaled company from 15 to 50 employees and <$1M to ~$10M ARR without venture funding.",
+        "Built inbound engine: increased leads from <20 to 500+/month; inbound contributed 80% of pipeline and ultimately revenue.",
+        "Recognized with 'Ownership Award' by founders, who later became investors in Krezzo; company acquired by Luminate Capital.",
       ],
     },
     {
@@ -125,8 +125,8 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Dec 2013",
       endDate: "Oct 2015",
       summary: [
-        "Oversaw demand generation, analytics, and sales/marketing operations for North America.",
-        "Implemented marketing automation and segmentation strategies to improve engagement.",
+        "Oversaw demand generation, analytics, and sales/marketing operations for North America — and successfully championed a push for \"ungating all content\".",
+        "Led email platform migration to streamline promotion of a monthly demo series that grew to 200+ registrants a month.",
         "Increased pipeline from $60M to $156M within 20 months; company acquired by GI Partners.",
       ],
     },

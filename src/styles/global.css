@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: "Be Vietnam Pro", system-ui, sans-serif;
-  --font-serif: "Gabarito Variable", ui-serif, serif;
+  --font-sans: "Funnel Sans Variable", system-ui, sans-serif;
+  --font-serif: "Funnel Display Variable", system-ui, sans-serif;
 
   --color-gradient: linear-gradient(135deg, #ec4899, #8b5cf6);
   --color-primary-solid: #ec4899;
-  --color-neutral: #94a3b8;
-  --color-white: #e2e8f0;
-  --color-black: #0e141b;
+  --color-neutral: #475569;
+  --color-ink: #0f172a;
 }
 
 @layer components {
@@ -35,13 +34,6 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
-
 @keyframes slide-in {
   10% {
     transform: translateY(-100%);
@@ -53,6 +45,33 @@
 
 .animate-slide-in {
   animation: slide-in 600ms ease both;
+}
+
+/* Scroll-reveal: elements with .reveal fade/slide in when they enter the viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 @layer base {
