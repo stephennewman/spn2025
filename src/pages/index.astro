@@ -334,72 +334,95 @@ const personSchema = {
   <!-- Hero -->
   <section class="relative pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden">
     <div class="max-w-5xl mx-auto px-6 relative">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-8"
-      >
-        GTM Executive & Growth Marketer
-      </p>
+      <div class="lg:grid lg:grid-cols-[1fr_14rem] lg:gap-16 lg:items-center">
+        <div>
+          <p
+            class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-8"
+          >
+            GTM Executive & Growth Marketer
+          </p>
 
-      <h1
-        class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tightest text-ink leading-none max-w-4xl"
-      >
-        Fill the pipeline.<br />
-        <span class="text-gradient">Enable the close.</span>
-      </h1>
+          <h1
+            class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tightest text-ink leading-none"
+          >
+            Fill the pipeline.<br />
+            <span class="text-gradient">Enable the close.</span>
+          </h1>
 
-      <p class="max-w-2xl text-lg text-neutral mt-10 leading-relaxed">
-        I build full-funnel GTM engines for B2B SaaS companies: awareness that
-        fills the top, offers and nurture that move deals through the middle,
-        and the tools and training that help closers close. Pipeline growth
-        without extra overhead, and without the noise. 15+ years of
-        experience. Four acquisitions. One IPO. Advanced AI operator.
-      </p>
+          <p class="max-w-2xl text-lg text-neutral mt-10 leading-relaxed">
+            I build full-funnel GTM engines for B2B SaaS companies: awareness that
+            fills the top, offers and nurture that move deals through the middle,
+            and the tools and training that help closers close. Pipeline growth
+            without extra overhead, and without the noise. 15+ years of
+            experience. Four acquisitions. One IPO. Advanced AI operator.
+          </p>
 
-      <div class="mt-12 flex flex-wrap items-center gap-4">
-        <a
-          class="inline-block rounded-full bg-gradient px-8 py-4 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
-          href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Schedule Meeting
-        </a>
-        <a
-          class="inline-block rounded-full bg-ink px-8 py-4 text-sm font-medium text-[#fff] hover:bg-ink/80 transition-colors"
-          href={resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download Resume
-        </a>
-      </div>
-    </div>
-  </section>
+          <div class="mt-12 flex flex-wrap items-center gap-4">
+            <a
+              class="inline-block rounded-full bg-gradient px-8 py-4 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
+              href="https://calendly.com/stephen-krezzo/connect-with-stephen-30-mins"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Schedule Meeting
+            </a>
+            <a
+              class="inline-block rounded-full bg-ink px-8 py-4 text-sm font-medium text-[#fff] hover:bg-ink/80 transition-colors"
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
 
-  <!-- Logo River -->
-  <section class="py-16 border-t border-ink/5 overflow-hidden bg-surface">
-    <div class="max-w-5xl mx-auto px-6 mb-8">
-      <p class="text-sm uppercase tracking-[0.2em] text-neutral/50 font-medium text-center">
-        Companies I've helped grow
-      </p>
-    </div>
-    <div class="relative">
-      <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface to-transparent z-10"></div>
-      <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface to-transparent z-10"></div>
-      <div class="flex items-center gap-20 w-max" style="animation: marquee 25s linear infinite;">
-        {
-          [1, 2].map(() => (
-            <div class="flex items-center gap-20 shrink-0">
-              <img src="/eloqua_logo.png" alt="Eloqua" class="h-12 w-auto object-contain brightness-0 opacity-40 hover:opacity-70 transition-opacity" />
-              <img src="/aras_logo.png" alt="Aras" class="h-12 w-auto object-contain brightness-0 opacity-40 hover:opacity-70 transition-opacity" />
-              <img src="/ti_logo.webp" alt="Thought Industries" class="h-10 w-auto object-contain brightness-0 opacity-40 hover:opacity-70 transition-opacity" />
-              <img src="/form_logo.png" alt="Form.com" class="h-12 w-auto object-contain brightness-0 opacity-40 hover:opacity-70 transition-opacity" />
-              <img src="/krezzo_logo.png" alt="Krezzo" class="h-10 w-auto object-contain brightness-0 opacity-40 hover:opacity-70 transition-opacity" />
-              <img src="/checkit_logo.svg" alt="Checkit" class="h-9 w-auto object-contain brightness-0 opacity-40 hover:opacity-70 transition-opacity" />
-              <img src="/d50_logo.webp" alt="D50 Media" class="h-10 w-auto object-contain brightness-0 opacity-40 hover:opacity-70 transition-opacity" />
-            </div>
-          ))
-        }
+        <div class="mt-16 lg:mt-0">
+          <p
+            class="text-xs uppercase tracking-[0.2em] text-neutral/50 font-medium mb-6"
+          >
+            Companies I've helped grow
+          </p>
+          <div
+            class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-2 gap-x-8 gap-y-8 items-center"
+          >
+            <img
+              src="/eloqua_logo.png"
+              alt="Eloqua"
+              class="h-8 w-auto object-contain brightness-0 opacity-40"
+            />
+            <img
+              src="/aras_logo.png"
+              alt="Aras"
+              class="h-8 w-auto object-contain brightness-0 opacity-40"
+            />
+            <img
+              src="/ti_logo.webp"
+              alt="Thought Industries"
+              class="h-7 w-auto object-contain brightness-0 opacity-40"
+            />
+            <img
+              src="/form_logo.png"
+              alt="Form.com"
+              class="h-8 w-auto object-contain brightness-0 opacity-40"
+            />
+            <img
+              src="/krezzo_logo.png"
+              alt="Krezzo"
+              class="h-7 w-auto object-contain brightness-0 opacity-40"
+            />
+            <img
+              src="/checkit_logo.svg"
+              alt="Checkit"
+              class="h-6 w-auto object-contain brightness-0 opacity-40"
+            />
+            <img
+              src="/d50_logo.webp"
+              alt="D50 Media"
+              class="h-7 w-auto object-contain brightness-0 opacity-40"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </section>
