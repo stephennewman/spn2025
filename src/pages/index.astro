@@ -1,22 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Experience from "../components/Experience.astro";
-import Education from "../components/Education.astro";
 import "../styles/global.css";
 
-// Problems and solutions are mirrored 1:1 — same order, same icon, same pair number.
+// Problems and solutions are mirrored 1:1 (same order, same icon, same pair number).
 const pairs = [
   {
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />`,
     problem: {
       title: "Invisible in Search & AI Answers",
       description:
-        "Your buyers are searching Google and asking ChatGPT — and finding your competitors. Paid spend leaks, organic is flat, and AI engines don't know you exist.",
+        "Your buyers are searching Google and asking ChatGPT, and they're finding your competitors. Paid spend leaks, organic is flat, and AI engines don't know you exist.",
     },
     solution: {
       title: "Digital Marketing Management",
       description:
-        "Hands-on PPC, SEO, and AEO programs that put you in front of buyers wherever they look — search engines and AI answers alike.",
+        "Hands-on PPC, SEO, and AEO programs that put you in front of buyers wherever they look: search engines and AI answers alike.",
     },
   },
   {
@@ -29,7 +28,7 @@ const pairs = [
     solution: {
       title: "Channel Mix Calibration",
       description:
-        "Rebalance paid search, social, events (regional, conferences, digital), partners, outbound, inbound, podcasts, print, and web — weighted by what actually converts.",
+        "Rebalance paid search, social, events (regional, conferences, digital), partners, outbound, inbound, podcasts, print, and web, weighted by what actually converts.",
     },
   },
   {
@@ -42,7 +41,7 @@ const pairs = [
     solution: {
       title: "Product Prototyping",
       description:
-        "Turn customer interest into working prototypes and product deliverables — fast, testable, and ready to put in front of buyers.",
+        "Turn customer interest into working prototypes and product deliverables: fast, testable, and ready to put in front of buyers.",
     },
   },
   {
@@ -55,7 +54,7 @@ const pairs = [
     solution: {
       title: "Systems Integration & Data Visualization",
       description:
-        "Connect internal systems and visualize the data that matters — so decisions get made on evidence, not opinion.",
+        "Connect internal systems and visualize the data that matters, so decisions get made on evidence, not opinion.",
     },
   },
   {
@@ -76,7 +75,7 @@ const pairs = [
     problem: {
       title: "Generic Messaging, Blurry Positioning",
       description:
-        "You sound like every other vendor. One message for every segment, persona, and stage — so it lands with no one.",
+        "You sound like every other vendor. One message for every segment, persona, and stage, so it lands with no one.",
     },
     solution: {
       title: "Segmentation, Positioning & Brand Creative",
@@ -101,7 +100,7 @@ const process = [
     title: "Understand",
     width: "w-full",
     description:
-      "Audit your current GTM motion — market, customers, channels, team structure, and competitive landscape. Identify what's working, what's broken, and what's missing entirely.",
+      "Audit your current GTM motion: market, customers, channels, team structure, and competitive landscape. Identify what's working, what's broken, and what's missing entirely.",
   },
   {
     step: "02",
@@ -115,7 +114,7 @@ const process = [
     title: "Execute",
     width: "w-1/2",
     description:
-      "Build and ship — messaging, campaigns, tools, processes. No 90-day strategy decks. Real work that hits the market and starts generating signal immediately.",
+      "Build and ship: messaging, campaigns, tools, processes. No 90-day strategy decks. Real work that hits the market and starts generating signal immediately.",
   },
   {
     step: "04",
@@ -161,12 +160,16 @@ const faqs = [
   },
   { q: "What is your weakness?", a: "Answering boring interview questions." },
   {
+    q: "What's your education?",
+    a: "MBA in International Business from Liberty University, and a B.A. in Communications from Eastern Nazarene College.",
+  },
+  {
     q: "Why do you like marketing?",
     a: "Because I don't want to carry a quota.",
   },
   {
     q: "Do you use AI?",
-    a: "Yes. The site you're looking at — I built it in about 17 minutes with AI.",
+    a: "Yes. I built the site you're looking at in about 17 minutes with AI.",
   },
   {
     q: "What's your superpower?",
@@ -180,8 +183,8 @@ const faqs = [
     { text: "Problems", href: "#problems" },
     { text: "Solutions", href: "#solutions" },
     { text: "Process", href: "#process" },
-    { text: "Experience", href: "#experience" },
     { text: "Results", href: "#results" },
+    { text: "Experience", href: "#experience" },
   ]}
   ctaButton={{
     text: "Schedule Meeting",
@@ -190,7 +193,7 @@ const faqs = [
 >
   <!-- Hero -->
   <section class="relative pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden">
-    <!-- Decorative funnel — the shape the whole site rallies behind -->
+    <!-- Decorative funnel: the shape the whole site rallies behind -->
     <div
       class="hidden lg:flex flex-col items-center gap-3.5 absolute right-16 top-1/2 -translate-y-1/2"
       aria-hidden="true"
@@ -220,7 +223,7 @@ const faqs = [
       </h1>
 
       <p class="max-w-2xl text-lg text-neutral mt-10 leading-relaxed">
-        I build revenue engines for B2B SaaS companies — go-to-market strategy
+        I build revenue engines for B2B SaaS companies. Go-to-market strategy
         and hands-on execution that generate real revenue, not just activity.
         15+ years of experience. Four acquisitions. One IPO. Advanced AI
         operator.
@@ -278,11 +281,11 @@ const faqs = [
       <h2
         class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
       >
-        Problems I Solve
+        Problems I Like Solving
       </h2>
       <p class="text-neutral max-w-2xl mb-16 reveal">
         Six failure modes I see over and over in B2B GTM. Each one maps
-        directly to a solution below — same number, same fix.
+        directly to a solution below. Same number, same fix.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -320,7 +323,7 @@ const faqs = [
         Solutions I Provide
       </h2>
       <p class="text-neutral max-w-2xl mb-16 reveal">
-        Mirrored one-to-one with the problems above — strategy plus hands-on
+        Mirrored one-to-one with the problems above. Strategy plus hands-on
         execution, not a deck and a handshake.
       </p>
 
@@ -383,12 +386,6 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Experience -->
-  <Experience />
-
-  <!-- Education -->
-  <Education />
-
   <!-- Results -->
   <section id="results" class="py-24 bg-gradient-to-br from-violet-50/70 via-white to-pink-50/70">
     <div class="max-w-5xl mx-auto px-6">
@@ -443,8 +440,11 @@ const faqs = [
     </div>
   </section>
 
+  <!-- Experience -->
+  <Experience />
+
   <!-- Social Proof -->
-  <section id="testimonials" class="py-24">
+  <section id="testimonials" class="py-24 bg-surface">
     <div class="max-w-5xl mx-auto px-6">
       <p
         class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
@@ -460,7 +460,7 @@ const faqs = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {
           testimonials.map((t) => (
-            <div class="reveal bg-surface border border-ink/5 rounded-2xl p-8">
+            <div class="reveal bg-white border border-ink/5 rounded-2xl p-8">
               <svg
                 class="w-8 h-8 text-ink/10 mb-4"
                 fill="currentColor"
@@ -483,7 +483,7 @@ const faqs = [
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-24 bg-surface">
+  <section id="faq" class="py-24">
     <div class="max-w-5xl mx-auto px-6">
       <p
         class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
@@ -558,7 +558,7 @@ const faqs = [
       <div class="flex flex-col md:flex-row gap-12 items-start reveal">
         <p class="text-lg text-neutral leading-relaxed flex-1">
           With 15+ years in B2B tech and SaaS, I've led marketing through
-          multiple growth stages — from first marketing hire to managing global
+          multiple growth stages, from first marketing hire to managing global
           teams and multi-million dollar budgets. I've been part of four
           acquisitions and an IPO, and I'm an advanced AI operator who builds
           with these tools daily. Currently leading global marketing at Checkit

@@ -1,10 +1,10 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Stephen Newman — GTM Executive & Growth Marketer",
+  title: "Stephen Newman | GTM Executive & Growth Marketer",
   author: "Stephen Newman",
   description:
-    "GTM Executive & Growth Marketer. Builder of revenue engines and advanced AI operator. 15+ years leading marketing, sales alignment, technology, and operational strategy — with multiple exits, acquisitions, and an IPO.",
+    "GTM Executive & Growth Marketer. Builder of revenue engines and advanced AI operator. 15+ years leading marketing, sales alignment, technology, and operational strategy, with multiple exits, acquisitions, and an IPO.",
   lang: "en",
   siteLogo: "/stephen_newman.jpeg",
   navLinks: [
@@ -77,7 +77,7 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Feb 2024",
       endDate: "Present",
       summary: [
-        "Recruited to run global marketing and \"get profitable\" — achieved in 2026.",
+        "Recruited to run global marketing and \"get profitable\", which was achieved in 2026.",
         "Repositioned company from compliance/checklist tools to predictive operations, leveraging AI-driven insights for enterprise clients and multi-site locations.",
         "Stacked GTM US resources (exec, sales, marketing, SDR) on the senior living sector and generated $5M+ new pipeline in 6 months.",
       ],
@@ -125,7 +125,7 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Dec 2013",
       endDate: "Oct 2015",
       summary: [
-        "Oversaw demand generation, analytics, and sales/marketing operations for North America — and successfully championed a push for \"ungating all content\".",
+        "Oversaw demand generation, analytics, and sales/marketing operations for North America, and successfully championed a push for \"ungating all content\".",
         "Led email platform migration to streamline promotion of a monthly demo series that grew to 200+ registrants a month.",
         "Increased pipeline from $60M to $156M within 20 months; company acquired by GI Partners.",
       ],
@@ -160,7 +160,7 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description:
-      "With 15+ years in B2B tech and SaaS, I've led marketing through multiple growth stages — from first marketing hire to managing global teams and multi-million dollar budgets. I've been part of four acquisitions and an IPO, and I'm an early adopter of AI tools for business. Currently leading global marketing at Checkit from Palm Harbor, Florida.",
+      "With 15+ years in B2B tech and SaaS, I've led marketing through multiple growth stages, from first marketing hire to managing global teams and multi-million dollar budgets. I've been part of four acquisitions and an IPO, and I'm an early adopter of AI tools for business. Currently leading global marketing at Checkit from Palm Harbor, Florida.",
     image: "/stephen_newman.jpeg",
   },
 };

@@ -4,7 +4,7 @@ import { SITE_CONTENT } from "../config/index.ts";
 const experience = SITE_CONTENT.experience;
 ---
 
-<section id="experience" class="py-24 bg-surface">
+<section id="experience" class="py-24">
   <div class="max-w-5xl mx-auto px-6">
     <p
       class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
@@ -33,7 +33,7 @@ const experience = SITE_CONTENT.experience;
             <div class="flex flex-col md:flex-row md:items-baseline md:gap-4 mb-4">
               <p class="text-gradient font-medium">{role.position}</p>
               <span class="text-sm text-neutral font-mono">
-                {role.startDate} — {role.endDate}
+                {role.startDate} – {role.endDate}
               </span>
             </div>
 
