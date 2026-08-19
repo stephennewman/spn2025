@@ -4,7 +4,7 @@ export const SITE_CONFIG: SiteConfig = {
   title: "Stephen Newman | GTM Executive & Growth Marketer",
   author: "Stephen Newman",
   description:
-    "GTM Executive & Growth Marketer. Builder of revenue engines and advanced AI operator. 15+ years leading marketing, sales alignment, technology, and operational strategy, with multiple exits, acquisitions, and an IPO.",
+    "GTM Executive & Growth Marketer. Builder of pipeline engines and advanced AI operator. 15+ years leading marketing, sales alignment, technology, and operational strategy, with multiple exits, acquisitions, and an IPO.",
   lang: "en",
   siteLogo: "/stephen_newman.jpeg",
   navLinks: [
