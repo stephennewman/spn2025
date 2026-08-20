@@ -269,42 +269,6 @@ const testimonials = [
   },
 ];
 
-const facts = [
-  {
-    title: "Strengths",
-    body: "Strategic thinking paired with tactical doing. I can set the plan at the leadership table, then go build the campaign, the dashboard, or the prototype myself.",
-  },
-  {
-    title: "Roles by company stage",
-    body: "First marketing hire at a 15-person company, VP at a PE-backed org, Head of Marketing for a global team, and a founder. I can operate in all of them.",
-  },
-  {
-    title: "How I measure marketing",
-    body: "Pipeline. Not traffic, not MQLs, not brand awards. Did we fill the funnel and help closers close.",
-  },
-  {
-    title: "Decision making",
-    body: "A combination of data-based analysis and my internal spidey sense.",
-  },
-  {
-    title: "Weakness",
-    body: "Boring interview questions.",
-  },
-  {
-    title: "Education",
-    body: "MBA in International Business from Liberty University, and a B.A. in Communications from Eastern Nazarene College.",
-  },
-  {
-    title: "Why marketing",
-    body: "It's a function that covers a lot of ground and has unlimited possibilities to create value for others.",
-  },
-  {
-    title: "AI",
-    body: "I use it every day. I built the site you're looking at in about 17 minutes with AI.",
-  },
-];
-
-// Shipped proof for the claims above. Add more entries as links become available.
 const resumeUrl = "/Stephen-Newman-Resume-Aug-2026.pdf";
 
 // Structured data for search engines and AI answer engines
@@ -693,33 +657,6 @@ const personSchema = {
                 <p class="text-ink font-medium text-sm">{t.name}</p>
                 <p class="text-neutral/60 text-xs">{t.title}</p>
               </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Good to Know -->
-  <section id="faq" class="py-24">
-    <div class="max-w-5xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        For the record
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-16 reveal"
-      >
-        Good to Know
-      </h2>
-
-      <div class="space-y-0 border-t border-ink/10 reveal">
-        {
-          facts.map((f) => (
-            <div class="grid md:grid-cols-[14rem_1fr] gap-1 md:gap-8 border-b border-ink/10 py-6">
-              <p class="text-ink font-medium text-lg">{f.title}</p>
-              <p class="text-neutral leading-relaxed">{f.body}</p>
             </div>
           ))
         }
