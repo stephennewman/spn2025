@@ -85,15 +85,6 @@ const pairs = [
   },
 ];
 
-const problems = pairs.map((p, i) => ({ ...p.problem, icon: p.icon, num: String(i + 1).padStart(2, "0") }));
-const solutions = pairs.map((p, i) => ({
-  ...p.solution,
-  icon: p.icon,
-  num: String(i + 1).padStart(2, "0"),
-  fixes: p.problem.title,
-}));
-
-// Full-funnel capabilities, top of funnel to post-sale. Widths echo the funnel motif.
 const funnelStages = [
   {
     stage: "Create Demand",
@@ -314,7 +305,6 @@ const personSchema = {
 <Layout
   navLinks={[
     { text: "Problems", href: "#problems" },
-    { text: "Solutions", href: "#solutions" },
     { text: "Process", href: "#process" },
     { text: "Work", href: "#work" },
     { text: "Results", href: "#results" },
@@ -423,8 +413,9 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- Problems -->
+  <!-- Problems / Solutions -->
   <section id="problems" class="py-24">
+    <span id="solutions" class="sr-only"></span>
     <div class="max-w-5xl mx-auto px-6">
       <p
         class="text-sm uppercase tracking-[0.2em] text-rose-500 font-medium mb-4 reveal"
@@ -437,66 +428,57 @@ const personSchema = {
         Problems I Like Solving
       </h2>
       <p class="text-neutral max-w-2xl mb-16 reveal">
-        Six failure modes I see over and over in B2B GTM. Each one maps
-        directly to a solution below. Same number, same fix.
+        Six failure modes I see over and over in B2B GTM. Flip a card to see
+        the matching solution.
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
-          problems.map((p) => (
-            <div class="reveal bg-white border border-rose-200/80 rounded-2xl p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-              <div class="flex items-center justify-between mb-4">
-                <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <Fragment set:html={p.icon} />
-                </svg>
-                <span class="text-xs font-mono text-rose-300 select-none">{p.num}</span>
+          pairs.map((p, i) => (
+            <div class="reveal">
+              <div
+                data-flip
+                role="button"
+                tabindex="0"
+                aria-pressed="false"
+                aria-label={`${p.problem.title}. Flip to see the solution.`}
+                class="flip-card w-full text-left cursor-pointer"
+              >
+                <div class="flip-inner">
+                  <div class="flip-face flip-front bg-white border border-rose-200/80 rounded-2xl p-8 shadow-sm h-full">
+                    <div class="flex items-center justify-between mb-4">
+                      <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <Fragment set:html={p.icon} />
+                      </svg>
+                      <span class="text-xs font-mono text-rose-300 select-none">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h3 class="text-lg font-bold text-ink mb-3">{p.problem.title}</h3>
+                    <p class="text-sm text-neutral leading-relaxed mb-6">
+                      {p.problem.description}
+                    </p>
+                    <p class="text-xs text-rose-400 font-medium">Flip for the fix</p>
+                  </div>
+                  <div class="flip-face flip-back bg-white border border-violet-200/80 rounded-2xl p-8 shadow-sm h-full">
+                    <div class="flex items-center justify-between mb-4">
+                      <svg class="w-6 h-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <Fragment set:html={p.icon} />
+                      </svg>
+                      <span class="text-xs font-mono text-violet-300 select-none">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h3 class="text-lg font-bold text-ink mb-3">{p.solution.title}</h3>
+                    <p class="text-sm text-neutral leading-relaxed mb-6">
+                      {p.solution.description}
+                    </p>
+                    <p class="text-xs text-neutral/60">
+                      Fixes: <span class="text-rose-400">{p.problem.title}</span>
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-lg font-bold text-ink mb-3">{p.title}</h3>
-              <p class="text-sm text-neutral leading-relaxed">
-                {p.description}
-              </p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Solutions -->
-  <section id="solutions" class="py-24 bg-gradient-to-br from-pink-50/70 via-white to-violet-50/70">
-    <div class="max-w-5xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        What I bring
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
-      >
-        Solutions I Provide
-      </h2>
-      <p class="text-neutral max-w-2xl mb-16 reveal">
-        Mirrored one-to-one with the problems above. Strategy plus hands-on
-        execution, not a deck and a handshake.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          solutions.map((s) => (
-            <div class="reveal bg-white border border-violet-200/80 rounded-2xl p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-              <div class="flex items-center justify-between mb-4">
-                <svg class="w-6 h-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                  <Fragment set:html={s.icon} />
-                </svg>
-                <span class="text-xs font-mono text-violet-300 select-none">{s.num}</span>
-              </div>
-              <h3 class="text-lg font-bold text-ink mb-3">{s.title}</h3>
-              <p class="text-sm text-neutral leading-relaxed mb-4">
-                {s.description}
-              </p>
-              <p class="text-xs text-neutral/60">
-                Fixes: <span class="text-rose-400">{s.fixes}</span>
-              </p>
             </div>
           ))
         }
@@ -841,3 +823,20 @@ const personSchema = {
     </div>
   </section>
 </Layout>
+
+<script>
+  const toggleFlip = (card) => {
+    const on = card.classList.toggle("is-flipped");
+    card.setAttribute("aria-pressed", on ? "true" : "false");
+  };
+
+  document.querySelectorAll("[data-flip]").forEach((card) => {
+    card.addEventListener("click", () => toggleFlip(card));
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleFlip(card);
+      }
+    });
+  });
+</script>
