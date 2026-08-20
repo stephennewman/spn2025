@@ -77,6 +77,12 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Feb 2024",
       endDate: "Present",
       logo: "/checkit_logo.svg",
+      chips: [
+        { label: "Outbound", type: "channel" },
+        { label: "AI Search", type: "channel" },
+        { label: "Publicly traded", type: "status" },
+        { label: "Achieved profitability", type: "highlight" },
+      ],
       summary: [
         "Recruited to run global marketing and \"get profitable\", which was achieved in 2026.",
         "Repositioned company from compliance/checklist tools to predictive operations, leveraging AI-driven insights for enterprise clients and multi-site locations.",
@@ -90,6 +96,12 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Jan 2021",
       endDate: "Jan 2024",
       logo: "/krezzo_logo.png",
+      chips: [
+        { label: "LinkedIn", type: "channel" },
+        { label: "Referrals", type: "channel" },
+        { label: "Startup", type: "status" },
+        { label: "Raised capital + built product", type: "highlight" },
+      ],
       summary: [
         "Founded SaaS company focused on OKRs and operational performance, later pivoting to AI-powered voice-to-text automation.",
         "Raised $500K+ from 12 investors; built multiple products and prototypes.",
@@ -103,6 +115,14 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Nov 2018",
       endDate: "Dec 2020",
       logo: "/form_logo.png",
+      chips: [
+        { label: "Google PPC", type: "channel" },
+        { label: "Capterra", type: "channel" },
+        { label: "Inbound", type: "channel" },
+        { label: "Outbound", type: "channel" },
+        { label: "Acquired by PE", type: "status" },
+        { label: "Fixed the digital funnel", type: "highlight" },
+      ],
       summary: [
         "Promoted to VP within 90 days after joining as Director of Demand Generation.",
         "Managed $2.5M marketing budget and 20+ team across global marketing and BDRs.",
@@ -116,6 +136,12 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Nov 2015",
       endDate: "Jul 2018",
       logo: "/ti_logo.webp",
+      chips: [
+        { label: "Capterra", type: "channel" },
+        { label: "Inbound", type: "channel" },
+        { label: "Acquired by PE", type: "status" },
+        { label: "Built marketing + BDR foundation & scaled it", type: "highlight" },
+      ],
       summary: [
         "First marketing hire; scaled company from 15 to 50 employees and <$1M to ~$10M ARR without venture funding.",
         "Built inbound engine: increased leads from <20 to 500+/month; inbound contributed 80% of pipeline and ultimately revenue.",
@@ -129,6 +155,12 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Dec 2013",
       endDate: "Oct 2015",
       logo: "/aras_logo.png",
+      chips: [
+        { label: "Inbound", type: "channel" },
+        { label: "Webinars", type: "channel" },
+        { label: "Acquired by PE", type: "status" },
+        { label: "Increased lead quality", type: "highlight" },
+      ],
       summary: [
         "Oversaw demand generation, analytics, and sales/marketing operations for North America, and successfully championed a push for \"ungating all content\".",
         "Led email platform migration to streamline promotion of a monthly demo series that grew to 200+ registrants a month.",
@@ -142,6 +174,12 @@ export const SITE_CONTENT: SiteContent = {
       startDate: "Mar 2012",
       endDate: "Nov 2013",
       logo: "/eloqua_logo.png",
+      chips: [
+        { label: "Events", type: "channel" },
+        { label: "IPO'd", type: "status" },
+        { label: "Acquired by Oracle", type: "status" },
+        { label: "Supported enterprise reps + BDR counterparts", type: "highlight" },
+      ],
       summary: [
         "Supported enterprise sales through events, campaigns, and marketing automation.",
         "Created multi-touch campaigns, outbound prospecting templates, and content-driven programs.",

@@ -2,6 +2,13 @@
 import { SITE_CONTENT } from "../config/index.ts";
 
 const experience = SITE_CONTENT.experience;
+
+// Chip colors: channels (violet), company status (amber), highlight (emerald)
+const chipStyles: Record<string, string> = {
+  channel: "bg-violet-50 text-violet-700 border-violet-200",
+  status: "bg-amber-50 text-amber-700 border-amber-200",
+  highlight: "bg-emerald-50 text-emerald-700 border-emerald-200",
+};
 ---
 
 <section id="experience" class="py-24">
@@ -42,7 +49,17 @@ const experience = SITE_CONTENT.experience;
                 </span>
               </div>
 
-              <p class="text-gradient font-medium mb-4">{role.position}</p>
+              <p class="text-gradient font-medium mb-3">{role.position}</p>
+
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                {role.chips.map((chip) => (
+                  <span
+                    class={`text-xs font-medium border rounded-full px-2.5 py-0.5 ${chipStyles[chip.type]}`}
+                  >
+                    {chip.label}
+                  </span>
+                ))}
+              </div>
 
               {Array.isArray(role.summary) ? (
                 <ul class="space-y-2">

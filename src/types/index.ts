@@ -38,6 +38,11 @@ export interface HighlightProps {
   highlight: string;
 }
 
+export interface ExperienceChip {
+  label: string;
+  type: "channel" | "status" | "highlight";
+}
+
 export interface ExperienceProps {
   company: string;
   location: string;
@@ -46,6 +51,7 @@ export interface ExperienceProps {
   endDate: string;
   summary: string | string[];
   logo: string;
+  chips: ExperienceChip[];
 }
 
 export interface ProjectProps {
