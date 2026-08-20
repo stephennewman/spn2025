@@ -398,29 +398,37 @@ const personSchema = {
         operations that hold it all together.
       </p>
 
-      <div class="space-y-16">
+      <div>
         {
           funnelGroups.map((group, g) => (
-            <div>
-              <div class="flex items-baseline gap-3 mb-6 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-[15rem_1fr] gap-8 lg:gap-12 py-12 border-t border-ink/10 first:border-t-0 first:pt-0 last:pb-0">
+              <div class="reveal">
+                <div
+                  class={`h-2 rounded-full mb-5 ${
+                    group.stage === "Operational"
+                      ? "w-full bg-ink/15"
+                      : ["w-full bg-gradient", "w-2/3 bg-gradient", "w-1/3 bg-gradient"][g]
+                  }`}
+                  aria-hidden="true"
+                />
                 <h3 class="font-serif text-xl font-bold tracking-tight text-ink">
                   {group.stage}
                 </h3>
-                <p class="text-sm text-neutral/70">{group.tagline}</p>
+                <p class="text-sm text-neutral/70 mt-1">{group.tagline}</p>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8">
                 {group.items.map((item, i) => (
-                  <div class="reveal bg-white border border-ink/5 rounded-2xl p-8 shadow-sm h-full">
-                    <div class="flex items-center justify-between mb-4">
+                  <div class="reveal">
+                    <div class="flex items-center gap-3 mb-3">
                       <svg class="w-6 h-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <Fragment set:html={item.icon} />
                       </svg>
-                      <span class="text-xs font-mono text-ink/20 select-none">
+                      <span class="text-xs font-mono text-ink/25 select-none">
                         {String(g * 3 + i + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    <h4 class="text-lg font-bold text-ink mb-3">{item.title}</h4>
+                    <h4 class="text-base font-bold text-ink mb-2">{item.title}</h4>
                     <p class="text-sm text-neutral leading-relaxed">
                       {item.description}
                     </p>
@@ -448,12 +456,12 @@ const personSchema = {
         Working Together
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="divide-y divide-ink/10">
         {
           workingWith.map((item) => (
-            <div class="reveal bg-white border border-ink/5 rounded-2xl p-6 shadow-sm">
-              <h3 class="text-ink font-medium text-lg mb-2">{item.title}</h3>
-              <p class="text-sm text-neutral leading-relaxed">{item.body}</p>
+            <div class="reveal grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-2 md:gap-10 py-7 first:pt-0 last:pb-0">
+              <h3 class="text-base font-bold text-ink">{item.title}</h3>
+              <p class="text-neutral leading-relaxed">{item.body}</p>
             </div>
           ))
         }
@@ -529,7 +537,7 @@ const personSchema = {
       <h2
         class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
       >
-        AI Operator
+        Building, Experimenting, and Shipping Faster with AI
       </h2>
       <p class="text-neutral max-w-2xl mb-16 reveal">
         Most executives talk about AI. This is building and deploying with it:
@@ -538,23 +546,23 @@ const personSchema = {
         from prototype to production. A sampling:
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
         {
           aiBuilds.map((item) => (
-            <div class="reveal bg-white border border-ink/5 rounded-2xl p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-violet-100 to-pink-100 flex items-center justify-center mb-4">
-                <svg
-                  class="w-5 h-5 text-violet-600"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                >
-                  <Fragment set:html={item.icon} />
-                </svg>
+            <div class="reveal flex items-start gap-4 py-5 border-t border-ink/10">
+              <svg
+                class="w-5 h-5 text-violet-500 shrink-0 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <Fragment set:html={item.icon} />
+              </svg>
+              <div>
+                <h3 class="text-base font-bold text-ink">{item.title}</h3>
+                <p class="text-sm text-neutral leading-relaxed mt-1">{item.body}</p>
               </div>
-              <h3 class="text-ink font-medium text-lg mb-2">{item.title}</h3>
-              <p class="text-sm text-neutral leading-relaxed">{item.body}</p>
             </div>
           ))
         }
@@ -576,25 +584,19 @@ const personSchema = {
         Quotable Quotes from Peers
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="space-y-16 md:space-y-20">
         {
           testimonials.map((t) => (
-            <div class="reveal bg-white border border-ink/5 rounded-2xl p-8">
-              <svg
-                class="w-8 h-8 text-ink/10 mb-4"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z" />
-              </svg>
-              <p class="text-neutral text-sm leading-relaxed mb-6 italic">
-                "{t.quote}"
-              </p>
-              <div>
+            <figure class="reveal max-w-3xl">
+              <blockquote class="font-serif text-lg md:text-xl text-ink leading-relaxed tracking-tight">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption class="mt-6">
+                <div class="h-0.5 w-10 bg-gradient mb-3" aria-hidden="true" />
                 <p class="text-ink font-medium text-sm">{t.name}</p>
-                <p class="text-neutral/60 text-xs">{t.title}</p>
-              </div>
-            </div>
+                <p class="text-neutral/60 text-xs mt-0.5">{t.title}</p>
+              </figcaption>
+            </figure>
           ))
         }
       </div>
