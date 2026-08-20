@@ -279,24 +279,6 @@ const facts = [
 ];
 
 // Shipped proof for the claims above. Add more entries as links become available.
-const work = [
-  {
-    tags: ["AI Application", "Product Prototyping", "AEO"],
-    title: "Context Memo",
-    description:
-      "I built Context Memo, an AEO platform that publishes citation-grade content so brands get cited in ChatGPT and other AI answers. Product, positioning, and go-to-market, end to end.",
-    proof:
-      "Case study: 2,500+ sourced ChatGPT citations and attributed pipeline deals for a client in under 100 days.",
-    links: [
-      {
-        text: "Read the Formula Inbox case study",
-        href: "https://contextmemo.com/case-studies/formula-inbox",
-      },
-      { text: "contextmemo.com", href: "https://contextmemo.com" },
-    ],
-  },
-];
-
 const resumeUrl = "/Stephen-Newman-Resume-Aug-2026.pdf";
 
 // Structured data for search engines and AI answer engines
@@ -346,7 +328,6 @@ const personSchema = {
   navLinks={[
     { text: "Problems", href: "#problems" },
     { text: "Process", href: "#process" },
-    { text: "Work", href: "#work" },
     { text: "Results", href: "#results" },
     { text: "Experience", href: "#experience" },
   ]}
@@ -676,7 +657,7 @@ const personSchema = {
       <h2
         class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-16 reveal"
       >
-        Don't Take My Word For It
+        Quotable Quotes from Peers
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -696,64 +677,6 @@ const personSchema = {
               <div>
                 <p class="text-ink font-medium text-sm">{t.name}</p>
                 <p class="text-neutral/60 text-xs">{t.title}</p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Project -->
-  <section id="work" class="py-24 bg-gradient-to-br from-pink-50/70 via-white to-violet-50/70">
-    <div class="max-w-5xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        Proof, not promises
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
-      >
-        Featured Project
-      </h2>
-      <p class="text-neutral max-w-2xl mb-16 reveal">
-        Things I've built and shipped, not just managed.
-      </p>
-
-      <div class="grid grid-cols-1 gap-6">
-        {
-          work.map((w) => (
-            <div class="reveal bg-white border border-ink/5 rounded-2xl p-8 md:p-10 shadow-sm">
-              <div class="flex flex-wrap gap-2 mb-5">
-                {w.tags.map((tag) => (
-                  <span class="text-xs font-medium uppercase tracking-wider text-violet-600 bg-violet-50 border border-violet-200/70 rounded-full px-3 py-1">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h3 class="font-serif text-2xl font-bold text-ink mb-3">
-                {w.title}
-              </h3>
-              <p class="text-neutral leading-relaxed mb-3 max-w-3xl">
-                {w.description}
-              </p>
-              <p class="text-sm text-ink font-medium mb-6">{w.proof}</p>
-              <div class="flex flex-wrap gap-4">
-                {w.links.map((link, i) => (
-                  <a
-                    class={
-                      i === 0
-                        ? "inline-block rounded-full bg-gradient px-6 py-3 text-sm font-medium text-[#fff] hover:opacity-90 transition-opacity"
-                        : "inline-block rounded-full border border-ink/15 px-6 py-3 text-sm font-medium text-ink hover:border-ink/40 transition-colors"
-                    }
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.text}
-                  </a>
-                ))}
               </div>
             </div>
           ))
