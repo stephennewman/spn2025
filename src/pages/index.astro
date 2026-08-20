@@ -85,45 +85,40 @@ const pairs = [
   },
 ];
 
-const funnelStages = [
+// Logic model: inputs converge left to right into business value (4 > 3 > 2 > 1 cards).
+const logicModel = [
   {
-    stage: "Create Demand",
-    width: "lg:w-full",
-    items: [
-      "Awareness campaigns",
-      "Product launches",
-      "PPC, SEO & AEO",
-      "Competitive intelligence",
+    stage: "Resources & Activities",
+    theme: "What goes in",
+    cards: [
+      { title: "Budget", chips: ["Paid media", "Events", "Tools & agencies"] },
+      { title: "People", chips: ["Marketing team", "BDRs", "Partners"] },
+      { title: "Technology", chips: ["CRM & automation", "Analytics", "AI tools"] },
+      { title: "Activities", chips: ["Researching", "Developing", "Campaigning"] },
     ],
   },
   {
-    stage: "Capture & Convert",
-    width: "lg:w-[85%]",
-    items: [
-      "Conversion offers",
-      "Nurture tracks",
-      "Calculators & interactive tools",
-      "Marketing programs",
+    stage: "Outputs",
+    theme: "What gets made",
+    cards: [
+      { title: "Content", chips: ["Blogs & guides", "Case studies", "Web pages"] },
+      { title: "Product", chips: ["Prototypes", "Features", "Interactive tools"] },
+      { title: "Sales assets", chips: ["Decks & demos", "Nurture tracks", "Brand creative"] },
     ],
   },
   {
-    stage: "Enable the Close",
-    width: "lg:w-[70%]",
-    items: [
-      "Sales presentations",
-      "Sales tools & training",
-      "Custom materials",
-      "Funnel velocity enhancement",
+    stage: "Outcomes",
+    theme: "Customer value",
+    cards: [
+      { title: "Engagement", chips: ["Awareness", "Interest", "Trust"] },
+      { title: "Action", chips: ["Decisions", "Leads", "Pipeline"] },
     ],
   },
   {
-    stage: "Expand & Re-engage",
-    width: "lg:w-[55%]",
-    items: [
-      "Customer expansion programs",
-      "Closed-lost re-engagement",
-      "Customer messaging",
-      "Product prototypes",
+    stage: "Impact",
+    theme: "Business value",
+    cards: [
+      { title: "Business value", chips: ["Revenue", "Retention", "Expansion"] },
     ],
   },
 ];
@@ -486,41 +481,59 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- Across the Funnel -->
+  <!-- Logic Model -->
   <section id="funnel" class="py-24 bg-surface">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <p
         class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
       >
-        Top to bottom
+        The logic model
       </p>
       <h2
         class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
       >
-        Across the Funnel
+        Inputs to Impact
       </h2>
       <p class="text-neutral max-w-2xl mb-16 reveal">
-        Pipeline isn't one stage. I build programs at every layer, from first
-        touch to closed-won and beyond.
+        How marketing actually creates value: resources and activity become
+        outputs, outputs create customer value, and customer value converges
+        into business value.
       </p>
 
-      <div class="flex flex-col items-center gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 items-center">
         {
-          funnelStages.map((s, i) => (
-            <div
-              class={`reveal w-full ${s.width} bg-white border border-ink/5 rounded-2xl p-6 md:p-8 shadow-sm`}
-            >
-              <div class="flex items-center gap-3 mb-4">
-                <span class="text-xs font-mono text-gradient select-none">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 class="text-lg font-bold text-ink">{s.stage}</h3>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                {s.items.map((item) => (
-                  <span class="text-sm text-neutral bg-surface border border-ink/5 rounded-full px-4 py-1.5">
-                    {item}
+          logicModel.map((col, colIdx) => (
+            <div class="reveal h-full lg:h-auto flex flex-col justify-center">
+              <div class="flex items-center gap-2 mb-4">
+                <div>
+                  <h3 class="text-base font-bold text-ink leading-tight">
+                    {col.stage}
+                  </h3>
+                  <p class="text-xs uppercase tracking-[0.15em] text-gradient font-medium mt-1">
+                    {col.theme}
+                  </p>
+                </div>
+                {colIdx < logicModel.length - 1 && (
+                  <span
+                    class="ml-auto hidden lg:block text-neutral/40 text-xl select-none"
+                    aria-hidden="true"
+                  >
+                    &rarr;
                   </span>
+                )}
+              </div>
+              <div class="flex flex-col gap-3">
+                {col.cards.map((card) => (
+                  <div class="bg-white border border-ink/5 rounded-2xl p-5 shadow-sm">
+                    <p class="text-sm font-bold text-ink mb-3">{card.title}</p>
+                    <div class="flex flex-wrap gap-1.5">
+                      {card.chips.map((chip) => (
+                        <span class="text-xs text-neutral bg-surface border border-ink/5 rounded-full px-3 py-1">
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
