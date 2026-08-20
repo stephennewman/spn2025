@@ -204,7 +204,7 @@ export const SITE_CONTENT: SiteContent = {
   ],
   about: {
     description:
-      "With 15+ years in B2B tech and SaaS, I've led marketing through multiple growth stages, from first marketing hire to managing global teams and multi-million dollar budgets. I've been part of four acquisitions and an IPO, and I'm an early adopter of AI tools for business. Currently leading global marketing at Checkit from Palm Harbor, Florida.",
+      "With 15+ years in B2B tech and SaaS, Stephen has led marketing through multiple growth stages, from first marketing hire to managing global teams and multi-million dollar budgets. He has been part of four acquisitions and an IPO, and is an early adopter of AI tools for business. He currently leads global marketing at Checkit from Palm Harbor, Florida.",
     image: "/stephen_newman.jpeg",
   },
 };
