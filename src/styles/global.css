@@ -61,37 +61,6 @@
   transform: none;
 }
 
-/* Problem / solution flip cards */
-.flip-card {
-  perspective: 1200px;
-}
-
-.flip-card:focus-visible {
-  outline: 2px solid #ec4899;
-  outline-offset: 4px;
-  border-radius: 1rem;
-}
-
-.flip-inner {
-  display: grid;
-  transform-style: preserve-3d;
-  transition: transform 0.55s ease;
-}
-
-.flip-face {
-  grid-area: 1 / 1;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-}
-
-.flip-card.is-flipped .flip-inner {
-  transform: rotateY(180deg);
-}
-
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.001ms !important;
@@ -102,26 +71,6 @@
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .flip-inner {
-    transition: none;
-  }
-
-  .flip-card.is-flipped .flip-inner {
-    transform: none;
-  }
-
-  .flip-card.is-flipped .flip-front {
-    visibility: hidden;
-  }
-
-  .flip-card.is-flipped .flip-back {
-    transform: none;
-  }
-
-  .flip-card:not(.is-flipped) .flip-back {
-    visibility: hidden;
   }
 }
 
