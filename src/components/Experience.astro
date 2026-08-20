@@ -17,43 +17,45 @@ const experience = SITE_CONTENT.experience;
       Experience
     </h2>
 
-    <div>
+    <div class="divide-y divide-ink/10">
       {
         experience.map((role) => (
-          <div class="relative pl-16 pb-12 last:pb-0 border-l border-ink/10 reveal">
-            <div class="absolute left-0 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-white border border-ink/10 flex items-center justify-center">
+          <div class="flex gap-5 py-10 first:pt-0 last:pb-0 reveal">
+            <div class="shrink-0 w-14 h-14 rounded-xl bg-surface border border-ink/5 flex items-center justify-center">
               <img
                 src={role.logo}
                 alt=""
-                class="max-h-5 max-w-6 object-contain brightness-0 opacity-60"
+                class="max-h-8 max-w-10 object-contain brightness-0 opacity-70"
               />
             </div>
 
-            <div class="flex flex-col md:flex-row md:items-baseline md:gap-4 mb-1">
-              <h3 class="text-xl font-bold text-ink font-serif">
-                {role.company}
-              </h3>
-              <span class="text-sm text-neutral/60">{role.location}</span>
-            </div>
+            <div class="min-w-0 flex-1">
+              <div class="flex flex-col md:flex-row md:items-baseline md:justify-between md:gap-4 mb-1">
+                <h3 class="text-xl font-bold text-ink font-serif">
+                  {role.company}
+                  <span class="ml-2 text-sm font-sans font-normal text-neutral/60">
+                    {role.location}
+                  </span>
+                </h3>
+                <span class="text-sm text-neutral font-mono shrink-0">
+                  {role.startDate} – {role.endDate}
+                </span>
+              </div>
 
-            <div class="flex flex-col md:flex-row md:items-baseline md:gap-4 mb-4">
-              <p class="text-gradient font-medium">{role.position}</p>
-              <span class="text-sm text-neutral font-mono">
-                {role.startDate} – {role.endDate}
-              </span>
-            </div>
+              <p class="text-gradient font-medium mb-4">{role.position}</p>
 
-            {Array.isArray(role.summary) ? (
-              <ul class="space-y-2">
-                {role.summary.map((s) => (
-                  <li class="text-neutral text-base leading-relaxed">{s}</li>
-                ))}
-              </ul>
-            ) : (
-              <p class="text-neutral text-base leading-relaxed">
-                {role.summary}
-              </p>
-            )}
+              {Array.isArray(role.summary) ? (
+                <ul class="space-y-2">
+                  {role.summary.map((s) => (
+                    <li class="text-neutral text-base leading-relaxed">{s}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p class="text-neutral text-base leading-relaxed">
+                  {role.summary}
+                </p>
+              )}
+            </div>
           </div>
         ))
       }
