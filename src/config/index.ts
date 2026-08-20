@@ -80,7 +80,7 @@ export const SITE_CONTENT: SiteContent = {
       summary: [
         "Recruited to run global marketing and \"get profitable\", which was achieved in 2026.",
         "Repositioned company from compliance/checklist tools to predictive operations, leveraging AI-driven insights for enterprise clients and multi-site locations.",
-        "Stacked GTM US resources (exec, sales, marketing, SDR) on the senior living sector and generated $5M+ new pipeline in 6 months.",
+        "Stacked GTM US resources (exec, sales, marketing, product, SDR) on the senior living sector and generated $5M+ new pipeline in 6 months.",
       ],
     },
     {
