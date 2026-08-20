@@ -151,44 +151,6 @@ const pairs = [
   },
 ];
 
-// Operating model: stages narrow top to bottom, converging on business value (4 > 3 > 2 > 1 cards).
-const logicModel = [
-  {
-    stage: "Strategy",
-    theme: "What goes in",
-    cards: [
-      { title: "Initiatives", chips: ["Researching", "Developing", "Campaigning"] },
-      { title: "Budget", chips: ["Paid media", "Events", "Tools & agencies"] },
-      { title: "People", chips: ["Marketing team", "BDRs", "Partners"] },
-      { title: "Technology", chips: ["CRM & automation", "Analytics", "AI tools"] },
-    ],
-  },
-  {
-    stage: "Outputs",
-    theme: "What gets made",
-    cards: [
-      { title: "Content", chips: ["Blogs & guides", "Case studies", "Web pages"] },
-      { title: "Product", chips: ["Prototypes", "Features", "Interactive tools"] },
-      { title: "Sales assets", chips: ["Decks & demos", "Nurture tracks", "Brand creative"] },
-    ],
-  },
-  {
-    stage: "Outcomes",
-    theme: "Customer value",
-    cards: [
-      { title: "Engagement", chips: ["Awareness", "Interest", "Trust"] },
-      { title: "Action", chips: ["Decisions", "Leads", "Pipeline"] },
-    ],
-  },
-  {
-    stage: "Impact",
-    theme: "Business value",
-    cards: [
-      { title: "Business value", chips: ["Revenue", "Retention", "Expansion"] },
-    ],
-  },
-];
-
 // Things actually built and shipped with an AI-first stack (no brand callouts).
 const aiBuilds = [
   {
@@ -578,63 +540,6 @@ const personSchema = {
             <div class="reveal bg-white border border-ink/5 rounded-2xl p-6 shadow-sm">
               <h3 class="text-ink font-medium text-lg mb-2">{item.title}</h3>
               <p class="text-sm text-neutral leading-relaxed">{item.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Operating Model -->
-  <section id="funnel" class="py-24">
-    <div class="max-w-5xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        My operating model
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
-      >
-        Initiatives to Impact
-      </h2>
-      <p class="text-neutral max-w-2xl mb-16 reveal">
-        How marketing actually creates value: strategy becomes outputs,
-        outputs create customer value, and customer value converges into
-        business value.
-      </p>
-
-      <div class="flex flex-col gap-8">
-        {
-          logicModel.map((row, rowIdx) => (
-            <div
-              class={`reveal w-full ${["lg:w-full", "lg:w-[82%]", "lg:w-[64%]", "lg:w-[46%]"][rowIdx]}`}
-            >
-              <div class="flex items-baseline gap-3 mb-4">
-                <span class="text-xs font-mono text-gradient select-none">
-                  {String(rowIdx + 1).padStart(2, "0")}
-                </span>
-                <h3 class="text-base font-bold text-ink leading-tight">
-                  {row.stage}
-                </h3>
-                <p class="text-xs uppercase tracking-[0.15em] text-gradient font-medium">
-                  {row.theme}
-                </p>
-              </div>
-              <div class="grid gap-3 sm:grid-cols-2 lg:flex">
-                {row.cards.map((card) => (
-                  <div class="lg:flex-1 bg-surface border border-ink/5 rounded-2xl p-5">
-                    <p class="text-sm font-bold text-ink mb-3">{card.title}</p>
-                    <div class="flex flex-wrap gap-1.5">
-                      {card.chips.map((chip) => (
-                        <span class="text-xs text-neutral bg-white border border-ink/5 rounded-full px-3 py-1">
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           ))
         }
