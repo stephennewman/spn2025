@@ -3,125 +3,142 @@ import Layout from "../layouts/Layout.astro";
 import Experience from "../components/Experience.astro";
 import "../styles/global.css";
 
-// Problems and solutions are mirrored 1:1 (same order, same icon, same pair number).
-// Ordered most strategic to most tactical.
-const pairs = [
+// Problems and solutions are mirrored 1:1 and grouped by funnel stage, three per stage.
+const funnelGroups = [
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />`,
-    problem: {
-      title: "Drifting Without an Operating Cadence",
-      description:
-        "The annual plan gets written, then ignored. Priorities drift, teams run their own plays, and nobody is accountable to the goals.",
-    },
-    solution: {
-      title: "Install an Operating Cadence with OKRs",
-      description:
-        "A seasoned OKR operator's playbook: clear objectives, measurable results, and a cadence that keeps every team pulling in the same direction.",
-    },
+    stage: "Top of Funnel",
+    tagline: "Get noticed by the right buyers",
+    pairs: [
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />`,
+        problem: {
+          title: "Blending In with Generic Messaging",
+          description:
+            "One message for every segment, persona, and stage, so it lands with no one.",
+        },
+        solution: {
+          title: "Sharpen Positioning & Messaging",
+          description:
+            "Segment the market, write persona-level messaging, and position the brand so buyers instantly get why you're different.",
+        },
+      },
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />`,
+        problem: {
+          title: "Presenting an Inconsistent Brand",
+          description:
+            "Every asset looks like it came from a different company. Buyers notice.",
+        },
+        solution: {
+          title: "Build the Brand System",
+          description:
+            "Unify the narrative, design, fonts, colors, and website into one consistent brand that ties the whole story together.",
+        },
+      },
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />`,
+        problem: {
+          title: "Losing Buyers in Search & AI Answers",
+          description:
+            "Buyers are searching Google and asking ChatGPT, and they're finding your competitors.",
+        },
+        solution: {
+          title: "Win Search & AI Answers",
+          description:
+            "Run hands-on PPC, SEO, and AEO programs that put you in front of buyers wherever they look.",
+        },
+      },
+    ],
   },
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />`,
-    problem: {
-      title: "Blending In with Generic Messaging",
-      description:
-        "You sound like every other vendor. One message for every segment, persona, and stage, so it lands with no one.",
-    },
-    solution: {
-      title: "Sharpen Positioning, Messaging & Brand",
-      description:
-        "GTM segmentation, persona-level messaging, sharp positioning, and brand creative that make buyers instantly get why you're different.",
-    },
+    stage: "Middle of Funnel",
+    tagline: "Turn attention into pipeline",
+    pairs: [
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />`,
+        problem: {
+          title: "Spending on the Wrong Channels",
+          description:
+            "Budget is spread across a dozen channels with no idea which ones produce pipeline.",
+        },
+        solution: {
+          title: "Calibrate the Channel Mix",
+          description:
+            "Measure every channel (paid, events, partners, outbound, inbound, and more), cut what doesn't convert, and double down on what does.",
+        },
+      },
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />`,
+        problem: {
+          title: "Waiting for Inbound to Save the Quarter",
+          description:
+            "Pipeline is short and the plan is to hope the website delivers.",
+        },
+        solution: {
+          title: "Launch Outbound Campaigns",
+          description:
+            "Build the account lists, emails, landing pages, scripts, and tools that take your message to the accounts you want.",
+        },
+      },
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />`,
+        problem: {
+          title: "Recycling the Same Playbook",
+          description:
+            "Every campaign looks like the last one, and buyers have seen it all before.",
+        },
+        solution: {
+          title: "Invent Net-New Engagement Plays",
+          description:
+            "Create unique plays that drive engagement in net new ways. Not another webinar and gated PDF.",
+        },
+      },
+    ],
   },
   {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />`,
-    problem: {
-      title: "Presenting an Inconsistent Brand",
-      description:
-        "The website says one thing, the deck says another, and every asset looks like it came from a different company. Buyers notice.",
-    },
-    solution: {
-      title: "Create the Website & Brand System",
-      description:
-        "A consistent brand narrative and look and feel: design, fonts, colors, and a website that tie the whole story together.",
-    },
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />`,
-    problem: {
-      title: "Spending on the Wrong Channels",
-      description:
-        "You're spread across a dozen channels with no idea which ones actually produce pipeline. Spend follows habit, not signal.",
-    },
-    solution: {
-      title: "Calibrate the Channel Mix",
-      description:
-        "Rebalance paid search, social, events (regional, conferences, digital), partners, outbound, inbound, podcasts, print, and web, weighted by what actually converts.",
-    },
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />`,
-    problem: {
-      title: "Losing Buyers in Search & AI Answers",
-      description:
-        "Your buyers are searching Google and asking ChatGPT, and they're finding your competitors. Paid spend leaks, organic is flat, and AI engines don't know you exist.",
-    },
-    solution: {
-      title: "Win Search & AI Answers",
-      description:
-        "Hands-on PPC, SEO, and AEO programs that put you in front of buyers wherever they look: search engines and AI answers alike.",
-    },
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />`,
-    problem: {
-      title: "Waiting for Inbound to Save the Quarter",
-      description:
-        "Pipeline is short and the plan is to hope the website delivers. Nobody is proactively going after the accounts you actually want.",
-    },
-    solution: {
-      title: "Launch Outbound Campaigns",
-      description:
-        "Emails, landing pages, account lists, scripts, and tools that put the right message in front of the right accounts, proactively.",
-    },
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />`,
-    problem: {
-      title: "Guessing with Disconnected Data",
-      description:
-        "Your data lives in ten tools that don't talk to each other. Decisions get made on anecdotes and whoever argues loudest.",
-    },
-    solution: {
-      title: "Connect Systems & Visualize Data",
-      description:
-        "Connect internal systems and visualize the data that matters, on every cadence from daily to annual, so decisions get made on evidence, not opinion.",
-    },
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />`,
-    problem: {
-      title: "Letting Customer Interest Die in Decks",
-      description:
-        "Prospects tell you exactly what they want, but the ideas stall somewhere between the sales call and the roadmap. Nothing ships.",
-    },
-    solution: {
-      title: "Prototype What Customers Ask For",
-      description:
-        "Turn customer interest into working prototypes and product deliverables: fast, testable, and ready to put in front of buyers.",
-    },
-  },
-  {
-    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />`,
-    problem: {
-      title: "Recycling the Same Playbook",
-      description:
-        "Every campaign looks like the last one, and like every competitor's. Engagement flatlines because buyers have seen it all before.",
-    },
-    solution: {
-      title: "Invent Net-New Engagement Plays",
-      description:
-        "Creative, unique ideas that drive engagement in net new ways. Not another webinar and gated PDF.",
-    },
+    stage: "Bottom of Funnel",
+    tagline: "Convert, decide, and compound",
+    pairs: [
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" />`,
+        problem: {
+          title: "Guessing with Disconnected Data",
+          description:
+            "Data lives in ten tools that don't talk, so decisions run on anecdotes.",
+        },
+        solution: {
+          title: "Connect Systems & Visualize Data",
+          description:
+            "Integrate the systems, build the dashboards, and put evidence behind every decision, on every cadence from daily to annual.",
+        },
+      },
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />`,
+        problem: {
+          title: "Letting Customer Interest Die in Decks",
+          description:
+            "Prospects tell you exactly what they want, but nothing ever ships.",
+        },
+        solution: {
+          title: "Prototype What Customers Ask For",
+          description:
+            "Turn customer interest into working prototypes buyers can react to, fast.",
+        },
+      },
+      {
+        icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" />`,
+        problem: {
+          title: "Drifting Without an Operating Cadence",
+          description:
+            "The annual plan gets written, then ignored. Nobody is accountable to the goals.",
+        },
+        solution: {
+          title: "Install an Operating Cadence with OKRs",
+          description:
+            "Set clear objectives, measure the results, and run the cadence that keeps every team pulling in the same direction.",
+        },
+      },
+    ],
   },
 ];
 
@@ -415,53 +432,66 @@ const personSchema = {
         Problems I Like Solving
       </h2>
       <p class="text-neutral max-w-2xl mb-16 reveal">
-        Nine failure modes I see over and over in B2B GTM. Flip a card to see
-        the matching solution.
+        Nine failure modes I see over and over in B2B GTM, three at every
+        stage of the funnel. Flip a card to see the matching solution.
       </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="space-y-16">
         {
-          pairs.map((p, i) => (
-            <div class="reveal">
-              <div
-                data-flip
-                role="button"
-                tabindex="0"
-                aria-pressed="false"
-                aria-label={`${p.problem.title}. Flip to see the solution.`}
-                class="flip-card w-full text-left cursor-pointer"
-              >
-                <div class="flip-inner">
-                  <div class="flip-face flip-front bg-white border border-rose-200/80 rounded-2xl p-8 shadow-sm h-full">
-                    <div class="flex items-center justify-between mb-4">
-                      <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <Fragment set:html={p.icon} />
-                      </svg>
-                      <span class="text-xs font-mono text-rose-300 select-none">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
+          funnelGroups.map((group, g) => (
+            <div>
+              <div class="flex items-baseline gap-3 mb-6 reveal">
+                <h3 class="font-serif text-xl font-bold tracking-tight text-ink">
+                  {group.stage}
+                </h3>
+                <p class="text-sm text-neutral/70">{group.tagline}</p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {group.pairs.map((p, i) => (
+                  <div class="reveal">
+                    <div
+                      data-flip
+                      role="button"
+                      tabindex="0"
+                      aria-pressed="false"
+                      aria-label={`${p.problem.title}. Flip to see the solution.`}
+                      class="flip-card w-full text-left cursor-pointer"
+                    >
+                      <div class="flip-inner">
+                        <div class="flip-face flip-front bg-white border border-rose-200/80 rounded-2xl p-8 shadow-sm h-full">
+                          <div class="flex items-center justify-between mb-4">
+                            <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                              <Fragment set:html={p.icon} />
+                            </svg>
+                            <span class="text-xs font-mono text-rose-300 select-none">
+                              {String(g * 3 + i + 1).padStart(2, "0")}
+                            </span>
+                          </div>
+                          <h4 class="text-lg font-bold text-ink mb-3">{p.problem.title}</h4>
+                          <p class="text-sm text-neutral leading-relaxed mb-6">
+                            {p.problem.description}
+                          </p>
+                          <p class="text-xs text-rose-400 font-medium">Flip for the fix</p>
+                        </div>
+                        <div class="flip-face flip-back bg-white border border-violet-200/80 rounded-2xl p-8 shadow-sm h-full">
+                          <div class="flex items-center justify-between mb-4">
+                            <svg class="w-6 h-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                              <Fragment set:html={p.icon} />
+                            </svg>
+                            <span class="text-xs font-mono text-violet-300 select-none">
+                              {String(g * 3 + i + 1).padStart(2, "0")}
+                            </span>
+                          </div>
+                          <h4 class="text-lg font-bold text-ink mb-3">{p.solution.title}</h4>
+                          <p class="text-sm text-neutral leading-relaxed">
+                            {p.solution.description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <h3 class="text-lg font-bold text-ink mb-3">{p.problem.title}</h3>
-                    <p class="text-sm text-neutral leading-relaxed mb-6">
-                      {p.problem.description}
-                    </p>
-                    <p class="text-xs text-rose-400 font-medium">Flip for the fix</p>
                   </div>
-                  <div class="flip-face flip-back bg-white border border-violet-200/80 rounded-2xl p-8 shadow-sm h-full">
-                    <div class="flex items-center justify-between mb-4">
-                      <svg class="w-6 h-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <Fragment set:html={p.icon} />
-                      </svg>
-                      <span class="text-xs font-mono text-violet-300 select-none">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                    <h3 class="text-lg font-bold text-ink mb-3">{p.solution.title}</h3>
-                    <p class="text-sm text-neutral leading-relaxed">
-                      {p.solution.description}
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           ))
