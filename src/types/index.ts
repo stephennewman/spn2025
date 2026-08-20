@@ -45,6 +45,7 @@ export interface ExperienceProps {
   startDate: string;
   endDate: string;
   summary: string | string[];
+  logo: string;
 }
 
 export interface ProjectProps {

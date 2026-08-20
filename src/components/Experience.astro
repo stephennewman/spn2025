@@ -20,8 +20,14 @@ const experience = SITE_CONTENT.experience;
     <div>
       {
         experience.map((role) => (
-          <div class="relative pl-8 pb-12 last:pb-0 border-l border-ink/10 reveal">
-            <div class="absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-gradient" />
+          <div class="relative pl-16 pb-12 last:pb-0 border-l border-ink/10 reveal">
+            <div class="absolute left-0 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-white border border-ink/10 flex items-center justify-center">
+              <img
+                src={role.logo}
+                alt=""
+                class="max-h-5 max-w-6 object-contain brightness-0 opacity-60"
+              />
+            </div>
 
             <div class="flex flex-col md:flex-row md:items-baseline md:gap-4 mb-1">
               <h3 class="text-xl font-bold text-ink font-serif">

@@ -76,6 +76,7 @@ export const SITE_CONTENT: SiteContent = {
       position: "Head of Marketing",
       startDate: "Feb 2024",
       endDate: "Present",
+      logo: "/checkit_logo.svg",
       summary: [
         "Recruited to run global marketing and \"get profitable\", which was achieved in 2026.",
         "Repositioned company from compliance/checklist tools to predictive operations, leveraging AI-driven insights for enterprise clients and multi-site locations.",
@@ -88,6 +89,7 @@ export const SITE_CONTENT: SiteContent = {
       position: "Founder & CEO",
       startDate: "Jan 2021",
       endDate: "Jan 2024",
+      logo: "/krezzo_logo.png",
       summary: [
         "Founded SaaS company focused on OKRs and operational performance, later pivoting to AI-powered voice-to-text automation.",
         "Raised $500K+ from 12 investors; built multiple products and prototypes.",
@@ -100,6 +102,7 @@ export const SITE_CONTENT: SiteContent = {
       position: "VP of Marketing",
       startDate: "Nov 2018",
       endDate: "Dec 2020",
+      logo: "/form_logo.png",
       summary: [
         "Promoted to VP within 90 days after joining as Director of Demand Generation.",
         "Managed $2.5M marketing budget and 20+ team across global marketing and BDRs.",
@@ -112,6 +115,7 @@ export const SITE_CONTENT: SiteContent = {
       position: "Director of Marketing",
       startDate: "Nov 2015",
       endDate: "Jul 2018",
+      logo: "/ti_logo.webp",
       summary: [
         "First marketing hire; scaled company from 15 to 50 employees and <$1M to ~$10M ARR without venture funding.",
         "Built inbound engine: increased leads from <20 to 500+/month; inbound contributed 80% of pipeline and ultimately revenue.",
@@ -124,6 +128,7 @@ export const SITE_CONTENT: SiteContent = {
       position: "Marketing Programs Manager",
       startDate: "Dec 2013",
       endDate: "Oct 2015",
+      logo: "/aras_logo.png",
       summary: [
         "Oversaw demand generation, analytics, and sales/marketing operations for North America, and successfully championed a push for \"ungating all content\".",
         "Led email platform migration to streamline promotion of a monthly demo series that grew to 200+ registrants a month.",
@@ -136,6 +141,7 @@ export const SITE_CONTENT: SiteContent = {
       position: "Field Marketing Manager",
       startDate: "Mar 2012",
       endDate: "Nov 2013",
+      logo: "/eloqua_logo.png",
       summary: [
         "Supported enterprise sales through events, campaigns, and marketing automation.",
         "Created multi-touch campaigns, outbound prospecting templates, and content-driven programs.",
