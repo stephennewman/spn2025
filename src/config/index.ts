@@ -104,7 +104,7 @@ export const SITE_CONTENT: SiteContent = {
       ],
       summary: [
         "Founded SaaS company focused on OKRs and operational performance, later pivoting to AI-powered voice-to-text automation.",
-        "Raised $500K+ from 12 investors; built multiple products and prototypes.",
+        "Raised $530K from 12 investors; built multiple products and prototypes.",
         "Closed 12 customer deals, generating $77K ARR with multiple renewals.",
       ],
     },
