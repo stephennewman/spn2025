@@ -380,9 +380,9 @@ const personSchema = {
   navLinks={[
     { text: "Problems", href: "#problems" },
     { text: "Process", href: "#process" },
-    { text: "AI", href: "#ai" },
     { text: "Results", href: "#results" },
     { text: "Experience", href: "#experience" },
+    { text: "AI", href: "#ai" },
   ]}
   ctaButton={{
     text: "Schedule Meeting",
@@ -642,40 +642,6 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- AI Operator -->
-  <section id="ai" class="py-24 bg-surface">
-    <div class="max-w-5xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        Build, connect, ship
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
-      >
-        AI Operator
-      </h2>
-      <p class="text-neutral max-w-2xl mb-16 reveal">
-        Most executives talk about AI. I build and deploy with it: 140+
-        repositories of shipped applications, prototypes, and experiments.
-        Experienced building with APIs, MCP integrations, data visualization,
-        and taking ideas from prototype to production. A sampling of what I've
-        built:
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {
-          aiBuilds.map((item) => (
-            <div class="reveal bg-white border border-ink/5 rounded-2xl p-6 shadow-sm">
-              <h3 class="text-ink font-medium text-lg mb-2">{item.title}</h3>
-              <p class="text-sm text-neutral leading-relaxed">{item.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
   <!-- Results -->
   <section id="results" class="py-24 bg-gradient-to-br from-violet-50/70 via-white to-pink-50/70">
     <div class="max-w-5xl mx-auto px-6">
@@ -732,6 +698,40 @@ const personSchema = {
 
   <!-- Experience -->
   <Experience />
+
+  <!-- AI Operator -->
+  <section id="ai" class="py-24 bg-gradient-to-br from-pink-50/70 via-white to-violet-50/70">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
+      >
+        Build, connect, ship
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
+      >
+        AI Operator
+      </h2>
+      <p class="text-neutral max-w-2xl mb-16 reveal">
+        Most executives talk about AI. I build and deploy with it: 140+
+        repositories of shipped applications, prototypes, and experiments.
+        Experienced building with APIs, MCP integrations, data visualization,
+        and taking ideas from prototype to production. A sampling of what I've
+        built:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          aiBuilds.map((item) => (
+            <div class="reveal bg-white border border-ink/5 rounded-2xl p-6 shadow-sm">
+              <h3 class="text-ink font-medium text-lg mb-2">{item.title}</h3>
+              <p class="text-sm text-neutral leading-relaxed">{item.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
   <!-- Social Proof -->
   <section id="testimonials" class="py-24 bg-surface">
