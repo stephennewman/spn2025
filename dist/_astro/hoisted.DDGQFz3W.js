@@ -1,0 +1,1 @@
+import"./hoisted.B5z03_-c.js";const i=e=>{const t=e.classList.toggle("is-flipped");e.setAttribute("aria-pressed",t?"true":"false")};document.querySelectorAll("[data-flip]").forEach(e=>{e.addEventListener("click",()=>i(e)),e.addEventListener("keydown",t=>{(t.key==="Enter"||t.key===" ")&&(t.preventDefault(),i(e))})});

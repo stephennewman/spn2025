@@ -85,16 +85,16 @@ const pairs = [
   },
 ];
 
-// Logic model: inputs converge left to right into business value (4 > 3 > 2 > 1 cards).
+// Operating model: stages narrow top to bottom, converging on business value (4 > 3 > 2 > 1 cards).
 const logicModel = [
   {
-    stage: "Resources & Activities",
+    stage: "Strategy",
     theme: "What goes in",
     cards: [
+      { title: "Initiatives", chips: ["Researching", "Developing", "Campaigning"] },
       { title: "Budget", chips: ["Paid media", "Events", "Tools & agencies"] },
       { title: "People", chips: ["Marketing team", "BDRs", "Partners"] },
       { title: "Technology", chips: ["CRM & automation", "Analytics", "AI tools"] },
-      { title: "Activities", chips: ["Researching", "Developing", "Campaigning"] },
     ],
   },
   {
@@ -120,38 +120,6 @@ const logicModel = [
     cards: [
       { title: "Business value", chips: ["Revenue", "Retention", "Expansion"] },
     ],
-  },
-];
-
-// Funnel-stage widths for the "How I Work" steps
-const process = [
-  {
-    step: "01",
-    title: "Understand",
-    width: "w-full",
-    description:
-      "Audit your current GTM motion: market, customers, channels, team structure, and competitive landscape. Identify what's working, what's broken, and what's missing entirely.",
-  },
-  {
-    step: "02",
-    title: "Prioritize",
-    width: "w-3/4",
-    description:
-      "Not everything needs fixing at once. Rank opportunities by impact, effort, and speed-to-pipeline. Pick the high-leverage moves that unlock the most value fastest.",
-  },
-  {
-    step: "03",
-    title: "Execute",
-    width: "w-1/2",
-    description:
-      "Build and ship: messaging, campaigns, tools, processes. No 90-day strategy decks. Real work that hits the market and starts generating signal immediately.",
-  },
-  {
-    step: "04",
-    title: "Optimize",
-    width: "w-1/4",
-    description:
-      "Measure what matters. Double down on what converts. Kill what doesn't. Continuously tighten the loop between spend, pipeline, and revenue.",
   },
 ];
 
@@ -489,75 +457,13 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- Logic Model -->
-  <section id="funnel" class="py-24 bg-surface">
-    <div class="max-w-6xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        The logic model
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
-      >
-        Inputs to Impact
-      </h2>
-      <p class="text-neutral max-w-2xl mb-16 reveal">
-        How marketing actually creates value: resources and activity become
-        outputs, outputs create customer value, and customer value converges
-        into business value.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 items-center">
-        {
-          logicModel.map((col, colIdx) => (
-            <div class="reveal h-full lg:h-auto flex flex-col justify-center">
-              <div class="flex items-center gap-2 mb-4">
-                <div>
-                  <h3 class="text-base font-bold text-ink leading-tight">
-                    {col.stage}
-                  </h3>
-                  <p class="text-xs uppercase tracking-[0.15em] text-gradient font-medium mt-1">
-                    {col.theme}
-                  </p>
-                </div>
-                {colIdx < logicModel.length - 1 && (
-                  <span
-                    class="ml-auto hidden lg:block text-neutral/40 text-xl select-none"
-                    aria-hidden="true"
-                  >
-                    &rarr;
-                  </span>
-                )}
-              </div>
-              <div class="flex flex-col gap-3">
-                {col.cards.map((card) => (
-                  <div class="bg-white border border-ink/5 rounded-2xl p-5 shadow-sm">
-                    <p class="text-sm font-bold text-ink mb-3">{card.title}</p>
-                    <div class="flex flex-wrap gap-1.5">
-                      {card.chips.map((chip) => (
-                        <span class="text-xs text-neutral bg-surface border border-ink/5 rounded-full px-3 py-1">
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section id="process" class="py-24">
+  <!-- How I Work -->
+  <section id="process" class="py-24 bg-surface">
     <div class="max-w-5xl mx-auto px-6">
       <p
         class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
       >
-        The approach
+        Teams & people
       </p>
       <h2
         class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-16 reveal"
@@ -565,31 +471,69 @@ const personSchema = {
         How I Work
       </h2>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
-          process.map((p) => (
-            <div class="relative reveal">
-              <span class="text-6xl font-bold text-ink/5 font-serif absolute -top-4 -left-2 select-none">
-                {p.step}
-              </span>
-              <div class="relative pt-8">
-                <h3 class="text-xl font-bold text-ink mb-3">{p.title}</h3>
-                <div class={`h-1.5 rounded-full bg-gradient mb-4 ${p.width}`} />
-                <p class="text-sm text-neutral leading-relaxed">
-                  {p.description}
-                </p>
-              </div>
+          workingWith.map((item) => (
+            <div class="reveal bg-white border border-ink/5 rounded-2xl p-6 shadow-sm">
+              <h3 class="text-ink font-medium text-lg mb-2">{item.title}</h3>
+              <p class="text-sm text-neutral leading-relaxed">{item.body}</p>
             </div>
           ))
         }
       </div>
+    </div>
+  </section>
 
-      <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Operating Model -->
+  <section id="funnel" class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
+      >
+        My operating model
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
+      >
+        Initiatives to Impact
+      </h2>
+      <p class="text-neutral max-w-2xl mb-16 reveal">
+        How marketing actually creates value: strategy becomes outputs,
+        outputs create customer value, and customer value converges into
+        business value.
+      </p>
+
+      <div class="flex flex-col gap-8">
         {
-          workingWith.map((item) => (
-            <div class="reveal border border-ink/10 rounded-2xl p-6">
-              <h3 class="text-ink font-medium text-lg mb-2">{item.title}</h3>
-              <p class="text-sm text-neutral leading-relaxed">{item.body}</p>
+          logicModel.map((row, rowIdx) => (
+            <div
+              class={`reveal w-full ${["lg:w-full", "lg:w-[82%]", "lg:w-[64%]", "lg:w-[46%]"][rowIdx]}`}
+            >
+              <div class="flex items-baseline gap-3 mb-4">
+                <span class="text-xs font-mono text-gradient select-none">
+                  {String(rowIdx + 1).padStart(2, "0")}
+                </span>
+                <h3 class="text-base font-bold text-ink leading-tight">
+                  {row.stage}
+                </h3>
+                <p class="text-xs uppercase tracking-[0.15em] text-gradient font-medium">
+                  {row.theme}
+                </p>
+              </div>
+              <div class="grid gap-3 sm:grid-cols-2 lg:flex">
+                {row.cards.map((card) => (
+                  <div class="lg:flex-1 bg-surface border border-ink/5 rounded-2xl p-5">
+                    <p class="text-sm font-bold text-ink mb-3">{card.title}</p>
+                    <div class="flex flex-wrap gap-1.5">
+                      {card.chips.map((chip) => (
+                        <span class="text-xs text-neutral bg-white border border-ink/5 rounded-full px-3 py-1">
+                          {chip}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           ))
         }
