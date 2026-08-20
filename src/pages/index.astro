@@ -189,6 +189,58 @@ const logicModel = [
   },
 ];
 
+// Things actually built and shipped with an AI-first stack (no brand callouts).
+const aiBuilds = [
+  {
+    title: "iOS apps",
+    body: "Mobile apps for productivity and AI-powered test grading, built and shipped end to end.",
+  },
+  {
+    title: "Personal finance app",
+    body: "Bank-connected budgeting tool with automated SMS insights, built on a live banking-data integration.",
+  },
+  {
+    title: "Chrome extension",
+    body: "A browser extension that helps teachers grade student work faster with AI.",
+  },
+  {
+    title: "AEO platform",
+    body: "A platform that improves brand visibility in AI answers and search.",
+  },
+  {
+    title: "Form platform",
+    body: "A conversational form builder: describe the form you need and AI builds it.",
+  },
+  {
+    title: "LMS for educators",
+    body: "A learning platform for educators with bite-sized lessons and progress tracking.",
+  },
+  {
+    title: "Marketing dashboards",
+    body: "Web analytics and marketing dashboards that turn scattered data into decisions.",
+  },
+  {
+    title: "CRM integrations",
+    body: "Apps and integrations wired into CRM and marketing automation systems.",
+  },
+  {
+    title: "Voice & SMS tools",
+    body: "Voice-to-text and SMS automation tools for capturing and delivering information.",
+  },
+  {
+    title: "Local business websites",
+    body: "Full websites for local business owners, designed, built, and deployed.",
+  },
+  {
+    title: "Market microsites",
+    body: "Microsites for market exploration, positioning tests, and demand signals.",
+  },
+  {
+    title: "Games for my kids",
+    body: "Online games built for my four girls. The toughest product reviewers I know.",
+  },
+];
+
 const workingWith = [
   {
     title: "With CEOs",
@@ -328,6 +380,7 @@ const personSchema = {
   navLinks={[
     { text: "Problems", href: "#problems" },
     { text: "Process", href: "#process" },
+    { text: "AI", href: "#ai" },
     { text: "Results", href: "#results" },
     { text: "Experience", href: "#experience" },
   ]}
@@ -582,6 +635,40 @@ const personSchema = {
                   </div>
                 ))}
               </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Operator -->
+  <section id="ai" class="py-24 bg-surface">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
+      >
+        Build, connect, ship
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
+      >
+        AI Operator
+      </h2>
+      <p class="text-neutral max-w-2xl mb-16 reveal">
+        Most executives talk about AI. I build and deploy with it: 140+
+        repositories of shipped applications, prototypes, and experiments.
+        Experienced building with APIs, MCP integrations, data visualization,
+        and taking ideas from prototype to production. A sampling of what I've
+        built:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          aiBuilds.map((item) => (
+            <div class="reveal bg-white border border-ink/5 rounded-2xl p-6 shadow-sm">
+              <h3 class="text-ink font-medium text-lg mb-2">{item.title}</h3>
+              <p class="text-sm text-neutral leading-relaxed">{item.body}</p>
             </div>
           ))
         }
