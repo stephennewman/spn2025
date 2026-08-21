@@ -544,7 +544,7 @@ const personSchema = {
       <div class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
         {
           aiBuilds.map((item) => (
-            <div class="reveal flex items-start gap-4 py-5 border-t border-ink/10">
+            <div class="reveal relative flex items-start gap-4 py-5 border-t border-ink/10">
               <svg
                 class="w-5 h-5 text-violet-500 shrink-0 mt-0.5"
                 fill="none"
@@ -558,9 +558,9 @@ const personSchema = {
                 <h3 class="text-base font-bold text-ink">
                   {item.title}
                   {item.preview && (
-                    <span class="group/preview relative inline-block align-middle ml-1.5">
+                    <span class="group/preview inline-block align-middle ml-1.5">
                       <svg
-                        class="w-4 h-4 text-neutral/40 group-hover/preview:text-violet-500 cursor-help transition-colors"
+                        class="w-4 h-4 text-neutral/40 group-hover/preview:text-violet-500 cursor-pointer transition-colors"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke-width="1.5"
@@ -578,7 +578,7 @@ const personSchema = {
                         src={item.preview}
                         alt={`${item.title} screenshot`}
                         loading="lazy"
-                        class="pointer-events-none invisible opacity-0 group-hover/preview:visible group-hover/preview:opacity-100 transition-opacity duration-150 absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-80 max-w-[80vw] max-h-96 object-contain rounded-lg shadow-2xl ring-1 ring-ink/10 bg-white z-50"
+                        class="pointer-events-none invisible opacity-0 group-hover/preview:visible group-hover/preview:opacity-100 transition-opacity duration-150 absolute bottom-full left-0 mb-1 w-[36rem] max-w-full max-h-[28rem] object-contain rounded-xl shadow-2xl ring-1 ring-ink/10 bg-white z-50"
                       />
                     </span>
                   )}
