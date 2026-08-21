@@ -242,9 +242,9 @@ const personSchema = {
 <Layout
   navLinks={[
     { text: "Execution", href: "#execution" },
-    { text: "AI", href: "#ai" },
     { text: "Experience", href: "#experience" },
     { text: "Results", href: "#results" },
+    { text: "AI", href: "#ai" },
   ]}
   ctaButton={{
     text: "Schedule Meeting",
@@ -414,50 +414,6 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- AI Operator -->
-  <section id="ai" class="py-24 bg-gradient-to-br from-pink-50/70 via-white to-violet-50/70">
-    <div class="max-w-5xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        Build, connect, ship
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
-      >
-        Building, Experimenting, and Shipping Faster with AI
-      </h2>
-      <p class="text-neutral max-w-2xl mb-16 reveal">
-        Most executives talk about AI. This is building and deploying with it:
-        140+ repositories of shipped applications, prototypes, and experiments,
-        built with APIs, MCP integrations, and data visualization, taking ideas
-        from prototype to production. A sampling:
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
-        {
-          aiBuilds.map((item) => (
-            <div class="reveal flex items-start gap-4 py-5 border-t border-ink/10">
-              <svg
-                class="w-5 h-5 text-violet-500 shrink-0 mt-0.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <Fragment set:html={item.icon} />
-              </svg>
-              <div>
-                <h3 class="text-base font-bold text-ink">{item.title}</h3>
-                <p class="text-sm text-neutral leading-relaxed mt-1">{item.body}</p>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
   <!-- Experience -->
   <Experience />
 
@@ -545,6 +501,55 @@ const personSchema = {
           ))
         }
       </div>
+    </div>
+  </section>
+
+  <!-- AI Operator -->
+  <section id="ai" class="py-24 bg-gradient-to-br from-pink-50/70 via-white to-violet-50/70">
+    <div class="max-w-5xl mx-auto px-6">
+      <p
+        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
+      >
+        Build, connect, ship
+      </p>
+      <h2
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
+      >
+        Building, Experimenting, and Shipping Faster with AI
+      </h2>
+      <p class="text-neutral max-w-2xl mb-16 reveal">
+        Most executives talk about AI. This is building and deploying with it:
+        140+ repositories of shipped applications, prototypes, and experiments,
+        built with APIs, MCP integrations, and data visualization, taking ideas
+        from prototype to production. A sampling:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
+        {
+          aiBuilds.map((item) => (
+            <div class="reveal flex items-start gap-4 py-5 border-t border-ink/10">
+              <svg
+                class="w-5 h-5 text-violet-500 shrink-0 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <Fragment set:html={item.icon} />
+              </svg>
+              <div>
+                <h3 class="text-base font-bold text-ink">{item.title}</h3>
+                <p class="text-sm text-neutral leading-relaxed mt-1">{item.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="text-sm text-neutral/70 italic mt-12 reveal">
+        *Links and demos to functioning products and prototypes available upon
+        request.
+      </p>
     </div>
   </section>
 
