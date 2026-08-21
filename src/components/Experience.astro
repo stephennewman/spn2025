@@ -64,7 +64,13 @@ const chipStyles: Record<string, string> = {
               {Array.isArray(role.summary) ? (
                 <ul class="space-y-2">
                   {role.summary.map((s) => (
-                    <li class="text-neutral text-base leading-relaxed">{s}</li>
+                    <li class="flex gap-3 text-neutral text-base leading-relaxed">
+                      <span
+                        class="mt-[0.65rem] h-1.5 w-1.5 shrink-0 bg-violet-500"
+                        aria-hidden="true"
+                      />
+                      <span>{s}</span>
+                    </li>
                   ))}
                 </ul>
               ) : (
