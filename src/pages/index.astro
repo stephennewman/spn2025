@@ -387,15 +387,12 @@ const personSchema = {
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8">
-                {group.items.map((item, i) => (
+                {group.items.map((item) => (
                   <div class="reveal">
                     <div class="flex items-center gap-3 mb-3">
                       <svg class="w-6 h-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <Fragment set:html={item.icon} />
                       </svg>
-                      <span class="text-xs font-mono text-ink/25 select-none">
-                        {String(g * 3 + i + 1).padStart(2, "0")}
-                      </span>
                     </div>
                     <h4 class="text-base font-bold text-ink mb-2">{item.title}</h4>
                     <p class="text-sm text-neutral leading-relaxed">
