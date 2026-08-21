@@ -93,6 +93,12 @@
   color: rgba(15, 23, 42, 0.045);
 }
 
+/* Preview popover opened by tap (mobile) — mirrors the group-hover styles */
+[data-preview].preview-open img {
+  visibility: visible;
+  opacity: 1;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);

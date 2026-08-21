@@ -558,7 +558,7 @@ const personSchema = {
                 <h3 class="text-base font-bold text-ink">
                   {item.title}
                   {item.preview && (
-                    <span class="group/preview inline-block align-middle ml-1.5">
+                    <span class="group/preview inline-block align-middle ml-1.5" data-preview>
                       <svg
                         class="w-4 h-4 text-neutral/40 group-hover/preview:text-violet-500 cursor-pointer transition-colors"
                         fill="none"
@@ -678,4 +678,24 @@ const personSchema = {
       </div>
     </div>
   </section>
+
+  <script>
+    // Tap-to-toggle for hover previews (mobile has no hover). Tapping the icon
+    // opens the preview; tapping anywhere else, or moving the mouse away, closes it.
+    const previews = document.querySelectorAll<HTMLElement>("[data-preview]");
+    const closeAll = () =>
+      previews.forEach((p) => p.classList.remove("preview-open"));
+    previews.forEach((p) => {
+      p.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const wasOpen = p.classList.contains("preview-open");
+        closeAll();
+        if (!wasOpen) p.classList.add("preview-open");
+      });
+      p.addEventListener("mouseleave", () =>
+        p.classList.remove("preview-open"),
+      );
+    });
+    document.addEventListener("click", closeAll);
+  </script>
 </Layout>
