@@ -173,24 +173,28 @@ const testimonials = [
       "What amazed me most about Stephen was his innate ability to always make the right decisions for the business. His decisions were always focused on producing the highest quality of leads even when it meant sacrificing his own goals. He scaled lead generation by over 500% and established a powerful marketing lead generation machine. Stephen is not the loudest person in the room but will make the most impact. Trust in his instincts, they won't disappoint.",
     name: "Ryan Dillon",
     title: "Head of Business Development, Thought Industries",
+    image: "/ryan_sales.jpeg",
   },
   {
     quote:
       "He single-handedly brought our lead process and tracking up to date with current systems and approaches. He is smart, committed, persistent and metric-oriented. If you are looking to automate lead management, engage & nurture online users, and implement new technologies, Stephen is your guy.",
     name: "Theresa Delfino",
     title: "CMO, Aras Corp",
+    image: "/terri_cmo.jpg",
   },
   {
     quote:
       "When it comes to getting the job done — no matter how high the hurdle — Stephen is the person to turn to. He has not only helped drive real results for our largest territory, but has also become a well-respected and trusted partner to Sales. Stephen is creative, drives measurable results, and can diplomatically meet the needs of the most demanding salespeople. And that's a rare find.",
     name: "Michael Martin",
     title: "Director of Growth Marketing, Eloqua",
+    image: "/mike_marketing.jpeg",
   },
   {
     quote:
       "When he came on board we were in desperate need for someone to run the Marketing team and he came in and made an impact from day one. He not only coordinated all key marketing functions professionally, but most importantly communicated and collaborated with our sales department. He developed a lead development program that supplied our team with much needed high quality MQLs. As demands increased he always hit his number.",
     name: "Nick Pederson",
     title: "Sales, Thought Industries",
+    image: "/nick_alyteryx.jpeg",
   },
 ];
 
@@ -488,8 +492,20 @@ const personSchema = {
               </blockquote>
               <figcaption class="mt-6">
                 <div class="h-0.5 w-10 bg-gradient mb-3" aria-hidden="true" />
-                <p class="text-ink font-medium text-sm">{t.name}</p>
-                <p class="text-neutral/60 text-xs mt-0.5">{t.title}</p>
+                <div class="flex items-center gap-3">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    width="40"
+                    height="40"
+                    loading="lazy"
+                    class="h-10 w-10 rounded-lg object-cover"
+                  />
+                  <div>
+                    <p class="text-ink font-medium text-sm">{t.name}</p>
+                    <p class="text-neutral/60 text-xs mt-0.5">{t.title}</p>
+                  </div>
+                </div>
               </figcaption>
             </figure>
           ))
