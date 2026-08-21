@@ -120,6 +120,9 @@ module.exports = async function handler(req, res) {
         }),
       });
     }
+    if (process.env.DEPLOY_HOOK_URL) {
+      await fetch(process.env.DEPLOY_HOOK_URL, { method: "POST" }).catch(() => {});
+    }
     return res.status(200).json({
       ok: true,
       replacements: total,
