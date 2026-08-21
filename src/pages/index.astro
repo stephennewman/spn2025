@@ -694,12 +694,24 @@ const personSchema = {
     const previews = document.querySelectorAll<HTMLElement>("[data-preview]");
     const closeAll = () =>
       previews.forEach((p) => p.classList.remove("preview-open"));
+    // Flip the popover below the icon when there isn't enough room above it
+    // (avoids clipping at the viewport top / hiding behind the sticky nav).
+    const position = (p: HTMLElement) => {
+      const img = p.querySelector("img");
+      if (!img) return;
+      const needed = (img.offsetHeight || 400) + 96;
+      p.classList.toggle("preview-below", p.getBoundingClientRect().top < needed);
+    };
     previews.forEach((p) => {
+      p.addEventListener("mouseenter", () => position(p));
       p.addEventListener("click", (e) => {
         e.stopPropagation();
         const wasOpen = p.classList.contains("preview-open");
         closeAll();
-        if (!wasOpen) p.classList.add("preview-open");
+        if (!wasOpen) {
+          position(p);
+          p.classList.add("preview-open");
+        }
       });
       p.addEventListener("mouseleave", () =>
         p.classList.remove("preview-open"),

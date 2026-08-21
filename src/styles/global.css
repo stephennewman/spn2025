@@ -99,6 +99,14 @@
   opacity: 1;
 }
 
+/* Not enough room above: open the popover below the icon instead */
+[data-preview].preview-below img {
+  bottom: auto;
+  top: 100%;
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
