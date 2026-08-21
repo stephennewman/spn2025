@@ -167,33 +167,6 @@ const aiBuilds = [
   },
 ];
 
-const workingWith = [
-  {
-    title: "With CEOs",
-    body: "Marketing plans aligned to the CEO's strategic goals. Direct reporting to CEOs and founders for most of a 15+ year career.",
-  },
-  {
-    title: "With Product",
-    body: "Market feedback on gaps and opportunities for innovation, and close alignment with the roadmap so new capabilities get promoted the moment they ship.",
-  },
-  {
-    title: "With Sales",
-    body: "A shared language: aligned definitions and qualification, backed by materials, coaching, and closed-loop feedback.",
-  },
-  {
-    title: "With Biz Dev",
-    body: "Campaign materials, training, scripts, emails, and account lists, plus the tools that make outbound work.",
-  },
-  {
-    title: "With Marketing",
-    body: "A team built on empowered accountability: clear goals and the freedom to achieve them, with support when and if it's needed.",
-  },
-  {
-    title: "With Boards",
-    body: "Board materials and internal messaging, timely responses to requests, and strategic recommendations.",
-  },
-];
-
 const testimonials = [
   {
     quote:
@@ -269,10 +242,9 @@ const personSchema = {
 <Layout
   navLinks={[
     { text: "Execution", href: "#execution" },
-    { text: "Working Together", href: "#process" },
-    { text: "Results", href: "#results" },
-    { text: "Experience", href: "#experience" },
     { text: "AI", href: "#ai" },
+    { text: "Experience", href: "#experience" },
+    { text: "Results", href: "#results" },
   ]}
   ctaButton={{
     text: "Schedule Meeting",
@@ -379,7 +351,7 @@ const personSchema = {
   </section>
 
   <!-- Execution -->
-  <section id="execution" class="py-24">
+  <section id="execution" class="py-24 bg-surface">
     <span id="problems" class="sr-only"></span>
     <span id="solutions" class="sr-only"></span>
     <div class="max-w-5xl mx-auto px-6">
@@ -442,32 +414,52 @@ const personSchema = {
     </div>
   </section>
 
-  <!-- Working Together -->
-  <section id="process" class="py-24 bg-surface">
+  <!-- AI Operator -->
+  <section id="ai" class="py-24 bg-gradient-to-br from-pink-50/70 via-white to-violet-50/70">
     <div class="max-w-5xl mx-auto px-6">
       <p
         class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
       >
-        Teams & people
+        Build, connect, ship
       </p>
       <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-16 reveal"
+        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
       >
-        Working Together
+        Building, Experimenting, and Shipping Faster with AI
       </h2>
+      <p class="text-neutral max-w-2xl mb-16 reveal">
+        Most executives talk about AI. This is building and deploying with it:
+        140+ repositories of shipped applications, prototypes, and experiments,
+        built with APIs, MCP integrations, and data visualization, taking ideas
+        from prototype to production. A sampling:
+      </p>
 
-      <div class="divide-y divide-ink/10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
         {
-          workingWith.map((item) => (
-            <div class="reveal grid grid-cols-1 md:grid-cols-[13rem_1fr] gap-2 md:gap-10 py-7 first:pt-0 last:pb-0">
-              <h3 class="text-base font-bold text-ink">{item.title}</h3>
-              <p class="text-neutral leading-relaxed">{item.body}</p>
+          aiBuilds.map((item) => (
+            <div class="reveal flex items-start gap-4 py-5 border-t border-ink/10">
+              <svg
+                class="w-5 h-5 text-violet-500 shrink-0 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <Fragment set:html={item.icon} />
+              </svg>
+              <div>
+                <h3 class="text-base font-bold text-ink">{item.title}</h3>
+                <p class="text-sm text-neutral leading-relaxed mt-1">{item.body}</p>
+              </div>
             </div>
           ))
         }
       </div>
     </div>
   </section>
+
+  <!-- Experience -->
+  <Experience />
 
   <!-- Results -->
   <section id="results" class="py-24 bg-gradient-to-br from-violet-50/70 via-white to-pink-50/70">
@@ -519,53 +511,6 @@ const personSchema = {
           <p class="text-4xl md:text-5xl font-bold text-gradient font-serif tracking-tight">$530K</p>
           <p class="text-sm text-neutral mt-2">Raised as founder (Krezzo)</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience -->
-  <Experience />
-
-  <!-- AI Operator -->
-  <section id="ai" class="py-24 bg-gradient-to-br from-pink-50/70 via-white to-violet-50/70">
-    <div class="max-w-5xl mx-auto px-6">
-      <p
-        class="text-sm uppercase tracking-[0.2em] text-gradient font-medium mb-4 reveal"
-      >
-        Build, connect, ship
-      </p>
-      <h2
-        class="font-serif text-4xl md:text-5xl font-bold tracking-tighter text-ink mb-4 reveal"
-      >
-        Building, Experimenting, and Shipping Faster with AI
-      </h2>
-      <p class="text-neutral max-w-2xl mb-16 reveal">
-        Most executives talk about AI. This is building and deploying with it:
-        140+ repositories of shipped applications, prototypes, and experiments,
-        built with APIs, MCP integrations, and data visualization, taking ideas
-        from prototype to production. A sampling:
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
-        {
-          aiBuilds.map((item) => (
-            <div class="reveal flex items-start gap-4 py-5 border-t border-ink/10">
-              <svg
-                class="w-5 h-5 text-violet-500 shrink-0 mt-0.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-              >
-                <Fragment set:html={item.icon} />
-              </svg>
-              <div>
-                <h3 class="text-base font-bold text-ink">{item.title}</h3>
-                <p class="text-sm text-neutral leading-relaxed mt-1">{item.body}</p>
-              </div>
-            </div>
-          ))
-        }
       </div>
     </div>
   </section>
